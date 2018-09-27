@@ -250,3 +250,8 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
  * Customizer additions.
  */
 require get_parent_theme_file_path( '/inc/customizer.php' );
+
+/**
+ * TGM Plugin Activation
+ */
+require get_parent_theme_file_path( '/inc/tgm-plugin-activation.php' );
