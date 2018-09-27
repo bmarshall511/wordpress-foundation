@@ -17,16 +17,6 @@
 
 get_header(); ?>
 
-<?php if ( is_home() && ! is_front_page() ) : ?>
-	<header>
-		<h1><?php single_post_title(); ?></h1>
-	</header>
-<?php else : ?>
-<header>
-	<h2><?php _e( 'Posts', 'foundation' ); ?></h2>
-</header>
-<?php endif; ?>
-
 <main role="main">
 
 		<?php

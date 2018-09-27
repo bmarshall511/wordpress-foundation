@@ -58,11 +58,6 @@ function foundation_register_required_plugins() {
 		),
 
     array(
-			'name'        => 'SiteOrigin Widgets Bundle',
-			'slug'        => 'so-widgets-bundle',
-		),
-
-    array(
 			'name'        => 'Redirection',
 			'slug'        => 'redirection',
 		),
@@ -80,6 +75,16 @@ function foundation_register_required_plugins() {
     array(
 			'name'        => 'Autoptimize',
 			'slug'        => 'autoptimize',
+		),
+
+    array(
+			'name'        => 'Broken Link Checker',
+			'slug'        => 'broken-link-checker',
+		),
+
+    array(
+			'name'        => 'SVG Support',
+			'slug'        => 'svg-support',
 		),
 
 	);

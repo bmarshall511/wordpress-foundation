@@ -200,6 +200,19 @@ function foundation_pingback_header() {
 add_action( 'wp_head', 'foundation_pingback_header' );
 
 /**
+ * Display custom color CSS.
+ */
+function foundation_colors_css_wrap() {
+  require_once( get_parent_theme_file_path( '/inc/color-patterns.php' ) );
+?>
+	<style>
+		<?php echo foundation_custom_colors_css(); ?>
+	</style>
+<?php
+}
+add_action( 'wp_head', 'foundation_colors_css_wrap' );
+
+/**
  * Enqueue scripts and styles.
  */
 function foundation_scripts() {
