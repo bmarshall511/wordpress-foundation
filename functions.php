@@ -268,3 +268,8 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * TGM Plugin Activation
  */
 require get_parent_theme_file_path( '/inc/tgm-plugin-activation.php' );
+
+/**
+ * Elementor
+ */
+require get_parent_theme_file_path( '/inc/elementor/elementor.php' );
