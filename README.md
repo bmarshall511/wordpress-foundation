@@ -20,7 +20,7 @@ The following plugins can be optionally automatically installed through this the
 7. [Redirection](https://wordpress.org/plugins/redirection/) - SEO
 8. [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) - Features
 9. [Smush Image Compression and Optimization](https://wordpress.org/plugins/wp-smushit/) - Optimazation
-10. [SVG Support](https://wordpress.org/plugins/svg-support/)
+10. [SVG Support](https://wordpress.org/plugins/svg-support/) - Features
 11. [Wordfence Security – Firewall & Malware Scan](https://wordpress.org/plugins/wordfence/) - Security
 12. [WordPress SEO by Yoast](https://wordpress.org/plugins/wordpress-seo/) - SEO
 13. [WP Mail SMTP by WPForms](https://wordpress.org/plugins/wp-mail-smtp/) - Features
