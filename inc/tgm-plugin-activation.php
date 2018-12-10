@@ -87,6 +87,11 @@ function foundation_register_required_plugins() {
 			'slug'        => 'svg-support',
 		),
 
+		array(
+			'name'        => 'Widget CSS Classes',
+			'slug'        => 'widget-css-classes',
+		),
+
 	);
 
 	/*
