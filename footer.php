@@ -7,16 +7,16 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage Foundation
  * @since 1.0
- * @version 1.2
+ * @version 2.0.0
  */
 
 ?>
 
-<footer role="contentinfo">
+<footer class="footer">
 
-</footer>
+</footer><!-- .footer -->
 <?php wp_footer(); ?>
 
 </body>

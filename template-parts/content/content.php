@@ -6,8 +6,8 @@
  *
  * @package WordPress
  * @subpackage Foundation
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
+ * @version 2.0.0
  */
 
 ?>
@@ -18,7 +18,7 @@
 			if ( is_single() ) {
 				the_title( '<h1>', '</h1>' );
 			} else {
-				the_title( '<h2><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			}
 		?>
 	</header><!-- .entry-header -->
@@ -35,4 +35,8 @@
 
 		wp_link_pages();
 	?>
+
+	<footer>
+
+	</footer>
 </article><!-- #post-## -->
