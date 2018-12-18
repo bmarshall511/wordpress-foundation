@@ -7,6 +7,43 @@
 2. Install [gulp-foundation](https://github.com/bmarshall511/gulp-foundation) in the new theme.
 3. Start developing.
 
+## Development
+
+This starter theme was developed with performance and optimization in mind. Rather than load everything, it allows developers to boost performance by loading only what the theme needs.
+
+### Available Libraries
+
+These libraries can be optionally loaded globally based on theme needs to help boost performance in the theme's customize section.
+
+* [Foundation Off-canvas](https://foundation.zurb.com/sites/docs/off-canvas.html)
+* [Foundation Tooltip](https://foundation.zurb.com/sites/docs/tooltip.html)
+* [Foundation Reveal](https://foundation.zurb.com/sites/docs/reveal.html)
+* [Foundation Tabs](https://foundation.zurb.com/sites/docs/tabs.html)
+
+Here's a full list of available scripts for developers to load as needed:
+
+#### JavaScript Libraries
+
+* foundation-core
+* foundation-media-query
+* foundation-motion
+* foundation-keyboard
+* foundation-triggers
+* foundation-toggler
+* foundation-box
+* foundation-image-loader
+* foundation-offcanvas
+* foundation-tooltip
+* foundation-reveal
+* foundation-tabs
+
+#### CSS Libraries
+
+* foundation-offcanvas
+* foundation-tooltip
+* foundation-reveal
+* foundation-tabs
+
 ## Recommend Plugins
 
 The following plugins can be optionally automatically installed through this theme.
