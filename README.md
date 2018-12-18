@@ -19,6 +19,8 @@ These libraries can be optionally loaded globally based on theme needs to help b
 * [Foundation Tooltip](https://foundation.zurb.com/sites/docs/tooltip.html)
 * [Foundation Reveal](https://foundation.zurb.com/sites/docs/reveal.html)
 * [Foundation Tabs](https://foundation.zurb.com/sites/docs/tabs.html)
+* [Foundation Button](https://foundation.zurb.com/sites/docs/button.html)
+* [Foundation Button Group](https://foundation.zurb.com/sites/docs/button-group.html)
 
 Here's a full list of available scripts for developers to load as needed:
 
@@ -43,6 +45,8 @@ Here's a full list of available scripts for developers to load as needed:
 * foundation-tooltip
 * foundation-reveal
 * foundation-tabs
+* foundation-button
+* foundation-button-group
 
 ## Recommend Plugins
 
