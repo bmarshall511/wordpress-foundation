@@ -15,6 +15,9 @@ This starter theme was developed with performance and optimization in mind. Rath
 
 These libraries can be optionally loaded globally based on theme needs to help boost performance in the theme's customize section.
 
+* [Foundation Global Styles](https://foundation.zurb.com/sites/docs/global.html)
+* [Foundation Forms](https://foundation.zurb.com/sites/docs/forms.html)
+* [Foundation Typography](https://foundation.zurb.com/sites/docs/typography-base.html)
 * [Foundation Off-canvas](https://foundation.zurb.com/sites/docs/off-canvas.html)
 * [Foundation Tooltip](https://foundation.zurb.com/sites/docs/tooltip.html)
 * [Foundation Reveal](https://foundation.zurb.com/sites/docs/reveal.html)
@@ -41,6 +44,9 @@ Here's a full list of available scripts for developers to load as needed:
 
 #### CSS Libraries
 
+* foundation-global-styles
+* foundation-forms
+* foundation-typography
 * foundation-offcanvas
 * foundation-tooltip
 * foundation-reveal
