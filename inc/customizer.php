@@ -54,3 +54,23 @@
  function foundation_customize_partial_blogdescription() {
  	bloginfo( 'description' );
  }
+
+ /**
+  * Sanitize toggle choice.
+  *
+  * @param string $choice Whether off-canvas is active.
+  *
+  * @return string
+  */
+ function foundation_sanitize_toggle( $choice ) {
+ 	$valid = array(
+ 		'enabled',
+ 		'disabled',
+ 	);
+
+ 	if ( in_array( $choice, $valid, true ) ) {
+ 		return $choice;
+ 	}
+
+ 	return 'enabled';
+ }

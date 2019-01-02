@@ -233,14 +233,49 @@ function foundation_scripts() {
 	wp_register_script( 'foundation-motion', get_template_directory_uri() . '/assets/js/components/foundation-motion.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
 	wp_register_script( 'foundation-keyboard', get_template_directory_uri() . '/assets/js/components/foundation-keyboard.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
 	wp_register_script( 'foundation-triggers', get_template_directory_uri() . '/assets/js/components/foundation-triggers.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-offcanvas', get_template_directory_uri() . '/assets/js/components/foundation-offcanvas.js', array( 'foundation-media-query', 'foundation-keyboard', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
 	wp_register_script( 'foundation-toggler', get_template_directory_uri() . '/assets/js/components/foundation-toggler.js', array( 'foundation-motion', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-box', get_template_directory_uri() . '/assets/js/components/foundation-box.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-image-loader', get_template_directory_uri() . '/assets/js/components/foundation-image-loader.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+
+	// Foundation Off-canvas (https://foundation.zurb.com/sites/docs/off-canvas.html)
+	wp_register_script( 'foundation-offcanvas', get_template_directory_uri() . '/assets/js/components/foundation-offcanvas.js', array( 'foundation-media-query', 'foundation-keyboard', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_style( 'foundation-offcanvas', get_template_directory_uri() . '/assets/css/foundation/off-canvas.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Tooltip (https://foundation.zurb.com/sites/docs/tooltip.html)
+	wp_register_script( 'foundation-tooltip', get_template_directory_uri() . '/assets/js/components/foundation-tooltip.js', array( 'foundation-box', 'foundation-media-query', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_style( 'foundation-tooltip', get_template_directory_uri() . '/assets/css/foundation/tooltip.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Reveal (https://foundation.zurb.com/sites/docs/reveal.html)
+	wp_register_script( 'foundation-reveal', get_template_directory_uri() . '/assets/js/components/foundation-reveal.js', array( 'foundation-keyboard', 'foundation-triggers', 'foundation-media-query', 'foundation-motion' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_style( 'foundation-reveal', get_template_directory_uri() . '/assets/css/foundation/reveal.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Tabs (https://foundation.zurb.com/sites/docs/tabs.html)
+	wp_register_script( 'foundation-tabs', get_template_directory_uri() . '/assets/js/components/foundation-tabs.js', array( 'foundation-keyboard', 'foundation-image-loader' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_style( 'foundation-tabs', get_template_directory_uri() . '/assets/css/foundation/tabs.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Button (https://foundation.zurb.com/sites/docs/button.html)
+	wp_register_style( 'foundation-button', get_template_directory_uri() . '/assets/css/foundation/button.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Button Group (https://foundation.zurb.com/sites/docs/button-group.html)
+	wp_register_style( 'foundation-button-group', get_template_directory_uri() . '/assets/css/foundation/button-group.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Global Styles (https://foundation.zurb.com/sites/docs/global.html)
+	wp_register_style( 'foundation-global-styles', get_template_directory_uri() . '/assets/css/foundation/global-styles.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Forms (https://foundation.zurb.com/sites/docs/forms.html)
+	wp_register_style( 'foundation-forms', get_template_directory_uri() . '/assets/css/foundation/forms.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Typography (https://foundation.zurb.com/sites/docs/typography-base.html)
+	wp_register_style( 'foundation-typography', get_template_directory_uri() . '/assets/css/foundation/typography.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation XY Grid (https://foundation.zurb.com/sites/docs/xy-grid.html)
+	wp_register_style( 'foundation-xy-grid', get_template_directory_uri() . '/assets/css/foundation/xy-grid.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Foundation Close Button (https://foundation.zurb.com/sites/docs/close-button.html)
+	wp_register_style( 'foundation-close-button', get_template_directory_uri() . '/assets/css/foundation/close-button.css', array(), wp_get_theme()->get( 'Version' ) );
 
 	// Enable toggler functionality
 	//wp_enqueue_script( 'foundation-toggler' );
-
-	// Enable off-canvas functionality.
-  //wp_enqueue_script( 'foundation-offcanvas' );
 
 	// Themin Foundation initialization JS.
 	wp_enqueue_script( 'foundation', get_theme_file_uri( '/assets/js/foundation.js' ), array( 'foundation-core' ),  wp_get_theme()->get( 'Version' ), true );
@@ -265,28 +300,19 @@ add_action( 'enqueue_block_editor_assets', 'foundation_editor_customizer_styles'
 /**
  * Display custom color CSS in customizer and on frontend.
  */
-function foundation_colors_css_wrap() {
+/*function foundation_colors_css_wrap() {
 
 	// Only include custom colors in customizer or frontend.
-	/*if ( ( ! is_customize_preview() && 'default' === get_theme_mod( 'primary_color', 'default' ) ) || is_admin() ) {
+	if ( ( ! is_customize_preview() && 'default' === get_theme_mod( 'primary_color', 'default' ) ) || is_admin() ) {
 		return;
-	}
-
-	require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
-
-	if ( 'default' === get_theme_mod( 'primary_color', 'default' ) ) {
-		$primary_color = 199;
-	} else {
-		$primary_color = absint( get_theme_mod( 'primary_color_hue', 199 ) );
 	}
 	?>
 
-	<style type="text/css" id="custom-theme-colors" <?php echo is_customize_preview() ? 'data-hue="' . $primary_color . '"' : ''; ?>>
-		<?php echo foundation_custom_colors_css(); ?>
+	<style type="text/css" id="custom-theme-colors">
 	</style>
-	<?php*/
+	<?php
 }
-add_action( 'wp_head', 'foundation_colors_css_wrap' );
+add_action( 'wp_head', 'foundation_colors_css_wrap' );*/
 
 /**
  * Enhance the theme by hooking into WordPress.

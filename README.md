@@ -1,5 +1,5 @@
 # wordpress-foundation
-> Starter WordPress theme with ZURB Foundation integration.
+> Starter WordPress theme with ZURB Foundation & Elementor integration.
 
 ## Installation
 
@@ -11,7 +11,7 @@
 
 The following plugins can be optionally automatically installed through this theme.
 
-1. [Akismet Anti-Spam](https://wordpress.org/plugins/akismet/) - Security 
+1. [Akismet Anti-Spam](https://wordpress.org/plugins/akismet/) - Security
 2. [Autoptimize](https://wordpress.org/plugins/autoptimize/) - Optimazation
 3. [Broken Link Checker](https://wordpress.org/plugins/broken-link-checker/) - SEO
 4. [Elementor Page Builder](https://wordpress.org/plugins/elementor/) - Features
@@ -25,4 +25,3 @@ The following plugins can be optionally automatically installed through this the
 12. [WordPress SEO by Yoast](https://wordpress.org/plugins/wordpress-seo/) - SEO
 13. [WP Mail SMTP by WPForms](https://wordpress.org/plugins/wp-mail-smtp/) - Features
 14. [WP-Optimize](https://wordpress.org/plugins/wp-optimize/) - Optimazation
-
