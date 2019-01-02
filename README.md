@@ -11,9 +11,7 @@
 
 This starter theme was developed with performance and optimization in mind. Rather than load everything, it allows developers to boost performance by loading only what the theme needs.
 
-### Available Libraries
-
-These libraries can be optionally loaded globally based on theme needs to help boost performance in the theme's customize section.
+### Available Foundation Components
 
 * [Foundation Global Styles](https://foundation.zurb.com/sites/docs/global.html)
 * [Foundation Forms](https://foundation.zurb.com/sites/docs/forms.html)
