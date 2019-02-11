@@ -22,8 +22,3 @@
 </head>
 
 <body <?php body_class(); ?>>
-<header>
-  <div class="site-branding-container">
-    <?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
-  </div><!-- .site-branding-container -->
-</header>
