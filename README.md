@@ -1,4 +1,5 @@
 # wordpress-foundation
+
 > Starter WordPress theme with ZURB Foundation & Elementor integration.
 
 ## Installation
@@ -13,44 +14,32 @@ This starter theme was developed with performance and optimization in mind. Rath
 
 ### Available Foundation Components
 
-* [Foundation Global Styles](https://foundation.zurb.com/sites/docs/global.html)
-* [Foundation Forms](https://foundation.zurb.com/sites/docs/forms.html)
-* [Foundation Typography](https://foundation.zurb.com/sites/docs/typography-base.html)
-* [Foundation Off-canvas](https://foundation.zurb.com/sites/docs/off-canvas.html)
-* [Foundation Tooltip](https://foundation.zurb.com/sites/docs/tooltip.html)
-* [Foundation Reveal](https://foundation.zurb.com/sites/docs/reveal.html)
-* [Foundation Tabs](https://foundation.zurb.com/sites/docs/tabs.html)
-* [Foundation Button](https://foundation.zurb.com/sites/docs/button.html)
-* [Foundation Button Group](https://foundation.zurb.com/sites/docs/button-group.html)
+- [Foundation Global Styles](https://foundation.zurb.com/sites/docs/global.html)
+- [Foundation Forms](https://foundation.zurb.com/sites/docs/forms.html)
+- [Foundation Typography](https://foundation.zurb.com/sites/docs/typography-base.html)
+- [Foundation Off-canvas](https://foundation.zurb.com/sites/docs/off-canvas.html)
+- [Foundation Tooltip](https://foundation.zurb.com/sites/docs/tooltip.html)
+- [Foundation Reveal](https://foundation.zurb.com/sites/docs/reveal.html)
+- [Foundation Tabs](https://foundation.zurb.com/sites/docs/tabs.html)
+- [Foundation Button](https://foundation.zurb.com/sites/docs/button.html)
+- [Foundation Button Group](https://foundation.zurb.com/sites/docs/button-group.html)
 
 Here's a full list of available scripts for developers to load as needed:
 
 #### JavaScript Libraries
 
-* foundation-core
-* foundation-media-query
-* foundation-motion
-* foundation-keyboard
-* foundation-triggers
-* foundation-toggler
-* foundation-box
-* foundation-image-loader
-* foundation-offcanvas
-* foundation-tooltip
-* foundation-reveal
-* foundation-tabs
-
-#### CSS Libraries
-
-* foundation-global-styles
-* foundation-forms
-* foundation-typography
-* foundation-offcanvas
-* foundation-tooltip
-* foundation-reveal
-* foundation-tabs
-* foundation-button
-* foundation-button-group
+- foundation-core
+- foundation-media-query
+- foundation-motion
+- foundation-keyboard
+- foundation-triggers
+- foundation-toggler
+- foundation-box
+- foundation-image-loader
+- foundation-offcanvas
+- foundation-tooltip
+- foundation-reveal
+- foundation-tabs
 
 ## Recommend Plugins
 
