@@ -35,8 +35,4 @@
 
 		wp_link_pages();
 	?>
-
-	<footer>
-
-	</footer>
 </article><!-- #post-## -->
