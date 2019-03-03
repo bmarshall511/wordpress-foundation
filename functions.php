@@ -236,20 +236,28 @@ function foundation_scripts() {
 	wp_register_script( 'foundation-toggler', get_template_directory_uri() . '/assets/js/components/foundation-toggler.js', array( 'foundation-motion', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
 	wp_register_script( 'foundation-box', get_template_directory_uri() . '/assets/js/components/foundation-box.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
 	wp_register_script( 'foundation-image-loader', get_template_directory_uri() . '/assets/js/components/foundation-image-loader.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-nest', get_template_directory_uri() . '/assets/js/components/foundation-nest.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Off-canvas (https://foundation.zurb.com/sites/docs/off-canvas.html)
 	wp_register_script( 'foundation-offcanvas', get_template_directory_uri() . '/assets/js/components/foundation-offcanvas.js', array( 'foundation-media-query', 'foundation-keyboard', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation-offcanvas');
 
 	// Foundation Tooltip (https://foundation.zurb.com/sites/docs/tooltip.html)
 	wp_register_script( 'foundation-tooltip', get_template_directory_uri() . '/assets/js/components/foundation-tooltip.js', array( 'foundation-box', 'foundation-media-query', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Reveal (https://foundation.zurb.com/sites/docs/reveal.html)
-	wp_register_script( 'foundation-reveal', get_template_directory_uri() . '/assets/js/components/foundation-reveal.js', array( 'foundation-keyboard', 'foundation-triggers', 'foundation-media-query', 'foundation-motion' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation-reveal', get_template_directory_uri() . '/assets/js/components/foundation-reveal.js', array( 'foundation-keyboard', 'foundation-triggers', 'foundation-media-query', 'foundation-motion' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Tabs (https://foundation.zurb.com/sites/docs/tabs.html)
 	wp_register_script( 'foundation-tabs', get_template_directory_uri() . '/assets/js/components/foundation-tabs.js', array( 'foundation-keyboard', 'foundation-image-loader' ), wp_get_theme()->get( 'Version' ), true );
 
-	// Themin Foundation initialization JS.
+	// Foundation Drilldown (https://foundation.zurb.com/sites/docs/drilldown-menu.html)
+	wp_enqueue_script( 'foundation-drilldown', get_template_directory_uri() . '/assets/js/components/foundation-drilldown.js', array( 'foundation-keyboard', 'foundation-nest', 'foundation-box' ), wp_get_theme()->get( 'Version' ), true );
+
+	// Foundation Dropdown (https://foundation.zurb.com/sites/docs/dropdown-menu.html)
+	wp_enqueue_script( 'foundation-dropdown', get_template_directory_uri() . '/assets/js/components/foundation-dropdown.js', array( 'foundation-keyboard', 'foundation-box', 'foundation-nest' ), wp_get_theme()->get( 'Version' ), true );
+
+	// Foundation initialization
 	wp_enqueue_script( 'foundation', get_theme_file_uri( '/assets/js/foundation.js' ), array( 'foundation-core' ),  wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'foundation_scripts' );
