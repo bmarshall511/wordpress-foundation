@@ -9,6 +9,10 @@
  * @since 2.0.0
  */
 
+if ( ! defined( 'ASSETS' ) ) {
+	define( 'ASSETS', 'gulp-foundation' );
+}
+
 /**
  * WordPress Foundation only works in WordPress 4.7 or later.
  */
@@ -217,48 +221,48 @@ add_action( 'after_setup_theme', 'foundation_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function foundation_scripts() {
-  wp_enqueue_style( 'foundation-style', get_template_directory_uri() . '/assets/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
+  wp_enqueue_style( 'foundation-style', get_template_directory_uri() . '/' . ASSETS . '/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
 
-	wp_enqueue_style( 'foundation-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
+	wp_enqueue_style( 'foundation-print-style', get_template_directory_uri() . '/' . ASSETS . '/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
   // Core Foundation script, required on all pages.
-	wp_enqueue_script( 'foundation-core', get_template_directory_uri() . '/assets/js/components/foundation-core.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation-core', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-core.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Register Foundation components.
-	wp_register_script( 'foundation-media-query', get_template_directory_uri() . '/assets/js/components/foundation-media-query.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-motion', get_template_directory_uri() . '/assets/js/components/foundation-motion.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-keyboard', get_template_directory_uri() . '/assets/js/components/foundation-keyboard.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-triggers', get_template_directory_uri() . '/assets/js/components/foundation-triggers.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-toggler', get_template_directory_uri() . '/assets/js/components/foundation-toggler.js', array( 'foundation-motion', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-box', get_template_directory_uri() . '/assets/js/components/foundation-box.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-image-loader', get_template_directory_uri() . '/assets/js/components/foundation-image-loader.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
-	wp_register_script( 'foundation-nest', get_template_directory_uri() . '/assets/js/components/foundation-nest.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-media-query', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-media-query.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-motion', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-motion.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-keyboard', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-keyboard.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-triggers', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-triggers.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-toggler', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-toggler.js', array( 'foundation-motion', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-box', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-box.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-image-loader', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-image-loader.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-nest', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-nest.js', array( 'foundation-core' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Off-canvas (https://foundation.zurb.com/sites/docs/off-canvas.html)
-	wp_register_script( 'foundation-offcanvas', get_template_directory_uri() . '/assets/js/components/foundation-offcanvas.js', array( 'foundation-media-query', 'foundation-keyboard', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-offcanvas', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-offcanvas.js', array( 'foundation-media-query', 'foundation-keyboard', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
 	wp_enqueue_script( 'foundation-offcanvas');
 
 	// Foundation Tooltip (https://foundation.zurb.com/sites/docs/tooltip.html)
-	wp_register_script( 'foundation-tooltip', get_template_directory_uri() . '/assets/js/components/foundation-tooltip.js', array( 'foundation-box', 'foundation-media-query', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-tooltip', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-tooltip.js', array( 'foundation-box', 'foundation-media-query', 'foundation-triggers' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Reveal (https://foundation.zurb.com/sites/docs/reveal.html)
-	wp_enqueue_script( 'foundation-reveal', get_template_directory_uri() . '/assets/js/components/foundation-reveal.js', array( 'foundation-keyboard', 'foundation-triggers', 'foundation-media-query', 'foundation-motion' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation-reveal', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-reveal.js', array( 'foundation-keyboard', 'foundation-triggers', 'foundation-media-query', 'foundation-motion' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Tabs (https://foundation.zurb.com/sites/docs/tabs.html)
-	wp_register_script( 'foundation-tabs', get_template_directory_uri() . '/assets/js/components/foundation-tabs.js', array( 'foundation-keyboard', 'foundation-image-loader' ), wp_get_theme()->get( 'Version' ), true );
+	wp_register_script( 'foundation-tabs', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-tabs.js', array( 'foundation-keyboard', 'foundation-image-loader' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Drilldown (https://foundation.zurb.com/sites/docs/drilldown-menu.html)
-	wp_enqueue_script( 'foundation-drilldown', get_template_directory_uri() . '/assets/js/components/foundation-drilldown.js', array( 'foundation-keyboard', 'foundation-nest', 'foundation-box' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation-drilldown', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-drilldown.js', array( 'foundation-keyboard', 'foundation-nest', 'foundation-box' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation Dropdown (https://foundation.zurb.com/sites/docs/dropdown-menu.html)
-	wp_enqueue_script( 'foundation-dropdown', get_template_directory_uri() . '/assets/js/components/foundation-dropdown.js', array( 'foundation-keyboard', 'foundation-box', 'foundation-nest' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation-dropdown', get_template_directory_uri() . '/' . ASSETS . '/js/components/foundation-dropdown.js', array( 'foundation-keyboard', 'foundation-box', 'foundation-nest' ), wp_get_theme()->get( 'Version' ), true );
 
 	// Foundation initialization
-	wp_enqueue_script( 'foundation', get_theme_file_uri( '/assets/js/foundation.js' ), array( 'foundation-core' ),  wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'foundation', get_theme_file_uri( '/' . ASSETS . '/js/foundation.js' ), array( 'foundation-core' ),  wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'foundation_scripts' );
 
