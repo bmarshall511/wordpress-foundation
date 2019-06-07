@@ -184,7 +184,10 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		remove_action( 'wp_head', 'wlwmanifest_link');
 
 		// Remove Weblog Client Link
-		remove_action ('wp_head', 'rsd_link');
+		remove_action('wp_head', 'rsd_link');
+
+		// Remove shortlinks
+		remove_action('wp_head', 'wp_shortlink_wp_head');
 	}
 endif;
 add_action( 'after_setup_theme', 'foundation_setup' );
@@ -322,23 +325,6 @@ function foundation_editor_customizer_styles() {
 	}*/
 }
 add_action( 'enqueue_block_editor_assets', 'foundation_editor_customizer_styles' );
-
-/**
- * Display custom color CSS in customizer and on frontend.
- */
-/*function foundation_colors_css_wrap() {
-
-	// Only include custom colors in customizer or frontend.
-	if ( ( ! is_customize_preview() && 'default' === get_theme_mod( 'primary_color', 'default' ) ) || is_admin() ) {
-		return;
-	}
-	?>
-
-	<style type="text/css" id="custom-theme-colors">
-	</style>
-	<?php
-}
-add_action( 'wp_head', 'foundation_colors_css_wrap' );*/
 
 /**
  * Enhance the theme by hooking into WordPress.

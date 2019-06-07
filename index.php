@@ -17,26 +17,24 @@
 
 get_header(); ?>
 
-<section>
-	<main role="main">
-		<?php
-		if ( have_posts() ) :
+<main role="main">
+	<?php
+	if ( have_posts() ) :
 
-			// Load posts loop.
-			while ( have_posts() ) {
-				the_post();
-				get_template_part( 'template-parts/content/content' );
-			}
+		// Load posts loop.
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'template-parts/content/content' );
+		}
 
-			the_posts_pagination();
+		the_posts_pagination();
 
-		else :
+	else :
 
-			get_template_part( 'template-parts/post/content', 'none' );
+		get_template_part( 'template-parts/post/content', 'none' );
 
-		endif;
-		?>
-  </main>
-</section>
+	endif;
+	?>
+</main>
 
 <?php get_footer();
