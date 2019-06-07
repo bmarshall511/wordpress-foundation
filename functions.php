@@ -312,6 +312,16 @@ function foundation_inline_critical() {
 add_action('wp_head', 'foundation_inline_critical');
 
 /**
+ * Async Elementor generated CSS files
+ */
+add_filter('style_loader_tag', 'foundation_style_loader_tag');
+function foundation_style_loader_tag($tag){
+	$tag = preg_replace("/rel='stylesheet' id='elementor/", "rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\" id='elementor", $tag);
+
+	return $tag;
+}
+
+/**
  * Enqueue supplemental block editor styles.
  */
 function foundation_editor_customizer_styles() {

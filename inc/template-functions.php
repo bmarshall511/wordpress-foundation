@@ -1,6 +1,6 @@
 <?php
 /**
- * Additional features to allow styling of the templates
+ * Additional features to allow styling of the templates, altering outputing.
  *
  * @package WordPress
  * @subpackage Foundation
