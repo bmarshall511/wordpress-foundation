@@ -317,6 +317,7 @@ add_action('wp_head', 'foundation_inline_critical');
 add_filter('style_loader_tag', 'foundation_style_loader_tag');
 function foundation_style_loader_tag($tag){
 	$tag = preg_replace("/rel='stylesheet' id='elementor/", "rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\" id='elementor", $tag);
+	$tag = preg_replace("/rel='stylesheet' id='google-fonts/", "rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\" id='google-fonts", $tag);
 
 	return $tag;
 }
