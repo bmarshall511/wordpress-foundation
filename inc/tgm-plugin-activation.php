@@ -92,6 +92,11 @@ function foundation_register_required_plugins() {
 			'slug'        => 'widget-css-classes',
 		),
 
+		array(
+			'name'        => 'Nextend Social Login',
+			'slug'        => 'nextend-facebook-connect',
+		),
+
 	);
 
 	/*
