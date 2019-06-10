@@ -86,7 +86,7 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		/*add_theme_support(
+		add_theme_support(
 			'custom-logo',
 			array(
 				'height'      => 190,
@@ -94,7 +94,7 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 				'flex-width'  => false,
 				'flex-height' => false,
 			)
-		);*/
+		);
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -356,3 +356,8 @@ require get_template_directory() . '/inc/customizer.php';
  * TGM Plugin Activation
  */
 require get_parent_theme_file_path( '/inc/tgm-plugin-activation.php' );
+
+/**
+ * Custom login page.
+ */
+require get_parent_theme_file_path( '/inc/custom-login.php' );
