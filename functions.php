@@ -325,3 +325,13 @@ require get_parent_theme_file_path( '/inc/custom-login.php' );
  * Elementor specific functionality.
  */
 require get_parent_theme_file_path( '/inc/elementor.php' );
+
+/**
+ * Add theme options page.
+ */
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page( [
+    'menu_title' => __( 'Theme Options', 'foundation' ),
+    'page_title' => __( 'Theme Options', 'foundation' )
+  ] );
+}

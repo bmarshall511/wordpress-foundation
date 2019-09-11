@@ -1,0 +1,49 @@
+{
+    "key": "group_5d7974c82f022",
+    "title": "General Options",
+    "fields": [
+        {
+            "key": "field_5d7974dc33c6d",
+            "label": "jQuery Version",
+            "name": "jquery_version",
+            "type": "select",
+            "instructions": "By default, WordPress uses an outdated version of jQuery that contains known security vulnerabilities. Use this option to override the default jQuery version (loaded from the Google CDN).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "3.4.1": "v3.4.1",
+                "2.2.4": "v2.2.4"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1568241144
+}

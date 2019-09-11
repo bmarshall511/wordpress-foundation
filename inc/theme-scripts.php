@@ -86,6 +86,15 @@ class Theme_Scripts {
       if ( $scripts['global'] ) {
         $this->load_library( $library );
       }
+
+      // Replace jQuery?
+      if ( function_exists( 'get_field' ) ) {
+        $jquery_version = get_field( 'jquery_version', 'option' );
+        if ( $jquery_version ) {
+          wp_deregister_script( 'jquery' );
+          wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
+        }
+      }
     }
   }
 
