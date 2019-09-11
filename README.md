@@ -14,7 +14,7 @@ This starter theme was developed with performance and optimization in mind. Rath
 
 ### Registered Foundation Scripts
 
-These scripts can be called normally with [wp_enqueue_style](https://developer.wordpress.org/reference/functions/wp_enqueue_style/) and [wp_enqueue_script] (https://developer.wordpress.org/reference/functions/wp_enqueue_script/) within themes or plugins as needed:
+These scripts can be called normally with [wp_enqueue_style](https://developer.wordpress.org/reference/functions/wp_enqueue_style/) and [wp_enqueue_script](https://developer.wordpress.org/reference/functions/wp_enqueue_script/) within themes or plugins as needed:
 
 #### Registered Foundation JavaScript Libraries
 
