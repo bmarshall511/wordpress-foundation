@@ -92,7 +92,7 @@ class Theme_Scripts {
         $jquery_version = get_field( 'jquery_version', 'option' );
         if ( $jquery_version ) {
           wp_deregister_script( 'jquery' );
-          wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
+          wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js#asyncload', array(), $jquery_version );
         }
       }
     }
@@ -117,5 +117,18 @@ class Theme_Scripts {
     }
   }
 }
+
+function foundation_async_scripts( $tag, $handle ) {
+  if ( strpos( $tag, '#asyncload' ) === false ) {
+    return $tag;
+  }
+
+  if ( is_admin() ) {
+    return str_replace( '#asyncload', '', $tag );
+  }
+
+  return str_replace( "#asyncload'>", "' async>", $tag );
+}
+add_filter( 'script_loader_tag', 'foundation_async_scripts', 10, 2 );
 
 $Theme_Scripts = new Theme_Scripts();
