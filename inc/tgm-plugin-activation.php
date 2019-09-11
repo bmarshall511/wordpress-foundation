@@ -106,6 +106,11 @@ function foundation_register_required_plugins() {
 			'name'        => 'Advanced Custom Fields',
       'slug'        => 'advanced-custom-fields',
       'is_callable' => 'acf',
+    ),
+
+    array(
+			'name'        => 'Super Progressive Web Apps',
+      'slug'        => 'super-progressive-web-apps',
 		),
 
 	);
