@@ -327,6 +327,11 @@ require get_parent_theme_file_path( '/inc/custom-login.php' );
 require get_parent_theme_file_path( '/inc/elementor.php' );
 
 /**
+ * WYSIWYG editor.
+ */
+require get_parent_theme_file_path( '/inc/wysiwyg.php' );
+
+/**
  * Add theme options page.
  */
 if ( function_exists('acf_add_options_page') ) {
