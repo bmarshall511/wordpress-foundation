@@ -13,6 +13,12 @@ function foundation_wysiwyg_style_formats( $init_array ) {
 			'block'   => 'p',
 			'classes' => 'lead',
 			'wrapper' => false,
+    ),
+    array(
+			'title'   => '.stat',
+			'block'   => 'div',
+			'classes' => 'stat',
+			'wrapper' => true,
 		)
 	);
 
