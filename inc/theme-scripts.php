@@ -47,6 +47,19 @@ class Theme_Scripts {
       ),
     );
 
+    // WordPress Core
+    $this->libraries['wordpress-core'] = array(
+      'global' => true,
+      'css' => array(
+        'wordpress-core' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/wordpress/core.css',
+          'dep'       => array(),
+          'version'   => wp_get_theme()->get( 'Version' ),
+          'media'     => 'all',
+        ),
+      ),
+    );
+
     add_action( 'wp_enqueue_scripts', array( $this, 'wp_register_scripts' ) );
   }
 

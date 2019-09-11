@@ -98,6 +98,18 @@ class Foundation_Scripts {
       ),
     );
 
+    // Foundation Timer (https://foundation.zurb.com/sites/docs/javascript-utilities.html#timer)
+    $this->libraries['foundation-util-timer'] = array(
+      'js' => array(
+        'foundation-util-timer' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.timer.js',
+          'dep'       => array( 'foundation-core' ),
+          'version'   => $this->$version,
+          'in_footer' => true,
+        ),
+      ),
+    );
+
     // Foundation Image Loader (https://foundation.zurb.com/sites/docs/javascript-utilities.html#imageloader)
     $this->libraries['foundation-util-imageloader'] = array(
       'js' => array(
@@ -254,6 +266,26 @@ class Foundation_Scripts {
       ),
     );
 
+    // Foundation Dropdown (https://foundation.zurb.com/sites/docs/dropdown.html)
+    $this->libraries['foundation-dropdown'] = array(
+      'css' => array(
+        'foundation-dropdown' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/dropdown.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+      'js' => array(
+        'foundation-dropdown' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.dropdown.js',
+          'dep'       => array( 'foundation-util-keyboard', 'foundation-util-box', 'foundation-util-touch', 'foundation-util-triggers' ),
+          'version'   => $this->$version,
+          'in_footer' => true,
+        ),
+      ),
+    );
+
     // Foundation Sticky (https://foundation.zurb.com/sites/docs/sticky.html)
     $this->libraries['foundation-sticky'] = array(
       'css' => array(
@@ -330,6 +362,366 @@ class Foundation_Scripts {
       ),
     );
 
+    // Foundation XY Grid (https://foundation.zurb.com/sites/docs/xy-grid.html)
+    $this->libraries['foundation-xy-grid'] = array(
+      'css' => array(
+        'foundation-xy-grid' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/xy-grid-classes.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Callout (https://foundation.zurb.com/sites/docs/callout.html)
+    $this->libraries['foundation-callout'] = array(
+      'css' => array(
+        'foundation-callout' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/callout.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Close Button (https://foundation.zurb.com/sites/docs/close-button.html)
+    $this->libraries['foundation-close-button'] = array(
+      'css' => array(
+        'foundation-close-button' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/close-button.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Visibility Classes (https://foundation.zurb.com/sites/docs/visibility.html)
+    $this->libraries['foundation-visibility'] = array(
+      'css' => array(
+        'foundation-visibility' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/visibility.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Forms (https://foundation.zurb.com/sites/docs/forms.html)
+    $this->libraries['foundation-forms'] = array(
+      'css' => array(
+        'foundation-forms' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/forms.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Flex (https://foundation.zurb.com/sites/docs/flexbox-utilities.html)
+    $this->libraries['foundation-flex'] = array(
+      'css' => array(
+        'foundation-flex' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/flex.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Button (https://foundation.zurb.com/sites/docs/button.html)
+    $this->libraries['foundation-button'] = array(
+      'css' => array(
+        'foundation-button' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/button.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Button Group (https://foundation.zurb.com/sites/docs/button-group.html)
+    $this->libraries['foundation-button-group'] = array(
+      'css' => array(
+        'foundation-button-group' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/button-group.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Label (https://foundation.zurb.com/sites/docs/label.html)
+    $this->libraries['foundation-label'] = array(
+      'css' => array(
+        'foundation-label' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/label.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Progress Bar (https://foundation.zurb.com/sites/docs/progress-bar.html)
+    $this->libraries['foundation-progress-bar'] = array(
+      'css' => array(
+        'foundation-progress-bar' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/progress-bar.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Slider (https://foundation.zurb.com/sites/docs/slider.html)
+    $this->libraries['foundation-slider'] = array(
+      'css' => array(
+        'foundation-slider' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/slider.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+      'js' => array(
+        'foundation-slider' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.slider.js',
+          'dep'       => array( 'foundation-util-motion', 'foundation-util-triggers', 'foundation-util-keyboard', 'foundation-util-touch' ),
+          'version'   => $this->$version,
+          'in_footer' => true,
+        ),
+      ),
+    );
+
+    // Foundation Switch (https://foundation.zurb.com/sites/docs/switch.html)
+    $this->libraries['foundation-switch'] = array(
+      'css' => array(
+        'foundation-progress-bar' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/switch.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Table (https://foundation.zurb.com/sites/docs/table.html)
+    $this->libraries['foundation-table'] = array(
+      'css' => array(
+        'foundation-table' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/table.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Badge (https://foundation.zurb.com/sites/docs/badge.html)
+    $this->libraries['foundation-badge'] = array(
+      'css' => array(
+        'foundation-badge' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/badge.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Breadcrumbs (https://foundation.zurb.com/sites/docs/breadcrumbs.html)
+    $this->libraries['foundation-breadcrumbs'] = array(
+      'css' => array(
+        'foundation-breadcrumbs' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/breadcrumbs.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Card (https://foundation.zurb.com/sites/docs/card.html)
+    $this->libraries['foundation-card'] = array(
+      'css' => array(
+        'foundation-card' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/card.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Pagination (https://foundation.zurb.com/sites/docs/pagination.html)
+    $this->libraries['foundation-pagination'] = array(
+      'css' => array(
+        'foundation-pagination' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/pagination.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Accordion (https://foundation.zurb.com/sites/docs/accordion.html)
+    $this->libraries['foundation-accordion'] = array(
+      'css' => array(
+        'foundation-accordion' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/accordion.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+      'js' => array(
+        'foundation-accordion' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.accordion.js',
+          'dep'       => array( 'foundation-util-keyboard' ),
+          'version'   => $this->$version,
+          'in_footer' => true,
+        ),
+      ),
+    );
+
+    // Foundation Media Object (https://foundation.zurb.com/sites/docs/media-object.html)
+    $this->libraries['foundation-media-object'] = array(
+      'css' => array(
+        'foundation-media-object' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/media-object.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Orbit (https://foundation.zurb.com/sites/docs/orbit.html)
+    $this->libraries['foundation-orbit'] = array(
+      'css' => array(
+        'foundation-orbit' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/orbit.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+      'js' => array(
+        'foundation-orbit' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.orbit.js',
+          'dep'       => array( 'foundation-util-keyboard', 'foundation-util-motion', 'foundation-util-timer', 'foundation-util-imageloader', 'foundation-util-touch' ),
+          'version'   => $this->$version,
+          'in_footer' => true,
+        ),
+      ),
+    );
+
+    // Foundation Responsive Embed (https://foundation.zurb.com/sites/docs/responsive-embed.html)
+    $this->libraries['foundation-responsive-embed'] = array(
+      'css' => array(
+        'foundation-responsive-embed' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/responsive-embed.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Thumbnail (https://foundation.zurb.com/sites/docs/thumbnail.html)
+    $this->libraries['foundation-thumbnail'] = array(
+      'css' => array(
+        'foundation-thumbnail' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/thumbnail.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Menu (https://foundation.zurb.com/sites/docs/menu.html)
+    $this->libraries['foundation-menu'] = array(
+      'css' => array(
+        'foundation-menu' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/menu.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Foundation Menu Icon (https://foundation.zurb.com/sites/docs/menu.html)
+    $this->libraries['foundation-menu-icon'] = array(
+      'css' => array(
+        'foundation-menu-icon' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/menu-icon.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Float Classes (https://foundation.zurb.com/sites/docs/float-classes.html)
+    $this->libraries['foundation-float'] = array(
+      'css' => array(
+        'foundation-float' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/float.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Prototype Classes (https://foundation.zurb.com/sites/docs/prototyping-utilities.html)
+    $this->libraries['foundation-prototype'] = array(
+      'css' => array(
+        'foundation-prototype' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/prototype.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Top Bar (https://foundation.zurb.com/sites/docs/top-bar.html)
+    $this->libraries['foundation-top-bar'] = array(
+      'css' => array(
+        'foundation-top-bar' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/top-bar.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
+    // Motion UI (https://foundation.zurb.com/sites/docs/motion-ui.html)
+    $this->libraries['foundation-motion-ui'] = array(
+      'css' => array(
+        'foundation-motion-ui' => array(
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/foundation-motion-ui.css',
+          'dep'       => array(),
+          'version'   => $this->$version,
+          'media'     => 'all',
+        ),
+      ),
+    );
+
     add_action( 'wp_enqueue_scripts', array( $this, 'wp_register_scripts' ) );
   }
 
@@ -354,6 +746,31 @@ class Foundation_Scripts {
       }
     }
   }
+
+  /**
+   * Loads a pre-defined library
+   */
+  public function load_library( $library ) {
+    // JavaScript
+    if ( ! empty( $this->libraries[$library]['js'] ) ) {
+      foreach( $this->libraries[$library]['js'] as $handle => $js ) {
+        wp_enqueue_script( $handle );
+      }
+    }
+
+    // CSS
+    if ( ! empty( $this->libraries[$library]['css'] ) ) {
+      foreach( $this->libraries[$library]['css'] as $handle => $css ) {
+        wp_enqueue_style( $handle );
+      }
+    }
+  }
 }
 
 $Foundation_Scripts = new Foundation_Scripts();
+
+function foundation_load_library( $library ) {
+  global $Foundation_Scripts;
+
+  $Foundation_Scripts->load_library( $library );
+}

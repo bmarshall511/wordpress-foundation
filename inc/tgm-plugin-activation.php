@@ -95,6 +95,12 @@ function foundation_register_required_plugins() {
 		array(
 			'name'        => 'Nextend Social Login',
 			'slug'        => 'nextend-facebook-connect',
+    ),
+
+    array(
+			'name'        => 'Advanced Custom Fields',
+      'slug'        => 'advanced-custom-fields',
+      'is_callable' => 'acf',
 		),
 
 	);
