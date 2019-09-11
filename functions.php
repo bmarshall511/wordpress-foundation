@@ -332,6 +332,7 @@ require get_parent_theme_file_path( '/inc/elementor.php' );
 if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page( [
     'menu_title' => __( 'Theme Options', 'foundation' ),
-    'page_title' => __( 'Theme Options', 'foundation' )
+    'page_title' => __( 'Theme Options', 'foundation' ),
+    'menu_slug'  => 'theme-options'
   ] );
 }
