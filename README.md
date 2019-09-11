@@ -8,7 +8,7 @@
 2. Install [gulp-foundation](https://github.com/bmarshall511/gulp-foundation) in the new theme.
 3. Start developing.
 
-## Development with Elementor
+## Development with Elementor &mdash; only use it if you absolutely need it!
 
 **Are you planning on using [Elementor](https://elementor.com/)?** There's pros and cons to using any page builders including Elementor &mdash; though if using a page builder, Elementor is definitely the way to go. wordpress-foundation supports Elementor & has an optional [Elementor Foundation plugin](https://github.com/bmarshall511/elementor-foundation) that provides some Foundation components as Elementor widgets.
 
