@@ -28,7 +28,6 @@ These scripts can be called normally with [wp_enqueue_style](https://developer.w
 - foundation-util-imageloader
 - foundation-util-nest
 - foundation-util-timer
-
 - foundation-offcanvas
 - foundation-tooltip
 - foundation-reveal
