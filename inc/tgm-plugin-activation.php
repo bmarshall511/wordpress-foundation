@@ -98,6 +98,11 @@ function foundation_register_required_plugins() {
     ),
 
     array(
+			'name'        => 'SG Optimizer',
+			'slug'        => 'sg-cachepress',
+    ),
+
+    array(
 			'name'        => 'Advanced Custom Fields',
       'slug'        => 'advanced-custom-fields',
       'is_callable' => 'acf',
