@@ -20,7 +20,7 @@ class Foundation_Scripts {
         'foundation-core' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.core.js',
           'dep'       => array( 'jquery' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -32,7 +32,7 @@ class Foundation_Scripts {
         'foundation-util-mediaQuery' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.mediaQuery.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -44,7 +44,7 @@ class Foundation_Scripts {
         'foundation-util-keyboard' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.keyboard.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -56,7 +56,7 @@ class Foundation_Scripts {
         'foundation-util-box' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.box.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -68,7 +68,7 @@ class Foundation_Scripts {
         'foundation-util-triggers' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.triggers.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -80,7 +80,7 @@ class Foundation_Scripts {
         'foundation-util-touch' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.touch.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -92,7 +92,7 @@ class Foundation_Scripts {
         'foundation-util-motion' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.motion.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -104,7 +104,7 @@ class Foundation_Scripts {
         'foundation-util-timer' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.timer.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -116,7 +116,7 @@ class Foundation_Scripts {
         'foundation-util-imageloader' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.imageLoader.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -128,7 +128,7 @@ class Foundation_Scripts {
         'foundation-util-nest' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.nest.js',
           'dep'       => array( 'foundation-core' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -140,7 +140,7 @@ class Foundation_Scripts {
         'foundation-offcanvas' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/off-canvas.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -148,7 +148,7 @@ class Foundation_Scripts {
         'foundation-offcanvas' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.offcanvas.js',
           'dep'       => array( 'foundation-util-mediaQuery', 'foundation-util-keyboard', 'foundation-util-triggers' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -160,7 +160,7 @@ class Foundation_Scripts {
         'foundation-tooltip' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/tooltip.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -168,7 +168,7 @@ class Foundation_Scripts {
         'foundation-tooltip' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.tooltip.js',
           'dep'       => array( 'foundation-util-box', 'foundation-util-mediaQuery', 'foundation-util-triggers' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -180,7 +180,7 @@ class Foundation_Scripts {
         'foundation-reveal' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/reveal.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -188,7 +188,7 @@ class Foundation_Scripts {
         'foundation-reveal' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.reveal.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-touch', 'foundation-util-triggers', 'foundation-util-mediaQuery', 'foundation-util-motion' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -200,7 +200,7 @@ class Foundation_Scripts {
         'foundation-tabs' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/tabs.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -208,7 +208,7 @@ class Foundation_Scripts {
         'foundation-tabs' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.tabs.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-imageloader' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -220,7 +220,7 @@ class Foundation_Scripts {
         'foundation-drilldown' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/drilldown-menu.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -228,7 +228,7 @@ class Foundation_Scripts {
         'foundation-drilldown' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.drilldown.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-nest', 'foundation-util-box' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -240,7 +240,7 @@ class Foundation_Scripts {
         'foundation-toggler' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.toggler.js',
           'dep'       => array( 'foundation-util-motion', 'foundation-util-triggers' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -252,7 +252,7 @@ class Foundation_Scripts {
         'foundation-dropdown-menu' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/dropdown-menu.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -260,7 +260,7 @@ class Foundation_Scripts {
         'foundation-dropdown-menu' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.dropdownMenu.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-box', 'foundation-util-nest', 'foundation-util-touch' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -272,7 +272,7 @@ class Foundation_Scripts {
         'foundation-dropdown' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/dropdown.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -280,7 +280,7 @@ class Foundation_Scripts {
         'foundation-dropdown' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.dropdown.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-box', 'foundation-util-touch', 'foundation-util-triggers' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -292,7 +292,7 @@ class Foundation_Scripts {
         'foundation-sticky' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/sticky.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -300,7 +300,7 @@ class Foundation_Scripts {
         'foundation-sticky' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.sticky.js',
           'dep'       => array( 'foundation-util-triggers', 'foundation-util-mediaQuery' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -312,7 +312,7 @@ class Foundation_Scripts {
         'foundation-abide' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.abide.js',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -324,7 +324,7 @@ class Foundation_Scripts {
         'foundation-smooth-scroll' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.smoothScroll.js',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -336,7 +336,7 @@ class Foundation_Scripts {
         'foundation-magellan' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.magellan.js',
           'dep'       => array( 'foundation-smooth-scroll', 'foundation-util-triggers' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -348,7 +348,7 @@ class Foundation_Scripts {
         'foundation-accordion-menu' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/accordion-menu.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -356,7 +356,7 @@ class Foundation_Scripts {
         'foundation-accordion-menu' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.accordionMenu.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-nest' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -368,7 +368,7 @@ class Foundation_Scripts {
         'foundation-xy-grid' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/xy-grid-classes.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -380,7 +380,7 @@ class Foundation_Scripts {
         'foundation-callout' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/callout.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -392,7 +392,7 @@ class Foundation_Scripts {
         'foundation-close-button' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/close-button.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -404,7 +404,7 @@ class Foundation_Scripts {
         'foundation-visibility' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/visibility.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -416,7 +416,7 @@ class Foundation_Scripts {
         'foundation-forms' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/forms.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -428,7 +428,7 @@ class Foundation_Scripts {
         'foundation-flex' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/flex.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -440,7 +440,7 @@ class Foundation_Scripts {
         'foundation-button' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/button.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -452,7 +452,7 @@ class Foundation_Scripts {
         'foundation-button-group' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/button-group.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -464,7 +464,7 @@ class Foundation_Scripts {
         'foundation-label' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/label.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -476,7 +476,7 @@ class Foundation_Scripts {
         'foundation-progress-bar' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/progress-bar.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -488,7 +488,7 @@ class Foundation_Scripts {
         'foundation-slider' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/slider.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -496,7 +496,7 @@ class Foundation_Scripts {
         'foundation-slider' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.slider.js',
           'dep'       => array( 'foundation-util-motion', 'foundation-util-triggers', 'foundation-util-keyboard', 'foundation-util-touch' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -508,7 +508,7 @@ class Foundation_Scripts {
         'foundation-progress-bar' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/switch.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -520,7 +520,7 @@ class Foundation_Scripts {
         'foundation-table' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/table.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -532,7 +532,7 @@ class Foundation_Scripts {
         'foundation-badge' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/badge.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -544,7 +544,7 @@ class Foundation_Scripts {
         'foundation-breadcrumbs' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/breadcrumbs.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -556,7 +556,7 @@ class Foundation_Scripts {
         'foundation-card' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/card.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -568,7 +568,7 @@ class Foundation_Scripts {
         'foundation-pagination' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/pagination.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -580,7 +580,7 @@ class Foundation_Scripts {
         'foundation-accordion' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/accordion.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -588,7 +588,7 @@ class Foundation_Scripts {
         'foundation-accordion' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.accordion.js',
           'dep'       => array( 'foundation-util-keyboard' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -600,7 +600,7 @@ class Foundation_Scripts {
         'foundation-media-object' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/media-object.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -612,7 +612,7 @@ class Foundation_Scripts {
         'foundation-orbit' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/orbit.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -620,7 +620,7 @@ class Foundation_Scripts {
         'foundation-orbit' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.orbit.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-motion', 'foundation-util-timer', 'foundation-util-imageloader', 'foundation-util-touch' ),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'in_footer' => true,
         ),
       ),
@@ -632,7 +632,7 @@ class Foundation_Scripts {
         'foundation-responsive-embed' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/responsive-embed.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -644,7 +644,7 @@ class Foundation_Scripts {
         'foundation-thumbnail' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/thumbnail.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -656,7 +656,7 @@ class Foundation_Scripts {
         'foundation-menu' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/menu.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -668,7 +668,7 @@ class Foundation_Scripts {
         'foundation-menu-icon' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/menu-icon.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -680,7 +680,7 @@ class Foundation_Scripts {
         'foundation-float' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/float.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -692,7 +692,7 @@ class Foundation_Scripts {
         'foundation-prototype' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/prototype.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -704,7 +704,7 @@ class Foundation_Scripts {
         'foundation-top-bar' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/top-bar.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
@@ -716,7 +716,7 @@ class Foundation_Scripts {
         'foundation-motion-ui' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/foundation-motion-ui.css',
           'dep'       => array(),
-          'version'   => $this->$version,
+          'version'   => $this->version,
           'media'     => 'all',
         ),
       ),
