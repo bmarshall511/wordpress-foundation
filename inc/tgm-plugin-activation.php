@@ -111,6 +111,11 @@ function foundation_register_required_plugins() {
     array(
 			'name'        => 'Super Progressive Web Apps',
       'slug'        => 'super-progressive-web-apps',
+    ),
+
+    array(
+			'name'        => 'WPS Hide Login',
+      'slug'        => 'wps-hide-login',
 		),
 
 	);
