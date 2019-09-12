@@ -39,7 +39,7 @@ class Theme_Scripts {
       ),
       'js' => array(
         'theme-core-foundation' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation.js',
+          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation.js#defer',
           'dep'       => array( 'foundation-core' ),
           'version'   => wp_get_theme()->get( 'Version' ),
           'in_footer' => true,
@@ -93,7 +93,7 @@ class Theme_Scripts {
         $jquery_version = get_field( 'jquery_version', 'option' );
         if ( $jquery_version ) {
           wp_deregister_script( 'jquery' );
-          wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js#asyncload', array(), $jquery_version );
+          wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
         }
 
         // Disable Gutenburg styles?
@@ -127,15 +127,15 @@ class Theme_Scripts {
 }
 
 function foundation_async_scripts( $tag, $handle ) {
-  if ( strpos( $tag, '#asyncload' ) === false ) {
+  if ( strpos( $tag, '#async' ) === false ) {
     return $tag;
   }
 
   if ( is_admin() ) {
-    return str_replace( '#asyncload', '', $tag );
+    return str_replace( '#async', '', $tag );
   }
 
-  return str_replace( "#asyncload'>", "' async>", $tag );
+  return str_replace( "#async'>", "' async>", $tag );
 }
 add_filter( 'script_loader_tag', 'foundation_async_scripts', 10, 2 );
 
