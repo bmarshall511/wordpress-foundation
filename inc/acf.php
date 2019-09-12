@@ -73,7 +73,7 @@ function foundation_acf_export_message( $field ) {
       $data = foundation_get_configuration_data();
       ob_start(); ?>
       <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.</p>
-      <textarea rows="5" readonly><?php print_r( wp_json_encode( $data ) ); ?></textarea>
+      <textarea rows="10" readonly><?php print_r( wp_json_encode( $data ) ); ?></textarea>
       <?php $field['message'] = ob_get_clean();
     break;
     case 'Import Configuration':
@@ -81,7 +81,7 @@ function foundation_acf_export_message( $field ) {
       <div id="configImportStatus"></div>
       <div id="importBlock">
         <p>Paste the code below from the 'Export Configuration' textarea field to import configuration settings.</p>
-        <textarea rows="5" id="configData"></textarea>
+        <textarea rows="10" id="configData"></textarea>
         <button class="button button-primary button-large" id="importConfig">Import Configuration</button> <span id="configSavingStatus"></span>
       </div>
       <?php $field['message'] = ob_get_clean();

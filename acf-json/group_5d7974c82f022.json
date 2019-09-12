@@ -238,6 +238,103 @@
             "endpoint": 0
         },
         {
+            "key": "field_5d7ab850385e1",
+            "label": "Logo Size",
+            "name": "logo_size",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_5d7ab888385e3",
+                    "label": "Width",
+                    "name": "width",
+                    "type": "number",
+                    "instructions": "Expected logo width.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_5d7ab85e385e2",
+                    "label": "Height",
+                    "name": "height",
+                    "type": "number",
+                    "instructions": "Expected logo height.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_5d7ab8a0385e4",
+                    "label": "Flex Width",
+                    "name": "flex_width",
+                    "type": "true_false",
+                    "instructions": "Whether to allow for a flexible width.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5d7ab8ae385e5",
+                    "label": "Flex Height",
+                    "name": "flex_height",
+                    "type": "true_false",
+                    "instructions": "Whether to allow for a flexible height.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        },
+        {
             "key": "field_5d7a6f8d75ff3",
             "label": "Thumbnail Size",
             "name": "thumbnail_size",
@@ -511,6 +608,176 @@
             ]
         },
         {
+            "key": "field_5d7aae56c450e",
+            "label": "Sidebars",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7aaef6c450f",
+            "label": "Sidebars",
+            "name": "sidebars",
+            "type": "repeater",
+            "instructions": "Create theme sidebars for widgets below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Sidebar",
+            "sub_fields": [
+                {
+                    "key": "field_5d7aaf24c4510",
+                    "label": "ID",
+                    "name": "id",
+                    "type": "text",
+                    "instructions": "Alpha-numeric ID for the sidebar.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7aaf43c4511",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Enter the name of the sidebar.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7aaf5ac4512",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "instructions": "Enter s short description for the sidebar.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7aaf6dc4513",
+                    "label": "Before Widget",
+                    "name": "before_widget",
+                    "type": "text",
+                    "instructions": "HTML opening tag for widgets that appear in this sidebar.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "<section id=\"%1$s\" class=\"widget %2$s\">",
+                    "placeholder": "<section id=\"%1$s\" class=\"widget %2$s\">",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7aafd1c4514",
+                    "label": "After Widget",
+                    "name": "after_widget",
+                    "type": "text",
+                    "instructions": "HTML closing tag for widgets that appear in this sidebar.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "<\/section>",
+                    "placeholder": "<\/section>",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7aaffec4515",
+                    "label": "Before Title",
+                    "name": "before_title",
+                    "type": "text",
+                    "instructions": "HTML opening tag for the widget titles.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "<h2 class=\"widget-title\">",
+                    "placeholder": "<h2 class=\"widget-title\">",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7ab038c4516",
+                    "label": "After Title",
+                    "name": "after_title",
+                    "type": "text",
+                    "instructions": "HTML closing tag for the widget titles.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "<\/h2>",
+                    "placeholder": "<\/h2>",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
             "key": "field_5d7a7e691cdfd",
             "label": "Export\/Import Configuration",
             "name": "",
@@ -539,7 +806,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import this site's configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>Array\n(\n    [jquery_version] => 3.4.1\n    [disable_gutenburg_styles] => 1\n    [autoload_foundation_libraries] => Array\n        (\n            [0] => foundation-global-styles\n            [1] => foundation-typography\n        )\n\n    [autoload_theme_libraries] => Array\n        (\n            [0] => theme-core\n            [1] => wordpress-core\n        )\n\n    [head_code] => \n    [footer_code] => \n    [thumbnail_size] => \n    [images_sizes] => \n    [menus] => \n)\n<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"disable_gutenburg_styles\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":null,\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}]}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -556,7 +823,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <textarea rows=\"10\"><\/textarea>\n      ",
+            "message": "      <div id=\"configImportStatus\"><\/div>\n      <div id=\"importBlock\">\n        <p>Paste the code below from the 'Export Configuration' textarea field to import configuration settings.<\/p>\n        <textarea rows=\"10\" id=\"configData\"><\/textarea>\n        <button class=\"button button-primary button-large\" id=\"importConfig\">Import Configuration<\/button> <span id=\"configSavingStatus\"><\/span>\n      <\/div>\n      ",
             "new_lines": "",
             "esc_html": 0
         }
@@ -578,5 +845,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568310492
+    "modified": 1568323950
 }

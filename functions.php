@@ -101,15 +101,21 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 190,
-				'width'       => 190,
-				'flex-width'  => false,
-				'flex-height' => false,
-			)
-		);
+
+    if ( function_exists( 'get_field' ) ) {
+      $logo_size = get_field( 'logo_size', 'option' );
+      if ( $logo_size ) {
+        add_theme_support(
+          'custom-logo',
+          array(
+            'height'      => $logo_size['height'],
+            'width'       => $logo_size['width'],
+            'flex-width'  => $logo_size['flex_width'],
+            'flex-height' => $logo_size['flex_height'],
+          )
+        );
+      }
+    }
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -213,19 +219,22 @@ add_action( 'after_setup_theme', 'foundation_setup' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function foundation_widgets_init() {
-
-	/*register_sidebar(
-		array(
-			'name'          => __( 'Footer', 'foundation' ),
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'foundation' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);*/
-
+  if ( have_rows( 'sidebars', 'option' ) ) {
+    $sidebars = array();
+    while( have_rows( 'sidebars', 'option' ) ) { the_row();
+      register_sidebar(
+        array(
+          'name'          => get_sub_field( 'name' ),
+          'id'            => get_sub_field( 'id' ),
+          'description'   => get_sub_field( 'name' ),
+          'before_widget' => get_sub_field( 'before_widget' ),
+          'after_widget'  => get_sub_field( 'after_widget' ),
+          'before_title'  => get_sub_field( 'before_title' ),
+          'after_title'   => get_sub_field( 'after_title' ),
+        )
+      );
+    }
+  }
 }
 add_action( 'widgets_init', 'foundation_widgets_init' );
 
