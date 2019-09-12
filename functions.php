@@ -233,10 +233,6 @@ add_action( 'after_setup_theme', 'foundation_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function foundation_scripts() {
-	// Comment out the below if using Gutenburg
-	wp_dequeue_style( 'wp-block-library' );
-	wp_dequeue_style( 'wp-block-library-theme' );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

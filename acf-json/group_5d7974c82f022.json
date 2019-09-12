@@ -26,6 +26,25 @@
             "ajax": 0,
             "return_format": "value",
             "placeholder": ""
+        },
+        {
+            "key": "field_5d798fb3384d3",
+            "label": "Disable Gutenburg Styles",
+            "name": "disable_gutenburg_styles",
+            "type": "true_false",
+            "instructions": "You can disable Gutenburg styles to give a small performance boost if your site doesn't use it.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Disabled",
+            "ui_off_text": "Enabled"
         }
     ],
     "location": [
@@ -45,5 +64,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568241664
+    "modified": 1568247925
 }
