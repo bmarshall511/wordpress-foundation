@@ -55,16 +55,31 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		//set_post_thumbnail_size( 1568, 9999 );
 
-		// This theme uses wp_nav_menu() in two locations.
-		/*register_nav_menus(
-			array(
-				'menu-1' => __( 'Primary', 'foundation' ),
-				'footer' => __( 'Footer Menu', 'foundation' ),
-				'social' => __( 'Social Links Menu', 'foundation' ),
-			)
-		);*/
+    if ( function_exists( 'get_field' ) ) {
+      $thumbnail_size = get_field( 'thumbnail_size', 'option' );
+      if ( $thumbnail_size ) {
+        set_post_thumbnail_size( $thumbnail_size['width'], $thumbnail_size['height'], $thumbnail_size['crop'] );
+      }
+    }
+
+    if ( function_exists( 'have_rows' ) ) {
+      // Images sizes
+      if ( have_rows( 'images_sizes', 'option' ) ) {
+        while( have_rows( 'images_sizes', 'option' ) ) { the_row();
+          add_image_size( get_sub_field( 'id' ), get_sub_field( 'width' ), get_sub_field( 'height' ), get_sub_field( 'crop' ) );
+        }
+      }
+
+      // Menus
+      if ( have_rows( 'menus', 'option' ) ) {
+        $menus = array();
+        while( have_rows( 'menus', 'option' ) ) { the_row();
+          $menus[ get_sub_field( 'id' ) ] = get_sub_field( 'name' );
+        }
+        register_nav_menus( $menus );
+      }
+    }
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -256,16 +271,34 @@ function foundation_remove_jquery_migrate($scripts) {
 add_action( 'wp_default_scripts', 'foundation_remove_jquery_migrate' );
 
 /**
- * Inlines the critical.css file in the head
+ * Head code
  */
-function foundation_inline_critical() {
-	echo '<style>';
-	echo file_get_contents( get_theme_file_uri( '/' . ASSETS . '/css/critical.css' ) );
-	echo '</style>';
-	?>
-	<?php
+function foundation_head() {
+	//echo '<style>';
+	//echo file_get_contents( get_theme_file_uri( '/' . ASSETS . '/css/critical.css' ) );
+  //echo '</style>';
+
+  if ( function_exists( 'get_field' ) ) {
+    $head_code = get_field( 'head_code', 'option' );
+    if ( $head_code ) {
+      echo $head_code;
+    }
+  }
 }
-//add_action('wp_head', 'foundation_inline_critical');
+add_action( 'wp_head', 'foundation_head' );
+
+/**
+ * Footer code
+ */
+function foundation_footer() {
+  if ( function_exists( 'get_field' ) ) {
+    $footer_code = get_field( 'footer_code', 'option' );
+    if ( $footer_code ) {
+      echo $footer_code;
+    }
+  }
+}
+add_action( 'wp_footer', 'foundation_footer' );
 
 /**
  * Enqueue supplemental block editor styles.
@@ -328,12 +361,17 @@ require get_parent_theme_file_path( '/inc/elementor.php' );
 require get_parent_theme_file_path( '/inc/wysiwyg.php' );
 
 /**
+ * Advanced Custom Field
+ */
+require get_parent_theme_file_path( '/inc/acf.php' );
+
+/**
  * Add theme options page.
  */
 if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page( [
-    'menu_title' => __( 'Theme Options', 'foundation' ),
-    'page_title' => __( 'Theme Options', 'foundation' ),
-    'menu_slug'  => 'theme-options'
+    'menu_title' => __( 'Configuration', 'foundation' ),
+    'page_title' => __( 'Configuration', 'foundation' ),
+    'menu_slug'  => 'configuration'
   ] );
 }

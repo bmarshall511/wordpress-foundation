@@ -16,7 +16,10 @@ class Theme_Scripts {
   public function __construct() {
     // Theme Core
     $this->libraries['theme-core'] = array(
-      'global' => true,
+      'name'        => 'Theme Core',
+      'recommended' => true,
+      'type'        => 'bundle',
+      'component'   => true,
       'css' => array(
         'theme-core-critical' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/critical.css',
@@ -49,7 +52,10 @@ class Theme_Scripts {
 
     // WordPress Core
     $this->libraries['wordpress-core'] = array(
-      'global' => true,
+      'name'        => 'WordPress Core',
+      'recommended' => true,
+      'type'        => 'bundle',
+      'component'   => true,
       'css' => array(
         'wordpress-core' => array(
           'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/wordpress/core.css',
@@ -81,27 +87,22 @@ class Theme_Scripts {
           wp_register_style( $handle, $css['src'], $css['dep'], $css['version'], $css['media'] );
         }
       }
+    }
 
-      // Global?
-      if ( $scripts['global'] ) {
-        $this->load_library( $library );
+    if ( function_exists( 'get_field' ) ) {
+
+      // Replace jQuery?
+      $jquery_version = get_field( 'jquery_version', 'option' );
+      if ( $jquery_version ) {
+        wp_deregister_script( 'jquery' );
+        wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
       }
 
-      if ( function_exists( 'get_field' ) ) {
-
-        // Replace jQuery?
-        $jquery_version = get_field( 'jquery_version', 'option' );
-        if ( $jquery_version ) {
-          wp_deregister_script( 'jquery' );
-          wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
-        }
-
-        // Disable Gutenburg styles?
-        $disable_gutenburg_styles = get_field( 'disable_gutenburg_styles', 'option' );
-        if ( $disable_gutenburg_styles ) {
-          wp_dequeue_style( 'wp-block-library' );
-	        wp_dequeue_style( 'wp-block-library-theme' );
-        }
+      // Disable Gutenburg styles?
+      $disable_gutenburg_styles = get_field( 'disable_gutenburg_styles', 'option' );
+      if ( $disable_gutenburg_styles ) {
+        wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'wp-block-library-theme' );
       }
     }
   }

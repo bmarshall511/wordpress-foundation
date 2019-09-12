@@ -56,6 +56,8 @@ These scripts can be called normally with [wp_enqueue_style](https://developer.w
 
 #### Registered Foundation CSS Libraries
 
+- foundation-global-styles
+- foundation-typography
 - foundation-offcanvas
 - foundation-tooltip
 - foundation-reveal
@@ -98,6 +100,8 @@ These scripts can be called normally with [wp_enqueue_style](https://developer.w
 
 The other way to easily load scripts needed into your theme or plugins is by calling predefined libraries which include all needed CSS and JavaScript files using `foundation_load_library( $library )`. The following are a list of available Foundation libraries:
 
+- foundation-global-styles
+- foundation-typography
 - foundation-core
 - foundation-util-mediaQuery
 - foundation-util-keyboard

@@ -1,6 +1,6 @@
 {
     "key": "group_5d7974c82f022",
-    "title": "General Options",
+    "title": "Configuration",
     "fields": [
         {
             "key": "field_5d7974dc33c6d",
@@ -11,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -36,7 +36,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -45,6 +45,520 @@
             "ui": 1,
             "ui_on_text": "Disabled",
             "ui_off_text": "Enabled"
+        },
+        {
+            "key": "field_5d7a53915e240",
+            "label": "Foundation Libraries",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7a53d0adfcf",
+            "label": "Auto-load Component Libraries",
+            "name": "autoload_foundation_libraries",
+            "type": "checkbox",
+            "instructions": "By default, wordpress-foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined Foundation component libraries globally as needed below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "foundation-global-styles": "Foundation Global Styles &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/global.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-typography": "Foundation Typography &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/typography-base.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-offcanvas": "Foundation Off-canvas (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/off-canvas.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-tooltip": "Foundation Tooltip (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/tooltip.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-reveal": "Foundation Reveal (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/reveal.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-tabs": "Foundation Tabs (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/tabs.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-drilldown": "Foundation Drilldown Menu (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/drilldown-menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-toggler": "Foundation Toggler (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/toggler.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-dropdown-menu": "Foundation Dropdown Menu (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/dropdown-menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-dropdown": "Foundation Dropdown (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/dropdown.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-sticky": "Foundation Sticky (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/sticky.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-abide": "Foundation Abide (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/abide.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-smooth-scroll": "Foundation Smooth Scroll (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/smooth-scroll.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-magellan": "Foundation Magellan (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/magellan.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-accordion-menu": "Foundation Accordion Menu (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/accordion-menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-xy-grid": "Foundation XY Grid (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/xy-grid.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-callout": "Foundation Callout (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/callout.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-close-button": "Foundation Close Button (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/close-button.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-visibility": "Foundation Visibility Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/visibility.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-forms": "Foundation Forms (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/forms.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-flex": "Foundation Flex Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/flexbox-utilities.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-button": "Foundation Button (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/button.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-button-group": "Foundation Button Group (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/button-group.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-label": "Foundation Label (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/label.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-progress-bar": "Foundation Progress Bar (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/progress-bar.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-slider": "Foundation Slider (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/slider.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-switch": "Foundation Switch (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/switch.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-table": "Foundation Table (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/table.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-badge": "Foundation Badge (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/badge.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-breadcrumbs": "Foundation Breadcrumbs (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/breadcrumbs.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-card": "Foundation Card (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/card.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-pagination": "Foundation Pagination (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/pagination.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-accordion": "Foundation Accordion (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/accordion.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-media-object": "Foundation Media Object (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/media-object.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-orbit": "Foundation Orbit (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/orbit.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-responsive-embed": "Foundation Responsive Embed (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/responsive-embed.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-thumbnail": "Foundation Thumbnail (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/thumbnail.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-menu": "Foundation Menu (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-menu-icon": "Foundation Menu Icon (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-float": "Foundation Float Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/float-classes.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-prototype": "Foundation Prototype Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/prototyping-utilities.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-top-bar": "Foundation Top Bar (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/top-bar.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-motion-ui": "Foundation Motion UI (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/motion-ui.html\" target=\"_blank\"><small>Documentation<\/small><\/a>"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 1,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_5d7a61cff08f8",
+            "label": "Theme Libraries",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7a61dbf08f9",
+            "label": "Auto-load Theme Libraries",
+            "name": "autoload_theme_libraries",
+            "type": "checkbox",
+            "instructions": "By default, wordpress-foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined theme libraries globally as needed below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "theme-core": "Theme Core &mdash; <strong>Recommended<\/strong> (Bundle)",
+                "wordpress-core": "WordPress Core &mdash; <strong>Recommended<\/strong> (Bundle)"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 1,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_5d7a652c68d3e",
+            "label": "Head & Footer Code",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7a65990203e",
+            "label": "Head Code",
+            "name": "head_code",
+            "type": "textarea",
+            "instructions": "Define global code that appears in the <head> below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d7a66da86e50",
+            "label": "Footer Code",
+            "name": "footer_code",
+            "type": "textarea",
+            "instructions": "Define global code that appears at the bottom of the site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5d7a6b60f3974",
+            "label": "Image Sizes",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7a6f8d75ff3",
+            "label": "Thumbnail Size",
+            "name": "thumbnail_size",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_5d7a6f9c75ff4",
+                    "label": "Width",
+                    "name": "width",
+                    "type": "number",
+                    "instructions": "0 will automatically calculate the width.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_5d7a6fc575ff5",
+                    "label": "Height",
+                    "name": "height",
+                    "type": "number",
+                    "instructions": "0 will automatically calculate the height.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_5d7a6fe575ff6",
+                    "label": "Crop",
+                    "name": "crop",
+                    "type": "true_false",
+                    "instructions": "Crops the image to the specified size.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d7a6b6ff3975",
+            "label": "Images Sizes",
+            "name": "images_sizes",
+            "type": "repeater",
+            "instructions": "Add custom image sizes below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Image Size",
+            "sub_fields": [
+                {
+                    "key": "field_5d7a6b9ff3976",
+                    "label": "ID",
+                    "name": "id",
+                    "type": "text",
+                    "instructions": "Alpha-numeric ID for the image size.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7a6cb466ca3",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Enter a name for the image size.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7a6c09f3977",
+                    "label": "Width",
+                    "name": "width",
+                    "type": "number",
+                    "instructions": "0 will automatically calculate the width.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_5d7a6c49f3978",
+                    "label": "Height",
+                    "name": "height",
+                    "type": "number",
+                    "instructions": "0 will automatically calculate the height.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_5d7a6c6bf3979",
+                    "label": "Crop",
+                    "name": "crop",
+                    "type": "true_false",
+                    "instructions": "Crops the image to the specified size.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d7a72a361dbe",
+            "label": "Menus",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7a72ad61dbf",
+            "label": "Menus",
+            "name": "menus",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Menu",
+            "sub_fields": [
+                {
+                    "key": "field_5d7a72b861dc0",
+                    "label": "ID",
+                    "name": "id",
+                    "type": "text",
+                    "instructions": "Alpha-numeric ID for the menu.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d7a72d961dc1",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Enter the name of the menu.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d7a7e691cdfd",
+            "label": "Export\/Import Configuration",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7a7705df28c",
+            "label": "Export Configuration",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import this site's configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>Array\n(\n    [jquery_version] => 3.4.1\n    [disable_gutenburg_styles] => 1\n    [autoload_foundation_libraries] => Array\n        (\n            [0] => foundation-global-styles\n            [1] => foundation-typography\n        )\n\n    [autoload_theme_libraries] => Array\n        (\n            [0] => theme-core\n            [1] => wordpress-core\n        )\n\n    [head_code] => \n    [footer_code] => \n    [thumbnail_size] => \n    [images_sizes] => \n    [menus] => \n)\n<\/textarea>\n      ",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5d7a8419bab3d",
+            "label": "Import Configuration",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "      <textarea rows=\"10\"><\/textarea>\n      ",
+            "new_lines": "",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -52,7 +566,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "theme-options"
+                "value": "configuration"
             }
         ]
     ],
@@ -64,5 +578,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568247925
+    "modified": 1568310492
 }
