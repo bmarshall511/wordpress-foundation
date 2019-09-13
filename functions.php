@@ -362,11 +362,6 @@ require get_template_directory() . '/inc/theme-scripts.php';
 require get_parent_theme_file_path( '/inc/custom-login.php' );
 
 /**
- * Elementor specific functionality.
- */
-require get_parent_theme_file_path( '/inc/elementor.php' );
-
-/**
  * WYSIWYG editor.
  */
 require get_parent_theme_file_path( '/inc/wysiwyg.php' );
