@@ -219,20 +219,22 @@ add_action( 'after_setup_theme', 'foundation_setup' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function foundation_widgets_init() {
-  if ( have_rows( 'sidebars', 'option' ) ) {
-    $sidebars = array();
-    while( have_rows( 'sidebars', 'option' ) ) { the_row();
-      register_sidebar(
-        array(
-          'name'          => get_sub_field( 'name' ),
-          'id'            => get_sub_field( 'id' ),
-          'description'   => get_sub_field( 'name' ),
-          'before_widget' => get_sub_field( 'before_widget' ),
-          'after_widget'  => get_sub_field( 'after_widget' ),
-          'before_title'  => get_sub_field( 'before_title' ),
-          'after_title'   => get_sub_field( 'after_title' ),
-        )
-      );
+  if ( function_exists( 'have_rows' ) ) {
+    if ( have_rows( 'sidebars', 'option' ) ) {
+      $sidebars = array();
+      while( have_rows( 'sidebars', 'option' ) ) { the_row();
+        register_sidebar(
+          array(
+            'name'          => get_sub_field( 'name' ),
+            'id'            => get_sub_field( 'id' ),
+            'description'   => get_sub_field( 'name' ),
+            'before_widget' => get_sub_field( 'before_widget' ),
+            'after_widget'  => get_sub_field( 'after_widget' ),
+            'before_title'  => get_sub_field( 'before_title' ),
+            'after_title'   => get_sub_field( 'after_title' ),
+          )
+        );
+      }
     }
   }
 }
