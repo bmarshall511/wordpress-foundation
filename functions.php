@@ -57,9 +57,24 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
     if ( function_exists( 'get_field' ) ) {
+      // Thumbnail size
       $thumbnail_size = get_field( 'thumbnail_size', 'option' );
       if ( $thumbnail_size ) {
         set_post_thumbnail_size( $thumbnail_size['width'], $thumbnail_size['height'], $thumbnail_size['crop'] );
+      }
+
+      // Post formats
+      $post_formats = get_field( 'post_formats', 'option' );
+      if ( $post_formats ) {
+        add_theme_support( 'post-formats', $post_formats );
+        add_post_type_support( 'post', 'post-formats' );
+
+        $supported = get_field( 'supported_post_formats', 'option' );
+        if ( $supported ) {
+          foreach( $supported as $key => $post_type ) {
+            add_post_type_support( $post_type, 'post-formats' );
+          }
+        }
       }
     }
 

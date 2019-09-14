@@ -168,6 +168,76 @@
             "save_custom": 0
         },
         {
+            "key": "field_5d7c286197f92",
+            "label": "Page\/Post Formats",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d7c292097f94",
+            "label": "Types",
+            "name": "post_formats",
+            "type": "checkbox",
+            "instructions": "Select which post formats should be available.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "aside": "Aside",
+                "gallery": "Gallery",
+                "link": "Link",
+                "image": "Image",
+                "quote": "Quote",
+                "status": "Status",
+                "video": "Video",
+                "audio": "Audio",
+                "chat": "Chat"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 1,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_5d7c2bde4a821",
+            "label": "Additional Post Types",
+            "name": "supported_post_formats",
+            "type": "checkbox",
+            "instructions": "Select additional post types that support the selected post formats.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "page": "page"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 1,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
             "key": "field_5d7a652c68d3e",
             "label": "Head & Footer Code",
             "name": "",
@@ -791,7 +861,7 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 1
         },
         {
             "key": "field_5d7a7705df28c",
@@ -806,7 +876,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"disable_gutenburg_styles\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":null,\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}]}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"disable_gutenburg_styles\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":null,\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}]}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -845,5 +915,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568335204
+    "modified": 1568419432
 }

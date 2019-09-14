@@ -121,6 +121,11 @@ function foundation_register_required_plugins() {
     array(
 			'name'        => 'Custom Post Type UI',
       'slug'        => 'custom-post-type-ui',
+    ),
+
+    array(
+			'name'        => 'Classic Editor',
+      'slug'        => 'classic-editor',
 		),
 
 	);

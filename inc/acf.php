@@ -67,6 +67,24 @@ function foundation_acf_theme_libraries_selections( $field ) {
 }
 add_filter('acf/load_field/name=autoload_theme_libraries', 'foundation_acf_theme_libraries_selections');
 
+function foundation_acf_post_type_selections( $field ) {
+  $post_types = get_post_types(array(
+    'show_ui' => true,
+    'public'  => true,
+  ));
+
+  unset( $post_types['post'] );
+  unset( $post_types['attachment'] );
+  if ( ! empty( $post_types['elementor_library'] ) ) {
+    unset( $post_types['elementor_library'] );
+  }
+
+  $field['choices'] = $post_types;
+
+  return $field;
+}
+add_filter('acf/load_field/name=supported_post_formats', 'foundation_acf_post_type_selections');
+
 function foundation_acf_export_message( $field ) {
   switch( $field['label'] ) {
     case 'Export Configuration':
