@@ -126,6 +126,11 @@ function foundation_register_required_plugins() {
     array(
 			'name'        => 'Classic Editor',
       'slug'        => 'classic-editor',
+    ),
+
+    array(
+			'name'        => 'Elementor Custom Skin',
+      'slug'        => 'ele-custom-skin',
 		),
 
 	);
