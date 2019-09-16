@@ -29,10 +29,10 @@
         },
         {
             "key": "field_5d798fb3384d3",
-            "label": "Disable Gutenburg Styles",
-            "name": "disable_gutenburg_styles",
+            "label": "Gutenburg Editor",
+            "name": "enable_gutenburg",
             "type": "true_false",
-            "instructions": "You can disable Gutenburg styles to give a small performance boost if your site doesn't use it.",
+            "instructions": "<strong>This does not change the WYSIWYG editor type.<\/strong> This only adds\/removes additional Gutenburg\/TinyMCE editor features. To disable the Gutenburg editor, install & activate the <a href=\"https:\/\/wordpress.org\/plugins\/classic-editor\/\" target=\"_blank\">Classic Editor plugin<\/a>.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -43,8 +43,8 @@
             "message": "",
             "default_value": 1,
             "ui": 1,
-            "ui_on_text": "Disabled",
-            "ui_off_text": "Enabled"
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled"
         },
         {
             "key": "field_5d7a53915e240",
@@ -876,7 +876,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"disable_gutenburg_styles\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":null,\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}]}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"enable_gutenburg\":null,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}]}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -915,5 +915,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568419432
+    "modified": 1568661321
 }

@@ -9,8 +9,8 @@
  * @since 2.0.0
  */
 
-if ( ! defined( 'ASSETS' ) ) {
-	define( 'ASSETS', 'gulp-foundation' );
+if ( ! defined( 'FOUNDATION_ASSETS' ) ) {
+	define( 'FOUNDATION_ASSETS', 'gulp-foundation' );
 }
 
 /**
@@ -132,89 +132,8 @@ if ( ! function_exists( 'foundation_setup' ) ) :
       }
     }
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Add support for Block Styles.
-		add_theme_support( 'wp-block-styles' );
-
-		// Add support for full and wide align images.
-		add_theme_support( 'align-wide' );
-
-		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
-
-		// Enqueue editor styles.
-		add_editor_style( 'assets/css/style-editor.css' );
-
-		// Add custom editor font sizes.
-		/*add_theme_support(
-			'editor-font-sizes',
-			array(
-				array(
-					'name'      => __( 'Small', 'foundation' ),
-					'shortName' => __( 'S', 'foundation' ),
-					'size'      => 19.5,
-					'slug'      => 'small',
-				),
-				array(
-					'name'      => __( 'Normal', 'foundation' ),
-					'shortName' => __( 'M', 'foundation' ),
-					'size'      => 22,
-					'slug'      => 'normal',
-				),
-				array(
-					'name'      => __( 'Large', 'foundation' ),
-					'shortName' => __( 'L', 'foundation' ),
-					'size'      => 36.5,
-					'slug'      => 'large',
-				),
-				array(
-					'name'      => __( 'Huge', 'foundation' ),
-					'shortName' => __( 'XL', 'foundation' ),
-					'size'      => 49.5,
-					'slug'      => 'huge',
-				),
-			)
-		);*/
-
-		// Editor color palette.
-		add_theme_support(
-			'editor-color-palette',
-			array(
-				array(
-					'name'  => __( 'Primary', 'foundation' ),
-					'slug'  => 'primary',
-					'color' => '#1779ba',
-				),
-				array(
-					'name'  => __( 'Secondary', 'foundation' ),
-					'slug'  => 'secondary',
-					'color' => '#767676',
-				),
-				array(
-					'name'  => __( 'Dark Gray', 'foundation' ),
-					'slug'  => 'dark-gray',
-					'color' => '#8a8a8a',
-				),
-				array(
-					'name'  => __( 'Light Gray', 'foundation' ),
-					'slug'  => 'light-gray',
-					'color' => '#e6e6e6',
-				),
-				array(
-					'name'  => __( 'White', 'foundation' ),
-					'slug'  => 'white',
-					'color' => '#fefefe',
-				),
-			)
-		);
-
-		// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
-
 		// Remove the meta generator tag
-		remove_action('wp_head', 'wp_generator');
+		remove_action( 'wp_head', 'wp_generator' );
 
 		// Remove Windows Live Writer Manifest Link
 		remove_action( 'wp_head', 'wlwmanifest_link');
@@ -300,9 +219,7 @@ add_action( 'wp_default_scripts', 'foundation_remove_jquery_migrate' );
  * Head code
  */
 function foundation_head() {
-	//echo '<style>';
-	//echo file_get_contents( get_theme_file_uri( '/' . ASSETS . '/css/critical.css' ) );
-  //echo '</style>';
+  // @TODO - Inline critical.css.
 
   if ( function_exists( 'get_field' ) ) {
     $head_code = get_field( 'head_code', 'option' );
@@ -327,19 +244,15 @@ function foundation_footer() {
 add_action( 'wp_footer', 'foundation_footer' );
 
 /**
- * Enqueue supplemental block editor styles.
+ * Add theme options page.
  */
-function foundation_editor_customizer_styles() {
-
-	/*wp_enqueue_style( 'foundation-editor-customizer-styles', get_theme_file_uri( '/style-editor-customizer.css' ), false, '1.0', 'all' );
-
-	if ( 'custom' === get_theme_mod( 'primary_color' ) ) {
-		// Include color patterns.
-		require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
-		wp_add_inline_style( 'foundation-editor-customizer-styles', foundation_custom_colors_css() );
-	}*/
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page( [
+    'menu_title' => __( 'Configuration', 'foundation' ),
+    'page_title' => __( 'Configuration', 'foundation' ),
+    'menu_slug'  => 'configuration'
+  ] );
 }
-add_action( 'enqueue_block_editor_assets', 'foundation_editor_customizer_styles' );
 
 /**
  * Enhance the theme by hooking into WordPress.
@@ -350,11 +263,6 @@ require get_template_directory() . '/inc/template-functions.php';
  * Custom template tags for the theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
 /**
  * TGM Plugin Activation
@@ -377,22 +285,16 @@ require get_template_directory() . '/inc/theme-scripts.php';
 require get_parent_theme_file_path( '/inc/custom-login.php' );
 
 /**
- * WYSIWYG editor.
+ * Gutenburg editor.
  */
-require get_parent_theme_file_path( '/inc/wysiwyg.php' );
+require get_parent_theme_file_path( '/inc/gutenburg.php' );
+
+/**
+ * TinyMCE editor.
+ */
+require get_parent_theme_file_path( '/inc/tinymce.php' );
 
 /**
  * Advanced Custom Field
  */
 require get_parent_theme_file_path( '/inc/acf.php' );
-
-/**
- * Add theme options page.
- */
-if ( function_exists('acf_add_options_page') ) {
-	acf_add_options_page( [
-    'menu_title' => __( 'Configuration', 'foundation' ),
-    'page_title' => __( 'Configuration', 'foundation' ),
-    'menu_slug'  => 'configuration'
-  ] );
-}

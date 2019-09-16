@@ -1,15 +1,12 @@
 /*
-Theme Name: Foundation
-Theme URI: https://benmarshall.me/wordpress-foundation
-Author: Ben Marshall
-Author URI: https://benmarshall.me
-Description: A simple WordPress starter theme with ZURB Foundation integration and an optional gulp script compiler. <strong>Not meant as a <em>plug-n-play</em> theme</strong>, for WordPress developers looking create standarized, custom themes.
-Version: 3.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: foundation
-Tags:
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+  Theme Name:   Foundation
+  Theme URI:    https://github.com/bmarshall511/wordpress-foundation
+  Description:  Starter WordPress theme for developers to build incredible websites &mdash; built for performance with an <strong>average 100/100 Lighthouse score</strong>. For latest releases, more information, to report issues or contibute to the project, visit the <a href="https://github.com/bmarshall511/wordpress-foundation" target="_blank">GitHub project page</a>.
+  Author:       Ben Marshall
+  Author URI:   https://benmarshall.me
+  Version:      3.0.0
+  License:      GNU General Public License v2 or later
+  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+  Text Domain:  foundation
+  Tags: blog, e-commerce, entertainment, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, accessibility-ready, custom-logo, custom-menu, editor-style, featured-image-header, featured-images, footer-widgets, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
 */

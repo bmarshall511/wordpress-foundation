@@ -37,11 +37,11 @@ function foundation_acf_foundation_libraries_selections( $field ) {
 add_filter('acf/load_field/name=autoload_foundation_libraries', 'foundation_acf_foundation_libraries_selections');
 
 function foundation_acf_theme_libraries_selections( $field ) {
-  global $Theme_Scripts;
+  global $Foundation_Theme_Scripts;
 
   $field['choices'] = array();
 
-  foreach( $Theme_Scripts->libraries as $library => $ary ) {
+  foreach( $Foundation_Theme_Scripts->libraries as $library => $ary ) {
     if ( ! $ary['component'] ) { continue; }
 
     $field['choices'][ $library ] = $ary['name'];
@@ -115,7 +115,7 @@ function foundation_acf_admin_scripts( $hook ) {
     return;
   }
 
-  wp_enqueue_script( 'foundation-admin-configuration', get_template_directory_uri() . '/' . ASSETS . '/js/wordpress/admin-configuration.js', array( 'jquery'), wp_get_theme()->get( 'Version' ), true );
+  wp_enqueue_script( 'foundation-admin-configuration', get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/wordpress/admin-configuration.js', array( 'jquery'), wp_get_theme()->get( 'Version' ), true );
   wp_localize_script( 'foundation-admin-configuration', 'FOUNDATION', array(
     'nonce'     => wp_create_nonce( 'foundation' ),
     'admin_url' => admin_url()

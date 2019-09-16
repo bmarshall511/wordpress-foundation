@@ -23,7 +23,7 @@ class Foundation_Scripts {
       'url'         => 'https://foundation.zurb.com/sites/docs/global.html',
       'css' => array(
         'foundation-global-styles' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/global-styles.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/global-styles.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -40,7 +40,7 @@ class Foundation_Scripts {
       'url'         => 'https://foundation.zurb.com/sites/docs/typography-base.html',
       'css' => array(
         'foundation-typography' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/typography.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/typography.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -56,7 +56,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/off-canvas.html',
       'css' => array(
         'foundation-offcanvas' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/off-canvas.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/off-canvas.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -64,7 +64,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-offcanvas' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.offcanvas.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.offcanvas.js',
           'dep'       => array( 'foundation-util-mediaQuery', 'foundation-util-keyboard', 'foundation-util-triggers' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -80,7 +80,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/tooltip.html',
       'css' => array(
         'foundation-tooltip' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/tooltip.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/tooltip.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -88,7 +88,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-tooltip' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.tooltip.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.tooltip.js',
           'dep'       => array( 'foundation-util-box', 'foundation-util-mediaQuery', 'foundation-util-triggers' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -103,7 +103,7 @@ class Foundation_Scripts {
       'component' => false,
       'js' => array(
         'foundation-core' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.core.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.core.js',
           'dep'       => array( 'jquery' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -119,7 +119,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/media-queries.html',
       'js' => array(
         'foundation-util-mediaQuery' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.mediaQuery.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.mediaQuery.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -135,7 +135,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#keyboard',
       'js' => array(
         'foundation-util-keyboard' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.keyboard.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.keyboard.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -151,7 +151,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#box',
       'js' => array(
         'foundation-util-box' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.box.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.box.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -167,7 +167,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#triggers',
       'js' => array(
         'foundation-util-triggers' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.triggers.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.triggers.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -183,7 +183,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#touch',
       'js' => array(
         'foundation-util-touch' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.touch.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.touch.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -199,7 +199,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#motion-move',
       'js' => array(
         'foundation-util-motion' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.motion.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.motion.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -215,7 +215,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#timer',
       'js' => array(
         'foundation-util-timer' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.timer.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.timer.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -231,7 +231,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#imageloader',
       'js' => array(
         'foundation-util-imageloader' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.imageLoader.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.imageLoader.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -246,7 +246,7 @@ class Foundation_Scripts {
       'component' => false,
       'js' => array(
         'foundation-util-nest' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.util.nest.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.util.nest.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -262,7 +262,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/reveal.html',
       'css' => array(
         'foundation-reveal' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/reveal.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/reveal.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -270,7 +270,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-reveal' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.reveal.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.reveal.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-touch', 'foundation-util-triggers', 'foundation-util-mediaQuery', 'foundation-util-motion' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -286,7 +286,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/tabs.html',
       'css' => array(
         'foundation-tabs' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/tabs.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/tabs.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -294,7 +294,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-tabs' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.tabs.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.tabs.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-imageloader' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -310,7 +310,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/drilldown-menu.html',
       'css' => array(
         'foundation-drilldown' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/drilldown-menu.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/drilldown-menu.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -318,7 +318,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-drilldown' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.drilldown.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.drilldown.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-nest', 'foundation-util-box' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -334,7 +334,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/toggler.html',
       'js' => array(
         'foundation-toggler' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.toggler.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.toggler.js',
           'dep'       => array( 'foundation-util-motion', 'foundation-util-triggers' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -350,7 +350,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/dropdown-menu.html',
       'css' => array(
         'foundation-dropdown-menu' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/dropdown-menu.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/dropdown-menu.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -358,7 +358,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-dropdown-menu' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.dropdownMenu.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.dropdownMenu.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-box', 'foundation-util-nest', 'foundation-util-touch' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -374,7 +374,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/dropdown.html',
       'css' => array(
         'foundation-dropdown' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/dropdown.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/dropdown.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -382,7 +382,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-dropdown' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.dropdown.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.dropdown.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-box', 'foundation-util-touch', 'foundation-util-triggers' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -398,7 +398,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/sticky.html',
       'css' => array(
         'foundation-sticky' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/sticky.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/sticky.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -406,7 +406,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-sticky' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.sticky.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.sticky.js',
           'dep'       => array( 'foundation-util-triggers', 'foundation-util-mediaQuery' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -422,7 +422,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/abide.html',
       'js' => array(
         'foundation-abide' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.abide.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.abide.js',
           'dep'       => array(),
           'version'   => $this->version,
           'in_footer' => true,
@@ -438,7 +438,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/smooth-scroll.html',
       'js' => array(
         'foundation-smooth-scroll' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.smoothScroll.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.smoothScroll.js',
           'dep'       => array(),
           'version'   => $this->version,
           'in_footer' => true,
@@ -454,7 +454,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/magellan.html',
       'js' => array(
         'foundation-magellan' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.magellan.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.magellan.js',
           'dep'       => array( 'foundation-smooth-scroll', 'foundation-util-triggers' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -470,7 +470,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/accordion-menu.html',
       'css' => array(
         'foundation-accordion-menu' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/accordion-menu.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/accordion-menu.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -478,7 +478,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-accordion-menu' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.accordionMenu.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.accordionMenu.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-nest' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -494,7 +494,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/xy-grid.html',
       'css' => array(
         'foundation-xy-grid' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/xy-grid-classes.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/xy-grid-classes.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -510,7 +510,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/callout.html',
       'css' => array(
         'foundation-callout' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/callout.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/callout.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -526,7 +526,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/close-button.html',
       'css' => array(
         'foundation-close-button' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/close-button.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/close-button.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -542,7 +542,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/visibility.html',
       'css' => array(
         'foundation-visibility' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/visibility.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/visibility.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -558,7 +558,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/forms.html',
       'css' => array(
         'foundation-forms' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/forms.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/forms.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -574,7 +574,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/flexbox-utilities.html',
       'css' => array(
         'foundation-flex' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/flex.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/flex.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -590,7 +590,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/button.html',
       'css' => array(
         'foundation-button' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/button.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/button.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -606,7 +606,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/button-group.html',
       'css' => array(
         'foundation-button-group' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/button-group.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/button-group.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -622,7 +622,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/label.html',
       'css' => array(
         'foundation-label' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/label.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/label.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -638,7 +638,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/progress-bar.html',
       'css' => array(
         'foundation-progress-bar' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/progress-bar.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/progress-bar.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -654,7 +654,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/slider.html',
       'css' => array(
         'foundation-slider' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/slider.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/slider.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -662,7 +662,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-slider' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.slider.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.slider.js',
           'dep'       => array( 'foundation-util-motion', 'foundation-util-triggers', 'foundation-util-keyboard', 'foundation-util-touch' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -678,7 +678,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/switch.html',
       'css' => array(
         'foundation-progress-bar' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/switch.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/switch.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -694,7 +694,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/table.html',
       'css' => array(
         'foundation-table' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/table.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/table.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -710,7 +710,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/badge.html',
       'css' => array(
         'foundation-badge' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/badge.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/badge.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -726,7 +726,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/breadcrumbs.html',
       'css' => array(
         'foundation-breadcrumbs' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/breadcrumbs.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/breadcrumbs.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -742,7 +742,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/card.html',
       'css' => array(
         'foundation-card' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/card.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/card.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -758,7 +758,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/pagination.html',
       'css' => array(
         'foundation-pagination' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/pagination.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/pagination.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -774,7 +774,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/accordion.html',
       'css' => array(
         'foundation-accordion' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/accordion.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/accordion.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -782,7 +782,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-accordion' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.accordion.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.accordion.js',
           'dep'       => array( 'foundation-util-keyboard' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -798,7 +798,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/media-object.html',
       'css' => array(
         'foundation-media-object' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/media-object.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/media-object.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -814,7 +814,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/orbit.html',
       'css' => array(
         'foundation-orbit' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/orbit.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/orbit.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -822,7 +822,7 @@ class Foundation_Scripts {
       ),
       'js' => array(
         'foundation-orbit' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/js/foundation/foundation.orbit.js',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation/foundation.orbit.js',
           'dep'       => array( 'foundation-util-keyboard', 'foundation-util-motion', 'foundation-util-timer', 'foundation-util-imageloader', 'foundation-util-touch' ),
           'version'   => $this->version,
           'in_footer' => true,
@@ -838,7 +838,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/responsive-embed.html',
       'css' => array(
         'foundation-responsive-embed' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/responsive-embed.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/responsive-embed.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -854,7 +854,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/thumbnail.html',
       'css' => array(
         'foundation-thumbnail' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/thumbnail.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/thumbnail.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -870,7 +870,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/menu.html',
       'css' => array(
         'foundation-menu' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/menu.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/menu.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -886,7 +886,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/menu.html',
       'css' => array(
         'foundation-menu-icon' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/menu-icon.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/menu-icon.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -902,7 +902,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/float-classes.html',
       'css' => array(
         'foundation-float' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/float.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/float.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -918,7 +918,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/prototyping-utilities.html',
       'css' => array(
         'foundation-prototype' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/prototype.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/prototype.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -934,7 +934,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/top-bar.html',
       'css' => array(
         'foundation-top-bar' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/top-bar.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/top-bar.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
@@ -950,7 +950,7 @@ class Foundation_Scripts {
       'url'       => 'https://foundation.zurb.com/sites/docs/motion-ui.html',
       'css' => array(
         'foundation-motion-ui' => array(
-          'src'       => get_template_directory_uri() . '/' . ASSETS . '/css/foundation/foundation-motion-ui.css',
+          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/foundation/foundation-motion-ui.css',
           'dep'       => array(),
           'version'   => $this->version,
           'media'     => 'all',
