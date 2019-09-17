@@ -15,16 +15,12 @@ function foundation_acf_foundation_libraries_selections( $field ) {
       $field['choices'][ $library ] .= ' &mdash; <strong>Recommended</strong>';
     }
 
-    switch( $ary['type'] ) {
-      case 'js':
-        $field['choices'][ $library ] .= ' (JavaScript)';
-      break;
-      case 'css':
-        $field['choices'][ $library ] .= ' (CSS)';
-      break;
-      case 'bundle':
-        $field['choices'][ $library ] .= ' (Bundle)';
-      break;
+    if ( ! empty( $ary['css'] ) && ! empty( $ary['js'] ) ) {
+      $field['choices'][ $library ] .= ' (Bundle)';
+    } elseif( ! empty( $ary['css'] ) ) {
+      $field['choices'][ $library ] .= ' (CSS)';
+    } elseif( ! empty( $ary['js'] ) ) {
+      $field['choices'][ $library ] .= ' (JavaScript)';
     }
 
     if ( ! empty ( $ary['url'] ) ) {
@@ -50,16 +46,12 @@ function foundation_acf_theme_libraries_selections( $field ) {
       $field['choices'][ $library ] .= ' &mdash; <strong>Recommended</strong>';
     }
 
-    switch( $ary['type'] ) {
-      case 'js':
-        $field['choices'][ $library ] .= ' (JavaScript)';
-      break;
-      case 'css':
-        $field['choices'][ $library ] .= ' (CSS)';
-      break;
-      case 'bundle':
-        $field['choices'][ $library ] .= ' (Bundle)';
-      break;
+    if ( ! empty( $ary['css'] ) && ! empty( $ary['js'] ) ) {
+      $field['choices'][ $library ] .= ' (Bundle)';
+    } elseif( ! empty( $ary['css'] ) ) {
+      $field['choices'][ $library ] .= ' (CSS)';
+    } elseif( ! empty( $ary['js'] ) ) {
+      $field['choices'][ $library ] .= ' (JavaScript)';
     }
   }
 

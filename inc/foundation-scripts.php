@@ -18,7 +18,6 @@ class Foundation_Scripts {
     $this->libraries['foundation-global-styles'] = array(
       'name'        => 'Foundation Global Styles',
       'recommended' => true,
-      'type'        => 'css',
       'component'   => true,
       'url'         => 'https://foundation.zurb.com/sites/docs/global.html',
       'css' => array(
@@ -35,7 +34,6 @@ class Foundation_Scripts {
     $this->libraries['foundation-typography'] = array(
       'name'        => 'Foundation Typography',
       'recommended' => true,
-      'type'        => 'css',
       'component'   => true,
       'url'         => 'https://foundation.zurb.com/sites/docs/typography-base.html',
       'css' => array(
@@ -51,7 +49,6 @@ class Foundation_Scripts {
     // Foundation Off-canvas (https://foundation.zurb.com/sites/docs/off-canvas.html)
     $this->libraries['foundation-offcanvas'] = array(
       'name'      => 'Foundation Off-canvas',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/off-canvas.html',
       'css' => array(
@@ -75,7 +72,6 @@ class Foundation_Scripts {
     // Foundation Tooltip (https://foundation.zurb.com/sites/docs/tooltip.html)
     $this->libraries['foundation-tooltip'] = array(
       'name'      => 'Foundation Tooltip',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/tooltip.html',
       'css' => array(
@@ -99,7 +95,6 @@ class Foundation_Scripts {
     // Foundation Core (https://foundation.zurb.com/sites/docs/javascript.html)
     $this->libraries['foundation-core'] = array(
       'name'      => 'Foundation Core',
-      'type'      => 'js',
       'component' => false,
       'js' => array(
         'foundation-core' => array(
@@ -114,7 +109,6 @@ class Foundation_Scripts {
     // Foundation Media Queries (https://foundation.zurb.com/sites/docs/media-queries.html)
     $this->libraries['foundation-util-mediaQuery'] = array(
       'name'      => 'Foundation Media Queries',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/media-queries.html',
       'js' => array(
@@ -130,7 +124,6 @@ class Foundation_Scripts {
     // Foundation Keyboard (https://foundation.zurb.com/sites/docs/javascript-utilities.html#keyboard)
     $this->libraries['foundation-util-keyboard'] = array(
       'name'      => 'Foundation Keyboard',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#keyboard',
       'js' => array(
@@ -146,7 +139,6 @@ class Foundation_Scripts {
     // Foundation Box (https://foundation.zurb.com/sites/docs/javascript-utilities.html#box)
     $this->libraries['foundation-util-box'] = array(
       'name'      => 'Foundation Box',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#box',
       'js' => array(
@@ -162,7 +154,6 @@ class Foundation_Scripts {
     // Foundation Triggers (https://foundation.zurb.com/sites/docs/javascript-utilities.html#triggers)
     $this->libraries['foundation-util-triggers'] = array(
       'name'      => 'Foundation Triggers',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#triggers',
       'js' => array(
@@ -178,7 +169,6 @@ class Foundation_Scripts {
     // Foundation Touch (https://foundation.zurb.com/sites/docs/javascript-utilities.html#touch)
     $this->libraries['foundation-util-touch'] = array(
       'name'      => 'Foundation Touch',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#touch',
       'js' => array(
@@ -194,7 +184,6 @@ class Foundation_Scripts {
     // Foundation Motion (https://foundation.zurb.com/sites/docs/javascript-utilities.html#motion-move)
     $this->libraries['foundation-util-motion'] = array(
       'name'      => 'Foundation Motion/Move',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#motion-move',
       'js' => array(
@@ -210,7 +199,6 @@ class Foundation_Scripts {
     // Foundation Timer (https://foundation.zurb.com/sites/docs/javascript-utilities.html#timer)
     $this->libraries['foundation-util-timer'] = array(
       'name'      => 'Foundation Timer',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#timer',
       'js' => array(
@@ -226,7 +214,6 @@ class Foundation_Scripts {
     // Foundation Image Loader (https://foundation.zurb.com/sites/docs/javascript-utilities.html#imageloader)
     $this->libraries['foundation-util-imageloader'] = array(
       'name'      => 'Foundation Image Loader',
-      'type'      => 'js',
       'component' => false,
       'url'       => 'https://foundation.zurb.com/sites/docs/javascript-utilities.html#imageloader',
       'js' => array(
@@ -242,7 +229,6 @@ class Foundation_Scripts {
     // Foundation Nest
     $this->libraries['foundation-util-nest'] = array(
       'name'      => 'Foundation Nest',
-      'type'      => 'js',
       'component' => false,
       'js' => array(
         'foundation-util-nest' => array(
@@ -257,7 +243,6 @@ class Foundation_Scripts {
     // Foundation Reveal (https://foundation.zurb.com/sites/docs/reveal.html)
     $this->libraries['foundation-reveal'] = array(
       'name'      => 'Foundation Reveal',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/reveal.html',
       'css' => array(
@@ -281,7 +266,6 @@ class Foundation_Scripts {
     // Foundation Tabs (https://foundation.zurb.com/sites/docs/tabs.html)
     $this->libraries['foundation-tabs'] = array(
       'name'      => 'Foundation Tabs',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/tabs.html',
       'css' => array(
@@ -305,7 +289,6 @@ class Foundation_Scripts {
     // Foundation Drilldown (https://foundation.zurb.com/sites/docs/drilldown-menu.html)
     $this->libraries['foundation-drilldown'] = array(
       'name'      => 'Foundation Drilldown Menu',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/drilldown-menu.html',
       'css' => array(
@@ -329,7 +312,6 @@ class Foundation_Scripts {
     // Foundation Toggler (https://foundation.zurb.com/sites/docs/toggler.html)
     $this->libraries['foundation-toggler'] = array(
       'name'      => 'Foundation Toggler',
-      'type'      => 'js',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/toggler.html',
       'js' => array(
@@ -345,7 +327,6 @@ class Foundation_Scripts {
     // Foundation Dropdown Menu (https://foundation.zurb.com/sites/docs/dropdown-menu.html)
     $this->libraries['foundation-dropdown-menu'] = array(
       'name'      => 'Foundation Dropdown Menu',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/dropdown-menu.html',
       'css' => array(
@@ -369,7 +350,6 @@ class Foundation_Scripts {
     // Foundation Dropdown (https://foundation.zurb.com/sites/docs/dropdown.html)
     $this->libraries['foundation-dropdown'] = array(
       'name'      => 'Foundation Dropdown',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/dropdown.html',
       'css' => array(
@@ -393,7 +373,6 @@ class Foundation_Scripts {
     // Foundation Sticky (https://foundation.zurb.com/sites/docs/sticky.html)
     $this->libraries['foundation-sticky'] = array(
       'name'      => 'Foundation Sticky',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/sticky.html',
       'css' => array(
@@ -417,7 +396,6 @@ class Foundation_Scripts {
     // Foundation Abide (https://foundation.zurb.com/sites/docs/abide.html)
     $this->libraries['foundation-abide'] = array(
       'name'      => 'Foundation Abide',
-      'type'      => 'js',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/abide.html',
       'js' => array(
@@ -433,7 +411,6 @@ class Foundation_Scripts {
     // Foundation Smooth Scroll (https://foundation.zurb.com/sites/docs/smooth-scroll.html)
     $this->libraries['foundation-smooth-scroll'] = array(
       'name'      => 'Foundation Smooth Scroll',
-      'type'      => 'js',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/smooth-scroll.html',
       'js' => array(
@@ -449,7 +426,6 @@ class Foundation_Scripts {
     // Foundation Magellan (https://foundation.zurb.com/sites/docs/magellan.html)
     $this->libraries['foundation-magellan'] = array(
       'name'      => 'Foundation Magellan',
-      'type'      => 'js',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/magellan.html',
       'js' => array(
@@ -465,7 +441,6 @@ class Foundation_Scripts {
     // Foundation Accordion Menu (https://foundation.zurb.com/sites/docs/accordion-menu.html)
     $this->libraries['foundation-accordion-menu'] = array(
       'name'      => 'Foundation Accordion Menu',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/accordion-menu.html',
       'css' => array(
@@ -489,7 +464,6 @@ class Foundation_Scripts {
     // Foundation XY Grid (https://foundation.zurb.com/sites/docs/xy-grid.html)
     $this->libraries['foundation-xy-grid'] = array(
       'name'      => 'Foundation XY Grid',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/xy-grid.html',
       'css' => array(
@@ -505,7 +479,6 @@ class Foundation_Scripts {
     // Foundation Callout (https://foundation.zurb.com/sites/docs/callout.html)
     $this->libraries['foundation-callout'] = array(
       'name'      => 'Foundation Callout',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/callout.html',
       'css' => array(
@@ -521,7 +494,6 @@ class Foundation_Scripts {
     // Foundation Close Button (https://foundation.zurb.com/sites/docs/close-button.html)
     $this->libraries['foundation-close-button'] = array(
       'name'      => 'Foundation Close Button',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/close-button.html',
       'css' => array(
@@ -537,7 +509,6 @@ class Foundation_Scripts {
     // Foundation Visibility Classes (https://foundation.zurb.com/sites/docs/visibility.html)
     $this->libraries['foundation-visibility'] = array(
       'name'      => 'Foundation Visibility Classes',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/visibility.html',
       'css' => array(
@@ -553,7 +524,6 @@ class Foundation_Scripts {
     // Foundation Forms (https://foundation.zurb.com/sites/docs/forms.html)
     $this->libraries['foundation-forms'] = array(
       'name'      => 'Foundation Forms',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/forms.html',
       'css' => array(
@@ -569,7 +539,6 @@ class Foundation_Scripts {
     // Foundation Flex (https://foundation.zurb.com/sites/docs/flexbox-utilities.html)
     $this->libraries['foundation-flex'] = array(
       'name'      => 'Foundation Flex Classes',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/flexbox-utilities.html',
       'css' => array(
@@ -585,7 +554,6 @@ class Foundation_Scripts {
     // Foundation Button (https://foundation.zurb.com/sites/docs/button.html)
     $this->libraries['foundation-button'] = array(
       'name'      => 'Foundation Button',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/button.html',
       'css' => array(
@@ -601,7 +569,6 @@ class Foundation_Scripts {
     // Foundation Button Group (https://foundation.zurb.com/sites/docs/button-group.html)
     $this->libraries['foundation-button-group'] = array(
       'name'      => 'Foundation Button Group',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/button-group.html',
       'css' => array(
@@ -617,7 +584,6 @@ class Foundation_Scripts {
     // Foundation Label (https://foundation.zurb.com/sites/docs/label.html)
     $this->libraries['foundation-label'] = array(
       'name'      => 'Foundation Label',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/label.html',
       'css' => array(
@@ -633,7 +599,6 @@ class Foundation_Scripts {
     // Foundation Progress Bar (https://foundation.zurb.com/sites/docs/progress-bar.html)
     $this->libraries['foundation-progress-bar'] = array(
       'name'      => 'Foundation Progress Bar',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/progress-bar.html',
       'css' => array(
@@ -649,7 +614,6 @@ class Foundation_Scripts {
     // Foundation Slider (https://foundation.zurb.com/sites/docs/slider.html)
     $this->libraries['foundation-slider'] = array(
       'name'      => 'Foundation Slider',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/slider.html',
       'css' => array(
@@ -673,7 +637,6 @@ class Foundation_Scripts {
     // Foundation Switch (https://foundation.zurb.com/sites/docs/switch.html)
     $this->libraries['foundation-switch'] = array(
       'name'      => 'Foundation Switch',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/switch.html',
       'css' => array(
@@ -689,7 +652,6 @@ class Foundation_Scripts {
     // Foundation Table (https://foundation.zurb.com/sites/docs/table.html)
     $this->libraries['foundation-table'] = array(
       'name'      => 'Foundation Table',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/table.html',
       'css' => array(
@@ -705,7 +667,6 @@ class Foundation_Scripts {
     // Foundation Badge (https://foundation.zurb.com/sites/docs/badge.html)
     $this->libraries['foundation-badge'] = array(
       'name'      => 'Foundation Badge',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/badge.html',
       'css' => array(
@@ -721,7 +682,6 @@ class Foundation_Scripts {
     // Foundation Breadcrumbs (https://foundation.zurb.com/sites/docs/breadcrumbs.html)
     $this->libraries['foundation-breadcrumbs'] = array(
       'name'      => 'Foundation Breadcrumbs',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/breadcrumbs.html',
       'css' => array(
@@ -737,7 +697,6 @@ class Foundation_Scripts {
     // Foundation Card (https://foundation.zurb.com/sites/docs/card.html)
     $this->libraries['foundation-card'] = array(
       'name'      => 'Foundation Card',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/card.html',
       'css' => array(
@@ -753,7 +712,6 @@ class Foundation_Scripts {
     // Foundation Pagination (https://foundation.zurb.com/sites/docs/pagination.html)
     $this->libraries['foundation-pagination'] = array(
       'name'      => 'Foundation Pagination',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/pagination.html',
       'css' => array(
@@ -769,7 +727,6 @@ class Foundation_Scripts {
     // Foundation Accordion (https://foundation.zurb.com/sites/docs/accordion.html)
     $this->libraries['foundation-accordion'] = array(
       'name'      => 'Foundation Accordion',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/accordion.html',
       'css' => array(
@@ -793,7 +750,6 @@ class Foundation_Scripts {
     // Foundation Media Object (https://foundation.zurb.com/sites/docs/media-object.html)
     $this->libraries['foundation-media-object'] = array(
       'name'      => 'Foundation Media Object',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/media-object.html',
       'css' => array(
@@ -809,7 +765,6 @@ class Foundation_Scripts {
     // Foundation Orbit (https://foundation.zurb.com/sites/docs/orbit.html)
     $this->libraries['foundation-orbit'] = array(
       'name'      => 'Foundation Orbit',
-      'type'      => 'bundle',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/orbit.html',
       'css' => array(
@@ -833,7 +788,6 @@ class Foundation_Scripts {
     // Foundation Responsive Embed (https://foundation.zurb.com/sites/docs/responsive-embed.html)
     $this->libraries['foundation-responsive-embed'] = array(
       'name'      => 'Foundation Responsive Embed',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/responsive-embed.html',
       'css' => array(
@@ -849,7 +803,6 @@ class Foundation_Scripts {
     // Foundation Thumbnail (https://foundation.zurb.com/sites/docs/thumbnail.html)
     $this->libraries['foundation-thumbnail'] = array(
       'name'      => 'Foundation Thumbnail',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/thumbnail.html',
       'css' => array(
@@ -865,7 +818,6 @@ class Foundation_Scripts {
     // Foundation Menu (https://foundation.zurb.com/sites/docs/menu.html)
     $this->libraries['foundation-menu'] = array(
       'name'      => 'Foundation Menu',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/menu.html',
       'css' => array(
@@ -881,7 +833,6 @@ class Foundation_Scripts {
     // Foundation Menu Icon (https://foundation.zurb.com/sites/docs/menu.html)
     $this->libraries['foundation-menu-icon'] = array(
       'name'      => 'Foundation Menu Icon',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/menu.html',
       'css' => array(
@@ -897,7 +848,6 @@ class Foundation_Scripts {
     // Float Classes (https://foundation.zurb.com/sites/docs/float-classes.html)
     $this->libraries['foundation-float'] = array(
       'name'      => 'Foundation Float Classes',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/float-classes.html',
       'css' => array(
@@ -913,7 +863,6 @@ class Foundation_Scripts {
     // Prototype Classes (https://foundation.zurb.com/sites/docs/prototyping-utilities.html)
     $this->libraries['foundation-prototype'] = array(
       'name'      => 'Foundation Prototype Classes',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/prototyping-utilities.html',
       'css' => array(
@@ -929,7 +878,6 @@ class Foundation_Scripts {
     // Top Bar (https://foundation.zurb.com/sites/docs/top-bar.html)
     $this->libraries['foundation-top-bar'] = array(
       'name'      => 'Foundation Top Bar',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/top-bar.html',
       'css' => array(
@@ -945,7 +893,6 @@ class Foundation_Scripts {
     // Motion UI (https://foundation.zurb.com/sites/docs/motion-ui.html)
     $this->libraries['foundation-motion-ui'] = array(
       'name'      => 'Foundation Motion UI',
-      'type'      => 'css',
       'component' => true,
       'url'       => 'https://foundation.zurb.com/sites/docs/motion-ui.html',
       'css' => array(

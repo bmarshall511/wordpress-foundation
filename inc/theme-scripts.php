@@ -18,7 +18,6 @@ class Foundation_Theme_Scripts {
     $this->libraries['theme-core'] = array(
       'name'        => 'Theme Core',
       'recommended' => true,
-      'type'        => 'bundle',
       'component'   => true,
       'css' => array(
         'theme-core-critical' => array(
@@ -54,7 +53,6 @@ class Foundation_Theme_Scripts {
     $this->libraries['wordpress-core'] = array(
       'name'        => 'WordPress Core',
       'recommended' => true,
-      'type'        => 'bundle',
       'component'   => true,
       'css' => array(
         'wordpress-core' => array(
@@ -77,7 +75,6 @@ class Foundation_Theme_Scripts {
       'id'          => false, // Unique identifier
       'name'        => false, // Human-readable name
       'recommended' => false, // For display purposes on the Configuration page
-      'type'        => false, // css, js, bundle
       'component'   => false, // When true, displays as an auto-load option on the Configuration page
       'css'         => false, // Array
       'js'          => false, // Array
@@ -89,7 +86,6 @@ class Foundation_Theme_Scripts {
     if (
       ! $options['id'] ||
       ! $options['name'] ||
-      ! $options['type'] ||
       ( ! $options['css'] && ! $options['js'] ) ||
       $options['css'] && ! is_array( $options['css'] ) ||
       $options['js'] && ! is_array( $options['js'] )
@@ -98,31 +94,12 @@ class Foundation_Theme_Scripts {
     $this->libraries[ $options['id'] ] = array(
       'name'        => $options['name'],
       'recommended' => $options['recommended'],
-      'type'        => $options['type'],
       'component'   => $options['component'],
       'css'         => $options['css'],
       'js'          => $options['js'],
     );
 
-    if ( $options['css'] ) {
-      foreach( $options['css'] as $handle => $css ) {
-        if ( empty( $css['external'] ) ) {
-          $css['src'] = get_stylesheet_directory_uri() . '/' . $css['src'];
-        }
-
-        wp_register_style( $handle, $css['src'], $css['dep'], $css['version'], $css['media'] );
-      }
-    }
-
-    if ( $options['js'] ) {
-      foreach( $options['js'] as $handle => $js ) {
-        if ( empty( $js['external'] ) ) {
-          $js['src'] = get_stylesheet_directory_uri() . '/' . $js['src'];
-        }
-
-        wp_register_script( $handle, $js['src'], $js['dep'], $js['version'], $js['in_footer'] );
-      }
-    }
+    add_action( 'wp_enqueue_scripts', array( $this, 'wp_register_scripts' ) );
 
     return $this->libraries[ $options['id'] ];
   }
@@ -135,22 +112,26 @@ class Foundation_Theme_Scripts {
       // JavaScript
       if ( ! empty( $scripts['js'] ) ) {
         foreach( $scripts['js'] as $handle => $js ) {
-          if ( empty( $js['external'] ) ) {
-            $js['src'] = get_stylesheet_directory_uri() . '/' . $js['src'];
-          }
+          if ( ! wp_script_is( $handle ) ) {
+            if ( empty( $js['external'] ) ) {
+              $js['src'] = get_stylesheet_directory_uri() . '/' . $js['src'];
+            }
 
-          wp_register_script( $handle, $js['src'], $js['dep'], $js['version'], $js['in_footer'] );
+            wp_register_script( $handle, $js['src'], $js['dep'], $js['version'], $js['in_footer'] );
+          }
         }
       }
 
       // CSS
       if ( ! empty( $scripts['css'] ) ) {
         foreach( $scripts['css'] as $handle => $css ) {
-          if ( empty( $css['external'] ) ) {
-            $css['src'] = get_stylesheet_directory_uri() . '/' . $css['src'];
-          }
+          if ( ! wp_style_is( $handle ) ) {
+            if ( empty( $css['external'] ) ) {
+              $css['src'] = get_stylesheet_directory_uri() . '/' . $css['src'];
+            }
 
-          wp_register_style( $handle, $css['src'], $css['dep'], $css['version'], $css['media'] );
+            wp_register_style( $handle, $css['src'], $css['dep'], $css['version'], $css['media'] );
+          }
         }
       }
     }

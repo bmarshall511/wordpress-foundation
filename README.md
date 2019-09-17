@@ -30,6 +30,39 @@ This starter theme was developed with performance and optimization in mind. Rath
 3. Within the admin CMS, under 'Configuration' in the 'Foundation Libraries' and 'Theme Libraries' tab.
 4. When using certain widgets and Elementor widgets that automatically call the library that's needed on demand.
 
+#### Custom Libraries
+
+You can easily add your own custom CSS & JS as libraries using `foundation_add_theme_library( $args )`:
+
+```php
+function customtheme_after_theme_setup() {
+  // Returns the registered library, false if something went wrong.
+  $custom_lib = foundation_add_theme_library(array(
+    'id'          => 'custom', // Unique identifier
+    'name'        => 'Custom Library', // Human-readable name
+    'recommended' => true, // For display purposes on the Configuration page
+    'component'   => true, // When true, displays as an auto-load option on the Configuration page
+    'css'         => array(
+      'custom-css' => array( // Unique identifier that can be used to load directly via wp_enqueue_style
+        'src'     => FOUNDATION_ASSETS . '/css/custom.css',
+        'dep'     => array(),
+        'version' => wp_get_theme()->get( 'Version' ),
+        'media'   => 'all',
+      ),
+    ),
+    'js' => array(
+      'custom-js' => array( // Unique identifier that can be used to load directly via wp_enqueue_script
+        'src'       => FOUNDATION_ASSETS . '/js/custom.js',
+        'dep'       => array( 'jquery' ),
+        'version'   => wp_get_theme()->get( 'Version' ),
+        'in_footer' => true,
+      ),
+    )
+  ));
+}
+add_action( 'after_setup_theme', 'customtheme_after_theme_setup' );
+```
+
 ## Recommend/Useful Plugins
 
 The following plugins can be optionally &amp; automatically installed through this theme.
