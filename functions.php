@@ -47,7 +47,8 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+    add_theme_support( 'title-tag' );
+
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -146,6 +147,25 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'foundation_setup' );
+
+/**
+ * Admin init hook.
+ */
+if ( ! function_exists( 'foundation_admin_init' ) ) {
+  function foundation_admin_init() {
+    // Update the Gutenberg config option if the Classic Editor plugin is enabled.
+    if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
+      if ( get_field( 'enable_gutenberg', 'option' ) ) {
+        update_field( 'enable_gutenberg', false, 'option' );
+      }
+    } else {
+      if ( ! get_field( 'enable_gutenberg', 'option' ) ) {
+        update_field( 'enable_gutenberg', true, 'option' );
+      }
+    }
+  }
+}
+add_action( 'admin_init', 'foundation_admin_init' );
 
 /**
  * Register widget area.
@@ -265,6 +285,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
+ * Advanced Custom Field
+ */
+require get_parent_theme_file_path( '/inc/acf.php' );
+
+/**
  * TGM Plugin Activation
  */
 require get_parent_theme_file_path( '/inc/tgm-plugin-activation.php' );
@@ -285,16 +310,11 @@ require get_template_directory() . '/inc/theme-scripts.php';
 require get_parent_theme_file_path( '/inc/custom-login.php' );
 
 /**
- * Gutenburg editor.
+ * Gutenberg editor.
  */
-require get_parent_theme_file_path( '/inc/gutenburg.php' );
+require get_parent_theme_file_path( '/inc/gutenberg.php' );
 
 /**
  * TinyMCE editor.
  */
 require get_parent_theme_file_path( '/inc/tinymce.php' );
-
-/**
- * Advanced Custom Field
- */
-require get_parent_theme_file_path( '/inc/acf.php' );

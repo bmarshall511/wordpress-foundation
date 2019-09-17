@@ -22,19 +22,19 @@ class Foundation_Theme_Scripts {
       'component'   => true,
       'css' => array(
         'theme-core-critical' => array(
-          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/critical.css',
+          'src'       => FOUNDATION_ASSETS . '/css/critical.css',
           'dep'       => array(),
           'version'   => wp_get_theme()->get( 'Version' ),
           'media'     => 'all',
         ),
         'theme-core-non-critical' => array(
-          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/non-critical.css',
+          'src'       => FOUNDATION_ASSETS . '/css/non-critical.css',
           'dep'       => array(),
           'version'   => wp_get_theme()->get( 'Version' ),
           'media'     => 'all',
         ),
         'theme-core-print' => array(
-          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/print.css',
+          'src'       => FOUNDATION_ASSETS . '/css/print.css',
           'dep'       => array(),
           'version'   => wp_get_theme()->get( 'Version' ),
           'media'     => 'print',
@@ -42,7 +42,7 @@ class Foundation_Theme_Scripts {
       ),
       'js' => array(
         'theme-core-foundation' => array(
-          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/foundation.js#defer',
+          'src'       => FOUNDATION_ASSETS . '/js/foundation.js',
           'dep'       => array( 'foundation-core' ),
           'version'   => wp_get_theme()->get( 'Version' ),
           'in_footer' => true,
@@ -58,7 +58,7 @@ class Foundation_Theme_Scripts {
       'component'   => true,
       'css' => array(
         'wordpress-core' => array(
-          'src'       => get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/wordpress/core.css',
+          'src'       => FOUNDATION_ASSETS . '/css/wordpress/core.css',
           'dep'       => array(),
           'version'   => wp_get_theme()->get( 'Version' ),
           'media'     => 'all',
@@ -77,6 +77,10 @@ class Foundation_Theme_Scripts {
       // JavaScript
       if ( ! empty( $scripts['js'] ) ) {
         foreach( $scripts['js'] as $handle => $js ) {
+          if ( empty( $js['external'] ) ) {
+            $js['src'] = get_stylesheet_directory_uri() . '/' . $js['src'];
+          }
+
           wp_register_script( $handle, $js['src'], $js['dep'], $js['version'], $js['in_footer'] );
         }
       }
@@ -84,6 +88,10 @@ class Foundation_Theme_Scripts {
       // CSS
       if ( ! empty( $scripts['css'] ) ) {
         foreach( $scripts['css'] as $handle => $css ) {
+          if ( empty( $css['external'] ) ) {
+            $css['src'] = get_stylesheet_directory_uri() . '/' . $css['src'];
+          }
+
           wp_register_style( $handle, $css['src'], $css['dep'], $css['version'], $css['media'] );
         }
       }
@@ -96,6 +104,14 @@ class Foundation_Theme_Scripts {
       if ( $jquery_version ) {
         wp_deregister_script( 'jquery' );
         wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
+      }
+
+      // Auto-load theme libraries
+      $theme_libraries = get_field( 'autoload_theme_libraries', 'option' );
+      if ( $theme_libraries ) {
+        foreach( $theme_libraries as $key => $library ) {
+          $this->load_library( $library );
+        }
       }
     }
   }
@@ -120,23 +136,40 @@ class Foundation_Theme_Scripts {
   }
 }
 
-function foundation_async_scripts( $tag, $handle ) {
-  if ( strpos( $tag, '#async' ) === false ) {
-    return $tag;
-  }
-
-  if ( is_admin() ) {
-    return str_replace( '#async', '', $tag );
-  }
-
-  return str_replace( "#async'>", "' async>", $tag );
-}
-add_filter( 'script_loader_tag', 'foundation_async_scripts', 10, 2 );
-
 $Foundation_Theme_Scripts = new Foundation_Theme_Scripts();
 
-function foundation_load_theme_library( $library ) {
+function foundation_load_theme_library( $library, $return = false ) {
   global $Foundation_Theme_Scripts;
 
   $Foundation_Theme_Scripts->load_library( $library );
+}
+
+function foundation_get_theme_scripts( $library ) {
+  global $Foundation_Theme_Scripts;
+
+  if ( ! empty( $Foundation_Theme_Scripts->libraries[$library] ) ) {
+    return $Foundation_Theme_Scripts->libraries[$library];
+  }
+
+  return false;
+}
+
+function foundation_get_theme_autoloaded_files( $type ) {
+  $files = array();
+
+  if ( function_exists( 'get_field' ) ) {
+    $theme_libraries = get_field( 'autoload_theme_libraries', 'option' );
+    if ( $theme_libraries ) {
+      foreach( $theme_libraries as $key => $library ) {
+        $scripts = foundation_get_theme_scripts( $library );
+        if ( $scripts && ! empty( $scripts[ $type ] ) ) {
+          foreach( $scripts[ $type ] as $name => $file ) {
+            $files[] = $file['src'];
+          }
+        }
+      }
+    }
+  }
+
+  return $files;
 }

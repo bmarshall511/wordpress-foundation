@@ -11,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "70",
                 "class": "",
                 "id": ""
             },
@@ -29,22 +29,22 @@
         },
         {
             "key": "field_5d798fb3384d3",
-            "label": "Gutenburg Editor",
-            "name": "enable_gutenburg",
+            "label": "Editor Type",
+            "name": "enable_gutenberg",
             "type": "true_false",
-            "instructions": "<strong>This does not change the WYSIWYG editor type.<\/strong> This only adds\/removes additional Gutenburg\/TinyMCE editor features. To disable the Gutenburg editor, install & activate the <a href=\"https:\/\/wordpress.org\/plugins\/classic-editor\/\" target=\"_blank\">Classic Editor plugin<\/a>.",
+            "instructions": "This option is <strong>automatically updated<\/strong> based on if the <a href=\"https:\/\/wordpress.org\/plugins\/classic-editor\/\" target=\"_blank\">Classic Editor<\/a> plugin is installed & activated.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
             "message": "",
             "default_value": 1,
             "ui": 1,
-            "ui_on_text": "Enabled",
-            "ui_off_text": "Disabled"
+            "ui_on_text": "Gutenberg",
+            "ui_off_text": "TinyMCE"
         },
         {
             "key": "field_5d7a53915e240",
@@ -262,7 +262,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -281,7 +281,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -717,11 +717,11 @@
                     "label": "ID",
                     "name": "id",
                     "type": "text",
-                    "instructions": "Alpha-numeric ID for the sidebar.",
+                    "instructions": "Unique alpha-numeric identifier.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
@@ -740,7 +740,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "32.5",
                         "class": "",
                         "id": ""
                     },
@@ -759,7 +759,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "42.5",
                         "class": "",
                         "id": ""
                     },
@@ -774,11 +774,11 @@
                     "label": "Before Widget",
                     "name": "before_widget",
                     "type": "text",
-                    "instructions": "HTML opening tag for widgets that appear in this sidebar.",
+                    "instructions": "Opening tag for widgets.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
@@ -793,11 +793,11 @@
                     "label": "After Widget",
                     "name": "after_widget",
                     "type": "text",
-                    "instructions": "HTML closing tag for widgets that appear in this sidebar.",
+                    "instructions": "Closing tag for widgets.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
@@ -812,11 +812,11 @@
                     "label": "Before Title",
                     "name": "before_title",
                     "type": "text",
-                    "instructions": "HTML opening tag for the widget titles.",
+                    "instructions": "Opening tag for widget titles.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
@@ -831,11 +831,11 @@
                     "label": "After Title",
                     "name": "after_title",
                     "type": "text",
-                    "instructions": "HTML closing tag for the widget titles.",
+                    "instructions": "Closing tag for widget titles.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
@@ -846,6 +846,254 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5d811bc3d7d28",
+            "label": "Gutenberg",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d798fb3384d3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d811bf9d7d29",
+            "label": "Color Palette",
+            "name": "gutenberg_color_palette",
+            "type": "repeater",
+            "instructions": "Different blocks have the possibility of customizing colors. Choose a default color palette to pick from:",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d798fb3384d3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Color",
+            "sub_fields": [
+                {
+                    "key": "field_5d811c2dd7d2a",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Appears in the tooltip of the color picker.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d811c38d7d2b",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "Unique alpha-numeric identifier for the color, used to generate CSS classes.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d811c53d7d2c",
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d8123ff570bf",
+            "label": "Disable Custom Colors",
+            "name": "disable_custom_colors",
+            "type": "true_false",
+            "instructions": "When enabled, users will be restricted to the colors provided above.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d798fb3384d3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d811f30353f6",
+            "label": "Font Sizes",
+            "name": "gutenberg_font_sizes",
+            "type": "repeater",
+            "instructions": "Blocks may allow configuration of font sizes, e.g., the paragraph block. Set the defaults below:",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d798fb3384d3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Size",
+            "sub_fields": [
+                {
+                    "key": "field_5d811f9c353f7",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d811fac353f8",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "Unique alpha-numeric identifier for the size.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d811fb6353f9",
+                    "label": "Size",
+                    "name": "size",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": 1
+                }
+            ]
+        },
+        {
+            "key": "field_5d812318215b2",
+            "label": "Disable Custom Font Size",
+            "name": "gutenberg_disable_custom_font_sizes",
+            "type": "true_false",
+            "instructions": "When enabled, users will be restricted to the font sizes provided above.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d798fb3384d3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_5d7a7e691cdfd",
@@ -876,7 +1124,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"enable_gutenburg\":null,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}]}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"enable_gutenburg\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"233\",\"height\":\"18\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}],\"gutenburg_color_palette\":null,\"disable_custom_colors\":null,\"gutenburg_font_sizes\":null,\"gutenburg_disable_custom_font_sizes\":null}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -915,5 +1163,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568661321
+    "modified": 1568746049
 }

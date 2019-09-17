@@ -8,26 +8,45 @@
  */
 
 class Foundation_TinyMCE {
-  public $gutenburg = true;
+  public $gutenberg = true;
 
   public function __construct() {
     if ( function_exists( 'get_field' ) ) {
-      $this->gutenburg = get_field( 'enable_gutenburg', 'option' );
+      $this->gutenberg = get_field( 'enable_gutenberg', 'option' );
     }
 
-    if ( ! $this->enabled ) {
+    if ( ! $this->gutenberg ) {
       add_filter( 'mce_buttons_2', array( $this, 'mce_buttons_2' ) );
       add_filter( 'tiny_mce_before_init', array( $this, 'tiny_mce_before_init' ) );
+
+      // TinyMCS CSS
+      $stylesheets = array();
+
+      // Foundation libraries
+      $foundation_files = foundation_get_autoloaded_files( 'css' );
+      if ( $foundation_files ) {
+        $stylesheets = array_merge( $stylesheets, $foundation_files );
+      }
+
+      // Theme libraries
+      $theme_files = foundation_get_theme_autoloaded_files( 'css' );
+      if ( $theme_files ) {
+        $stylesheets = array_merge( $stylesheets, $theme_files );
+      }
+
+      $stylesheets[] = FOUNDATION_ASSETS . '/css/wordpress/tinymce-editor.css';
+
+      add_editor_style( $stylesheets );
     }
   }
 
-  public function mce_buttons_2() {
+  public function mce_buttons_2( $buttons ) {
     array_unshift( $buttons, 'styleselect' );
 
 	  return $buttons;
   }
 
-  public function tiny_mce_before_init() {
+  public function tiny_mce_before_init( $init_array ) {
     $style_formats = array(
       array(
         'title'   => '.lead',
@@ -48,3 +67,5 @@ class Foundation_TinyMCE {
     return $init_array;
   }
 }
+
+$Foundation_TinyMCE = new Foundation_TinyMCE;
