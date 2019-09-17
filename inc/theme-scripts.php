@@ -70,6 +70,64 @@ class Foundation_Theme_Scripts {
   }
 
   /**
+   * Adds a new library
+   */
+  public function add_library( $args ) {
+    $default = array(
+      'id'          => false, // Unique identifier
+      'name'        => false, // Human-readable name
+      'recommended' => false, // For display purposes on the Configuration page
+      'type'        => false, // css, js, bundle
+      'component'   => false, // When true, displays as an auto-load option on the Configuration page
+      'css'         => false, // Array
+      'js'          => false, // Array
+    );
+
+    $options = array_merge( $default, $args );
+
+    // Verify options
+    if (
+      ! $options['id'] ||
+      ! $options['name'] ||
+      ! $options['type'] ||
+      ( ! $options['css'] && ! $options['js'] ) ||
+      $options['css'] && ! is_array( $options['css'] ) ||
+      $options['js'] && ! is_array( $options['js'] )
+    ) { return false; }
+
+    $this->libraries[ $options['id'] ] = array(
+      'name'        => $options['name'],
+      'recommended' => $options['recommended'],
+      'type'        => $options['type'],
+      'component'   => $options['component'],
+      'css'         => $options['css'],
+      'js'          => $options['js'],
+    );
+
+    if ( $options['css'] ) {
+      foreach( $options['css'] as $handle => $css ) {
+        if ( empty( $css['external'] ) ) {
+          $css['src'] = get_stylesheet_directory_uri() . '/' . $css['src'];
+        }
+
+        wp_register_style( $handle, $css['src'], $css['dep'], $css['version'], $css['media'] );
+      }
+    }
+
+    if ( $options['js'] ) {
+      foreach( $options['js'] as $handle => $js ) {
+        if ( empty( $js['external'] ) ) {
+          $js['src'] = get_stylesheet_directory_uri() . '/' . $js['src'];
+        }
+
+        wp_register_script( $handle, $js['src'], $js['dep'], $js['version'], $js['in_footer'] );
+      }
+    }
+
+    return $this->libraries[ $options['id'] ];
+  }
+
+  /**
    * Register libraries with WordPress
    */
   public function wp_register_scripts() {
@@ -138,6 +196,18 @@ class Foundation_Theme_Scripts {
 
 $Foundation_Theme_Scripts = new Foundation_Theme_Scripts();
 
+/**
+ * Adds a new theme library.
+ */
+function foundation_add_theme_library( $args ) {
+  global $Foundation_Theme_Scripts;
+
+  $Foundation_Theme_Scripts->add_library( $args );
+}
+
+/**
+ * Loads a specified pre-defined theme library.
+ */
 function foundation_load_theme_library( $library, $return = false ) {
   global $Foundation_Theme_Scripts;
 
