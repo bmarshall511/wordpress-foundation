@@ -19,7 +19,9 @@
                 "3.4.1": "v3.4.1",
                 "2.2.4": "v2.2.4"
             },
-            "default_value": [],
+            "default_value": [
+                "3.4.1"
+            ],
             "allow_null": 1,
             "multiple": 0,
             "ui": 1,
@@ -1212,5 +1214,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568905359
+    "modified": 1568921074
 }
