@@ -47,21 +47,23 @@ class Foundation_Gutenberg {
     // Add support for editor styles.
     $stylesheets = array();
 
-    // Foundation libraries
-    $load_foundation_editor_styles = get_field( 'editor_load_foundation' );
-    if ( $load_foundation_editor_styles ) {
-      $foundation_files = foundation_get_autoloaded_files( 'css' );
-      if ( $foundation_files ) {
-        $stylesheets = array_merge( $stylesheets, $foundation_files );
+    if ( function_exists( 'get_field' ) ) {
+      // Foundation libraries
+      $load_foundation_editor_styles = get_field( 'editor_load_foundation' );
+      if ( $load_foundation_editor_styles ) {
+        $foundation_files = foundation_get_autoloaded_files( 'css' );
+        if ( $foundation_files ) {
+          $stylesheets = array_merge( $stylesheets, $foundation_files );
+        }
       }
-    }
 
-    // Theme libraries
-    $load_theme_editor_styles = get_field( 'editor_load_theme' );
-    if ( $load_theme_editor_styles ) {
-      $theme_files = foundation_get_theme_autoloaded_files( 'css' );
-      if ( $theme_files ) {
-        $stylesheets = array_merge( $stylesheets, $theme_files );
+      // Theme libraries
+      $load_theme_editor_styles = get_field( 'editor_load_theme' );
+      if ( $load_theme_editor_styles ) {
+        $theme_files = foundation_get_theme_autoloaded_files( 'css' );
+        if ( $theme_files ) {
+          $stylesheets = array_merge( $stylesheets, $theme_files );
+        }
       }
     }
 

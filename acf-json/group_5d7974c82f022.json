@@ -60,7 +60,52 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "choices": {
+                "foundation-global-styles": "Foundation Global Styles &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/global.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-typography": "Foundation Typography &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/typography-base.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-offcanvas": "Foundation Off-canvas (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/off-canvas.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-tooltip": "Foundation Tooltip (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/tooltip.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-reveal": "Foundation Reveal (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/reveal.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-tabs": "Foundation Tabs (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/tabs.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-drilldown": "Foundation Drilldown Menu (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/drilldown-menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-toggler": "Foundation Toggler (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/toggler.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-dropdown-menu": "Foundation Dropdown Menu (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/dropdown-menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-dropdown": "Foundation Dropdown (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/dropdown.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-sticky": "Foundation Sticky (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/sticky.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-abide": "Foundation Abide (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/abide.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-smooth-scroll": "Foundation Smooth Scroll (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/smooth-scroll.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-magellan": "Foundation Magellan (JavaScript) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/magellan.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-accordion-menu": "Foundation Accordion Menu (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/accordion-menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-xy-grid": "Foundation XY Grid (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/xy-grid.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-callout": "Foundation Callout (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/callout.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-close-button": "Foundation Close Button (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/close-button.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-visibility": "Foundation Visibility Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/visibility.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-forms": "Foundation Forms (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/forms.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-flex": "Foundation Flex Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/flexbox-utilities.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-button": "Foundation Button (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/button.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-button-group": "Foundation Button Group (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/button-group.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-label": "Foundation Label (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/label.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-progress-bar": "Foundation Progress Bar (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/progress-bar.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-slider": "Foundation Slider (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/slider.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-switch": "Foundation Switch (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/switch.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-table": "Foundation Table (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/table.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-badge": "Foundation Badge (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/badge.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-breadcrumbs": "Foundation Breadcrumbs (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/breadcrumbs.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-card": "Foundation Card (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/card.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-pagination": "Foundation Pagination (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/pagination.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-accordion": "Foundation Accordion (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/accordion.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-media-object": "Foundation Media Object (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/media-object.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-orbit": "Foundation Orbit (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/orbit.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-responsive-embed": "Foundation Responsive Embed (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/responsive-embed.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-thumbnail": "Foundation Thumbnail (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/thumbnail.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-menu": "Foundation Menu (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-menu-icon": "Foundation Menu Icon (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/menu.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-float": "Foundation Float Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/float-classes.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-prototype": "Foundation Prototype Classes (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/prototyping-utilities.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-top-bar": "Foundation Top Bar (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/top-bar.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-motion-ui": "Foundation Motion UI (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/motion-ui.html\" target=\"_blank\"><small>Documentation<\/small><\/a>"
+            }
         },
         {
             "key": "field_5d7a53d0adfcf",
@@ -141,7 +186,11 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "choices": {
+                "theme-core": "Theme Core &mdash; <strong>Recommended<\/strong> (Bundle)",
+                "wordpress-core": "WordPress Core &mdash; <strong>Recommended<\/strong> (CSS)"
+            }
         },
         {
             "key": "field_5d7a61dbf08f9",
@@ -1163,5 +1212,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568900406
+    "modified": 1568905359
 }
