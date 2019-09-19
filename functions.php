@@ -153,14 +153,16 @@ add_action( 'after_setup_theme', 'foundation_setup' );
  */
 if ( ! function_exists( 'foundation_admin_init' ) ) {
   function foundation_admin_init() {
-    // Update the Gutenberg config option if the Classic Editor plugin is enabled.
-    if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
-      if ( get_field( 'enable_gutenberg', 'option' ) ) {
-        update_field( 'enable_gutenberg', false, 'option' );
-      }
-    } else {
-      if ( ! get_field( 'enable_gutenberg', 'option' ) ) {
-        update_field( 'enable_gutenberg', true, 'option' );
+    if ( function_exists( 'get_field' ) ) {
+      // Update the Gutenberg config option if the Classic Editor plugin is enabled.
+      if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
+        if ( get_field( 'enable_gutenberg', 'option' ) ) {
+          update_field( 'enable_gutenberg', false, 'option' );
+        }
+      } else {
+        if ( ! get_field( 'enable_gutenberg', 'option' ) ) {
+          update_field( 'enable_gutenberg', true, 'option' );
+        }
       }
     }
   }
@@ -266,7 +268,7 @@ add_action( 'wp_footer', 'foundation_footer' );
 /**
  * Add theme options page.
  */
-if ( function_exists('acf_add_options_page') ) {
+if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page( [
     'menu_title' => __( 'Configuration', 'foundation' ),
     'page_title' => __( 'Configuration', 'foundation' ),
