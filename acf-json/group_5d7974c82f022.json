@@ -64,10 +64,10 @@
         },
         {
             "key": "field_5d7a53d0adfcf",
-            "label": "Auto-load Component Libraries",
+            "label": "Auto-load Foundation Component Libraries",
             "name": "autoload_foundation_libraries",
             "type": "checkbox",
-            "instructions": "By default, wordpress-foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined Foundation component libraries globally as needed below.",
+            "instructions": "By default, Foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined Foundation component libraries globally as needed below.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -145,10 +145,10 @@
         },
         {
             "key": "field_5d7a61dbf08f9",
-            "label": "Auto-load Theme Libraries",
+            "label": "Auto-load Theme Component Libraries",
             "name": "autoload_theme_libraries",
             "type": "checkbox",
-            "instructions": "By default, wordpress-foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined theme libraries globally as needed below.",
+            "instructions": "By default, Foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined theme libraries globally as needed below.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -158,7 +158,7 @@
             },
             "choices": {
                 "theme-core": "Theme Core &mdash; <strong>Recommended<\/strong> (Bundle)",
-                "wordpress-core": "WordPress Core &mdash; <strong>Recommended<\/strong> (Bundle)"
+                "wordpress-core": "WordPress Core &mdash; <strong>Recommended<\/strong> (CSS)"
             },
             "allow_custom": 0,
             "default_value": [],
@@ -1124,7 +1124,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"enable_gutenburg\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"233\",\"height\":\"18\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}],\"gutenburg_color_palette\":null,\"disable_custom_colors\":null,\"gutenburg_font_sizes\":null,\"gutenburg_disable_custom_font_sizes\":null}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"enable_gutenberg\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\",\"custom\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"233\",\"height\":\"18\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}],\"gutenberg_color_palette\":false,\"disable_custom_colors\":false,\"gutenberg_font_sizes\":false,\"gutenberg_disable_custom_font_sizes\":false}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -1163,5 +1163,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568746049
+    "modified": 1568900406
 }

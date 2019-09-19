@@ -6,10 +6,23 @@ function foundation_acf_foundation_libraries_selections( $field ) {
 
   $field['choices'] = array();
 
+  // Check if a page/post & get globally loaded libraries.
+  $global_foundation_libraries = false;
+  if ( 'foundation_libraries' == $field['name'] ) {
+    $global_foundation_libraries = get_field( 'autoload_foundation_libraries', 'option' );
+  }
+
   foreach( $Foundation_Scripts->libraries as $library => $ary ) {
     if ( ! $ary['component'] ) { continue; }
 
-    $field['choices'][ $library ] = $ary['name'];
+    $field['choices'][ $library ] = '';
+
+    // Check if a page/post option & if already globally loaded
+    if ( $global_foundation_libraries && in_array( $library, $global_foundation_libraries ) ) {
+      $field['choices'][ $library ] .= '<a href="' . admin_url('admin.php?page=configuration') . '"><strong>Auto-loaded</strong></a> &mdash; ';
+    }
+
+    $field['choices'][ $library ] .= $ary['name'];
 
     if ( ! empty( $ary['recommended'] ) && $ary['recommended'] ) {
       $field['choices'][ $library ] .= ' &mdash; <strong>Recommended</strong>';
@@ -31,16 +44,30 @@ function foundation_acf_foundation_libraries_selections( $field ) {
   return $field;
 }
 add_filter('acf/load_field/name=autoload_foundation_libraries', 'foundation_acf_foundation_libraries_selections');
+add_filter('acf/load_field/name=foundation_libraries', 'foundation_acf_foundation_libraries_selections');
 
 function foundation_acf_theme_libraries_selections( $field ) {
   global $Foundation_Theme_Scripts;
 
   $field['choices'] = array();
 
+  // Check if a page/post & get globally loaded libraries.
+  $global_theme_libraries = false;
+  if ( 'theme_libraries' == $field['name'] ) {
+    $global_theme_libraries = get_field( 'autoload_theme_libraries', 'option' );
+  }
+
   foreach( $Foundation_Theme_Scripts->libraries as $library => $ary ) {
     if ( ! $ary['component'] ) { continue; }
 
-    $field['choices'][ $library ] = $ary['name'];
+    $field['choices'][ $library ] = '';
+
+    // Check if a page/post option & if already globally loaded
+    if ( $global_theme_libraries && in_array( $library, $global_theme_libraries ) ) {
+      $field['choices'][ $library ] .= '<a href="' . admin_url('admin.php?page=configuration') . '"><strong>Auto-loaded</strong></a> &mdash; ';
+    }
+
+    $field['choices'][ $library ] .= $ary['name'];
 
     if ( ! empty( $ary['recommended'] ) && $ary['recommended'] ) {
       $field['choices'][ $library ] .= ' &mdash; <strong>Recommended</strong>';
@@ -58,6 +85,7 @@ function foundation_acf_theme_libraries_selections( $field ) {
   return $field;
 }
 add_filter('acf/load_field/name=autoload_theme_libraries', 'foundation_acf_theme_libraries_selections');
+add_filter('acf/load_field/name=theme_libraries', 'foundation_acf_theme_libraries_selections');
 
 function foundation_acf_post_type_selections( $field ) {
   $post_types = get_post_types(array(

@@ -944,6 +944,14 @@ class Foundation_Scripts {
           $this->load_library( $library );
         }
       }
+
+      // Load page/post libraries
+      $page_foundation_libraries = get_field( 'foundation_libraries' );
+      if ( $page_foundation_libraries ) {
+        foreach( $page_foundation_libraries as $key => $library ) {
+          $this->load_library( $library );
+        }
+      }
     }
   }
 

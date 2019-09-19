@@ -48,15 +48,21 @@ class Foundation_Gutenberg {
     $stylesheets = array();
 
     // Foundation libraries
-    $foundation_files = foundation_get_autoloaded_files( 'css' );
-    if ( $foundation_files ) {
-      $stylesheets = array_merge( $stylesheets, $foundation_files );
+    $load_foundation_editor_styles = get_field( 'editor_load_foundation' );
+    if ( $load_foundation_editor_styles ) {
+      $foundation_files = foundation_get_autoloaded_files( 'css' );
+      if ( $foundation_files ) {
+        $stylesheets = array_merge( $stylesheets, $foundation_files );
+      }
     }
 
     // Theme libraries
-    $theme_files = foundation_get_theme_autoloaded_files( 'css' );
-    if ( $theme_files ) {
-      $stylesheets = array_merge( $stylesheets, $theme_files );
+    $load_theme_editor_styles = get_field( 'editor_load_theme' );
+    if ( $load_theme_editor_styles ) {
+      $theme_files = foundation_get_theme_autoloaded_files( 'css' );
+      if ( $theme_files ) {
+        $stylesheets = array_merge( $stylesheets, $theme_files );
+      }
     }
 
     $stylesheets[] = FOUNDATION_ASSETS . '/css/wordpress/gutenberg-editor.css';

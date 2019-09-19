@@ -152,6 +152,14 @@ class Foundation_Theme_Scripts {
           $this->load_library( $library );
         }
       }
+
+      // Load page/post libraries
+      $page_theme_libraries = get_field( 'theme_libraries' );
+      if ( $page_theme_libraries ) {
+        foreach( $page_theme_libraries as $key => $library ) {
+          $this->load_library( $library );
+        }
+      }
     }
   }
 
