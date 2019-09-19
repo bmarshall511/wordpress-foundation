@@ -1,15 +1,14 @@
 <?php
 /**
- * The header for our theme
+ * The theme header template.
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * This is the template that displays all of the <head> section.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
  * @subpackage Foundation
  * @since 1.0.0
- * @version 2.0.0
  */
 
 ?><!doctype html>

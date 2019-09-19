@@ -17,9 +17,14 @@ if ( ! defined( 'FOUNDATION_ASSETS' ) ) {
  * WordPress Foundation only works in WordPress 4.7 or later.
  */
 if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
+	require get_parent_theme_file_path( '/inc/back-compat.php' );
 	return;
 }
+
+/**
+ * Vendor files
+ */
+require get_parent_theme_file_path( '/vendor/autoload.php' );
 
 if ( ! function_exists( 'foundation_setup' ) ) :
 	/**
@@ -279,12 +284,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 /**
  * Enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require get_parent_theme_file_path( '/inc/template-functions.php' );
 
 /**
  * Custom template tags for the theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_parent_theme_file_path( '/inc/template-tags.php' );
 
 /**
  * Advanced Custom Field
@@ -299,12 +304,12 @@ require get_parent_theme_file_path( '/inc/tgm-plugin-activation.php' );
 /**
  * Foundation CSS & JS
  */
-require get_template_directory() . '/inc/foundation-scripts.php';
+require get_parent_theme_file_path( '/inc/foundation-scripts.php' );
 
 /**
  * Theme CSS & JS
  */
-require get_template_directory() . '/inc/theme-scripts.php';
+require get_parent_theme_file_path( '/inc/theme-scripts.php' );
 
 /**
  * Custom login page.
