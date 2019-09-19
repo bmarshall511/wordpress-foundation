@@ -268,7 +268,7 @@ add_action( 'wp_footer', 'foundation_footer' );
 /**
  * Add theme options page.
  */
-if ( function_exists('acf_add_options_page') ) {
+if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page( [
     'menu_title' => __( 'Configuration', 'foundation' ),
     'page_title' => __( 'Configuration', 'foundation' ),
