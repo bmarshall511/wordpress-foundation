@@ -2,14 +2,13 @@
 /**
  * The template for displaying the footer
  *
- * Contains the closing of the #content div and all content after.
+ * Contains all footer content.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
  * @subpackage Foundation
- * @since 1.0
- * @version 2.0.0
+ * @since 1.0.0
  */
 
 ?>

@@ -10,6 +10,8 @@
  * @since 1.0
  */
 
+use MatthiasMullie\Minify;
+
 class Foundation_Theme_Scripts {
   public $libraries = array();
 
@@ -20,12 +22,6 @@ class Foundation_Theme_Scripts {
       'recommended' => true,
       'component'   => true,
       'css' => array(
-        'theme-core-critical' => array(
-          'src'       => FOUNDATION_ASSETS . '/css/critical.css',
-          'dep'       => array(),
-          'version'   => wp_get_theme()->get( 'Version' ),
-          'media'     => 'all',
-        ),
         'theme-core-non-critical' => array(
           'src'       => FOUNDATION_ASSETS . '/css/non-critical.css',
           'dep'       => array(),
@@ -232,3 +228,15 @@ function foundation_get_theme_autoloaded_files( $type ) {
 
   return $files;
 }
+
+function foundation_critical_path_css() {
+  $minifier = new Minify\CSS( get_stylesheet_directory() . '/' . FOUNDATION_ASSETS . '/css/critical.css' );
+  ob_start();
+  ?>
+  <style>
+    <?php echo $minifier->minify(); ?>
+  </style>
+  <?php
+  echo ob_get_clean();
+}
+add_action( 'wp_head', 'foundation_critical_path_css' );
