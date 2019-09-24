@@ -188,7 +188,7 @@ function foundation_widgets_init() {
           array(
             'name'          => get_sub_field( 'name' ),
             'id'            => get_sub_field( 'id' ),
-            'description'   => get_sub_field( 'name' ),
+            'description'   => get_sub_field( 'description' ),
             'before_widget' => get_sub_field( 'before_widget' ),
             'after_widget'  => get_sub_field( 'after_widget' ),
             'before_title'  => get_sub_field( 'before_title' ),
