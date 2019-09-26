@@ -38,6 +38,25 @@ This starter theme was developed with performance and optimization in mind. Rath
 3. Within the admin CMS, under 'Configuration' in the 'Foundation Libraries' and 'Theme Libraries' tab.
 4. When using certain widgets and Elementor widgets that automatically call the library that's needed on demand.
 
+#### Enqueuing Scripts
+
+If using a child theme, it's important theme scripts are enqueued properly. To enqueue one of the predefined Foundation or theme scripts, set the `add_action` priority high so it's called after Foundation's scripts are registered:
+
+```php
+function theme_scripts() {
+  // Loading libraries
+  foundation_load_library( 'foundation-toggler' );
+  foundation_load_library( 'foundation-abide' );
+
+  foundation_load_theme_library( 'theme-core' );
+  foundation_load_theme_library( 'wordpress-core' );
+
+   // Enqueue vs. foundation_load_library. Useful if CSS is already included.
+  wp_enqueue_script( 'foundation-sticky' );
+}
+add_action( 'wp_enqueue_scripts', 'theme_scripts', 99 );
+```
+
 #### Custom Libraries
 
 You can easily add your own custom CSS & JS as libraries using `foundation_add_theme_library( $args )`:
