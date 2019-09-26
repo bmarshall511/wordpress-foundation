@@ -14,6 +14,9 @@ function foundation_login_enqueue_scripts() {
   if ( has_custom_logo() ) {
     $logo = get_theme_mod( 'custom_logo' );
     $logo = wp_get_attachment_image_src( $logo , 'full' );
+
+    $width = $logo[1] ? $logo[1] . 'px' : 'auto';
+    $height = $logo[2] ? $logo[2] . 'px' : 'auto';
   }
   ?>
   <style>
@@ -22,8 +25,8 @@ function foundation_login_enqueue_scripts() {
     .login h1 a {
       background-image: url('<?php echo $logo[0]; ?>');
       background-size: contain;
-      height: <?php echo $logo[2]; ?>px;
-      width: <?php echo $logo[1]; ?>px;
+      height: <?php echo $height; ?>;
+      width: <?php echo $width; ?>;
     }
     <?php } ?>
   </style>
