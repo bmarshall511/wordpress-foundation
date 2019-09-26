@@ -363,7 +363,7 @@
             "label": "Logo Size",
             "name": "logo_size",
             "type": "group",
-            "instructions": "",
+            "instructions": "Site logos uploaded through the theme customizer require cropping by default. Enabling flex width or height allows bypassing cropping. <strong>If uploading an SVG, enable these options since SVG cannot be resized.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1214,5 +1214,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1569030064
+    "modified": 1569521704
 }
