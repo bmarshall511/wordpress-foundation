@@ -68,7 +68,7 @@
             "label": "Foundation Component Libraries",
             "name": "foundation_libraries",
             "type": "checkbox",
-            "instructions": "By default, Foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined Foundation component libraries for this page as needed below. Libraries marked <strong>Auto-loaded<\/strong> are already loaded globally on the site and don't need to be checked except for rare use cases.",
+            "instructions": "By default, Foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined Foundation component libraries for this page as needed below. Libraries marked <strong>Included<\/strong> are loaded globally on the site and don't need to be checked except for rare use cases.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -77,8 +77,8 @@
                 "id": ""
             },
             "choices": {
-                "foundation-global-styles": "<a href=\"https:\/\/wordpress.local\/wp-admin\/admin.php?page=configuration\"><strong>Auto-loaded<\/strong><\/a> &mdash; Foundation Global Styles &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/global.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
-                "foundation-typography": "<a href=\"https:\/\/wordpress.local\/wp-admin\/admin.php?page=configuration\"><strong>Auto-loaded<\/strong><\/a> &mdash; Foundation Typography &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/typography-base.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-global-styles": "<a href=\"https:\/\/wordpress.local\/wp-admin\/admin.php?page=configuration\"><strong>(Included)<\/strong><\/a> Foundation Global Styles &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/global.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
+                "foundation-typography": "<a href=\"https:\/\/wordpress.local\/wp-admin\/admin.php?page=configuration\"><strong>(Included)<\/strong><\/a> Foundation Typography &mdash; <strong>Recommended<\/strong> (CSS) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/typography-base.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
                 "foundation-offcanvas": "Foundation Off-canvas (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/off-canvas.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
                 "foundation-tooltip": "Foundation Tooltip (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/tooltip.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
                 "foundation-reveal": "Foundation Reveal (Bundle) <a href=\"https:\/\/foundation.zurb.com\/sites\/docs\/reveal.html\" target=\"_blank\"><small>Documentation<\/small><\/a>",
@@ -142,14 +142,18 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "choices": {
+                "theme-core": "Theme Core &mdash; <strong>Recommended<\/strong> (Bundle)",
+                "wordpress-core": "WordPress Core &mdash; <strong>Recommended<\/strong> (CSS)"
+            }
         },
         {
             "key": "field_5d839072808ec",
             "label": "Theme Component Libraries",
             "name": "theme_libraries",
             "type": "checkbox",
-            "instructions": "By default, Foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined theme component libraries for this page as needed below. Libraries marked <strong>Auto-loaded<\/strong> are already loaded globally on the site and don't need to be checked except for rare use cases.",
+            "instructions": "By default, Foundation doesn't load any CSS or JS files to keep everything to a minimum & keep performance at a maximum. You can enable predefined theme component libraries for this page as needed below. Libraries marked <strong>Included<\/strong> are loaded globally on the site and don't need to be checked except for rare use cases.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -157,7 +161,10 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [],
+            "choices": {
+                "theme-core": "<a href=\"https:\/\/wordpress.local\/wp-admin\/admin.php?page=configuration\"><strong>Auto-loaded<\/strong><\/a> &mdash; Theme Core &mdash; <strong>Recommended<\/strong> (Bundle)",
+                "wordpress-core": "<a href=\"https:\/\/wordpress.local\/wp-admin\/admin.php?page=configuration\"><strong>Auto-loaded<\/strong><\/a> &mdash; WordPress Core &mdash; <strong>Recommended<\/strong> (CSS)"
+            },
             "allow_custom": 0,
             "default_value": [],
             "layout": "vertical",
@@ -190,5 +197,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568903402
+    "modified": 1570127637
 }

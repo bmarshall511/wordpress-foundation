@@ -6,7 +6,7 @@ function foundation_acf_foundation_libraries_selections( $field ) {
 
   $field['choices'] = array();
 
-  // Check if a page/post & get globally loaded libraries.
+  // Get globally loaded libraries.
   $global_foundation_libraries = false;
   if ( 'foundation_libraries' == $field['name'] ) {
     $global_foundation_libraries = get_field( 'autoload_foundation_libraries', 'option' );
@@ -19,7 +19,7 @@ function foundation_acf_foundation_libraries_selections( $field ) {
 
     // Check if a page/post option & if already globally loaded
     if ( $global_foundation_libraries && in_array( $library, $global_foundation_libraries ) ) {
-      $field['choices'][ $library ] .= '<a href="' . admin_url('admin.php?page=configuration') . '"><strong>Auto-loaded</strong></a> &mdash; ';
+      $field['choices'][ $library ] .= '<a href="' . admin_url('admin.php?page=configuration') . '"><strong>(Included)</strong></a> ';
     }
 
     $field['choices'][ $library ] .= $ary['name'];
@@ -64,7 +64,7 @@ function foundation_acf_theme_libraries_selections( $field ) {
 
     // Check if a page/post option & if already globally loaded
     if ( $global_theme_libraries && in_array( $library, $global_theme_libraries ) ) {
-      $field['choices'][ $library ] .= '<a href="' . admin_url('admin.php?page=configuration') . '"><strong>Auto-loaded</strong></a> &mdash; ';
+      $field['choices'][ $library ] .= '<a href="' . admin_url('admin.php?page=configuration') . '"><strong>(Included)</strong></a> ';
     }
 
     $field['choices'][ $library ] .= $ary['name'];
@@ -214,3 +214,23 @@ function foundation_acf_load_options( $paths ) {
   return $paths;
 }
 add_filter( 'acf/settings/load_json', 'foundation_acf_load_options' );
+
+function foundation_hide_page_libraries( $group ) {
+  if ( function_exists( 'get_field' ) && get_field( 'hide_page_libraries', 'option' ) && 'group_5d838412d6853' == $group['key'] ) {
+    return false;
+  }
+
+  return $group;
+}
+add_filter( 'acf/get_field_group', 'foundation_hide_page_libraries' );
+
+function foundation_hide_plugin_notice( $val, $object_id, $meta_key, $single ) {
+  if ( function_exists( 'get_field' ) && get_field( 'hide_plugins_notice', 'option' ) ) {
+    if ( $meta_key === 'tgmpa_dismissed_notice_foundation' ) {
+      return true;
+    } else {
+      return null;
+    }
+  }
+}
+add_filter( 'get_user_metadata', 'foundation_hide_plugin_notice', 10, 4 );

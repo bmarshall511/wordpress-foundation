@@ -21,3 +21,16 @@ function foundation_image_size( $sizes ) {
   return array_merge( $sizes, $images_sizes );
 }
 add_filter( 'image_size_names_choose', 'foundation_image_size' );
+
+function foundation_remove_menus() {
+  if ( function_exists( 'get_field' ) ) {
+    if ( get_field( 'hide_configuration_menu', 'option' ) ) {
+      remove_menu_page( 'configuration' );
+    }
+
+    if ( get_field( 'hide_custom_fields_menu', 'option' ) ) {
+      remove_menu_page( 'edit.php?post_type=acf-field-group' );
+    }
+  }
+}
+add_action( 'admin_menu', 'foundation_remove_menus', 99 );

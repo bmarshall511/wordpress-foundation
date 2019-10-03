@@ -24,7 +24,7 @@ class Foundation_TinyMCE {
 
       if ( function_exists( 'get_field' ) ) {
         // Foundation libraries
-        $load_foundation_editor_styles = get_field( 'editor_load_foundation' );
+        $load_foundation_editor_styles = get_field( 'editor_load_foundation', 'option' );
         if ( $load_foundation_editor_styles ) {
           $foundation_files = foundation_get_autoloaded_files( 'css' );
           if ( $foundation_files ) {
@@ -33,11 +33,21 @@ class Foundation_TinyMCE {
         }
 
         // Theme libraries
-        $load_theme_editor_styles = get_field( 'editor_load_theme' );
+        $load_theme_editor_styles = get_field( 'editor_load_theme', 'option' );
         if ( $load_theme_editor_styles ) {
           $theme_files = foundation_get_theme_autoloaded_files( 'css' );
           if ( $theme_files ) {
             $stylesheets = array_merge( $stylesheets, $theme_files );
+          }
+        }
+
+        // CSS Files
+        if ( have_rows( 'editor_load_css', 'option' ) ) {
+          while ( have_rows( 'editor_load_css', 'option' ) ) { the_row();
+            $css = get_sub_field( 'css_path' );
+            if ( $css ) {
+              $stylesheets[] = $css;
+            }
           }
         }
       }

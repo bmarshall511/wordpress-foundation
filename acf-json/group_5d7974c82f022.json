@@ -3,6 +3,101 @@
     "title": "Configuration",
     "fields": [
         {
+            "key": "field_5d96525ad6c37",
+            "label": "Hide Configuration Menu",
+            "name": "hide_configuration_menu",
+            "type": "true_false",
+            "instructions": "Hides the Configuration admin menu item.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d9653bff6ec0",
+            "label": "Hide Custom Fields Menu",
+            "name": "hide_custom_fields_menu",
+            "type": "true_false",
+            "instructions": "Hides the Configuration admin menu item.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d96544a7b452",
+            "label": "Hide Page Libraries",
+            "name": "hide_page_libraries",
+            "type": "true_false",
+            "instructions": "Hides the Page Libraries meta box.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d9655ea0375e",
+            "label": "Hide Required Plugins Notice",
+            "name": "hide_plugins_notice",
+            "type": "true_false",
+            "instructions": "Hides the required plugins admin notice.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d798fb3384d3",
+            "label": "Editor Type",
+            "name": "enable_gutenberg",
+            "type": "true_false",
+            "instructions": "This option is <strong>automatically updated<\/strong> based on if the <a href=\"https:\/\/wordpress.org\/plugins\/classic-editor\/\" target=\"_blank\">Classic Editor<\/a> plugin is installed & activated.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Gutenberg",
+            "ui_off_text": "TinyMCE"
+        },
+        {
             "key": "field_5d7974dc33c6d",
             "label": "jQuery Version",
             "name": "jquery_version",
@@ -28,25 +123,6 @@
             "ajax": 0,
             "return_format": "value",
             "placeholder": ""
-        },
-        {
-            "key": "field_5d798fb3384d3",
-            "label": "Editor Type",
-            "name": "enable_gutenberg",
-            "type": "true_false",
-            "instructions": "This option is <strong>automatically updated<\/strong> based on if the <a href=\"https:\/\/wordpress.org\/plugins\/classic-editor\/\" target=\"_blank\">Classic Editor<\/a> plugin is installed & activated.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "30",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Gutenberg",
-            "ui_off_text": "TinyMCE"
         },
         {
             "key": "field_5d7a53915e240",
@@ -1147,6 +1223,100 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_5d964cf68f7f7",
+            "label": "Editor Styles",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5d964d088f7f8",
+            "label": "Load Foundation CSS in Editor",
+            "name": "editor_load_foundation",
+            "type": "true_false",
+            "instructions": "Loads selected global & page specific Foundation CSS in the editor.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d964db0b1b32",
+            "label": "Load Theme CSS in Editor",
+            "name": "editor_load_theme",
+            "type": "true_false",
+            "instructions": "Loads selected global & page specific theme CSS in the editor.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d9650701df86",
+            "label": "Editor CSS",
+            "name": "editor_load_css",
+            "type": "repeater",
+            "instructions": "Load additional CSS theme files in the editor below. Must be relative to the theme directory (ex. gulp-foundation\/css\/filename.css).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add CSS",
+            "sub_fields": [
+                {
+                    "key": "field_5d9650951df87",
+                    "label": "CSS Path (relative to the theme directory)",
+                    "name": "css_path",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "gulp-foundation\/css\/editor-styles.css",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
             "key": "field_5d7a7e691cdfd",
             "label": "Export\/Import Configuration",
             "name": "",
@@ -1175,7 +1345,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"jquery_version\":\"3.4.1\",\"enable_gutenberg\":true,\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\",\"custom\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"233\",\"height\":\"18\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}],\"gutenberg_color_palette\":false,\"disable_custom_colors\":false,\"gutenberg_font_sizes\":false,\"gutenberg_disable_custom_font_sizes\":false}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"hide_configuration_menu\":true,\"hide_custom_fields_menu\":true,\"hide_page_libraries\":true,\"hide_plugins_notice\":null,\"enable_gutenberg\":true,\"jquery_version\":\"3.4.1\",\"autoload_foundation_libraries\":[\"foundation-global-styles\",\"foundation-typography\"],\"autoload_theme_libraries\":[\"theme-core\",\"wordpress-core\"],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"233\",\"height\":\"18\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"images_sizes\":false,\"menus\":false,\"sidebars\":[{\"id\":\"testing\",\"name\":\"Testing\",\"description\":\"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.\",\"before_widget\":\"<section id=\\\"%1$s\\\" class=\\\"widget %2$s\\\">\",\"after_widget\":\"<\\\/section>\",\"before_title\":\"<h2 class=\\\"widget-title\\\">\",\"after_title\":\"<\\\/h2>\"}],\"gutenberg_color_palette\":false,\"disable_custom_colors\":false,\"gutenberg_font_sizes\":false,\"gutenberg_disable_custom_font_sizes\":false,\"editor_load_foundation\":false,\"editor_load_theme\":false,\"editor_load_css\":false}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -1214,5 +1384,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1569521704
+    "modified": 1570133647
 }

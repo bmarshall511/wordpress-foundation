@@ -17,16 +17,11 @@ class Foundation_Gutenberg {
 
     if ( $this->enabled ) {
       add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ) );
-      //add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
     }
 
     if ( ! $this->enabled ) {
       add_action( 'wp_enqueue_scripts', array( $this, 'disable_scripts' ) );
     }
-  }
-
-  public function enqueue_block_editor_assets() {
-    // @TODO
   }
 
   public function disable_scripts() {
@@ -35,9 +30,6 @@ class Foundation_Gutenberg {
   }
 
   public function after_setup_theme() {
-    // Add support for Block Styles.
-    //add_theme_support( 'wp-block-styles' );
-
     // Add support for full and wide align images.
     add_theme_support( 'align-wide' );
 
@@ -49,7 +41,7 @@ class Foundation_Gutenberg {
 
     if ( function_exists( 'get_field' ) ) {
       // Foundation libraries
-      $load_foundation_editor_styles = get_field( 'editor_load_foundation' );
+      $load_foundation_editor_styles = get_field( 'editor_load_foundation', 'option' );
       if ( $load_foundation_editor_styles ) {
         $foundation_files = foundation_get_autoloaded_files( 'css' );
         if ( $foundation_files ) {
@@ -58,16 +50,27 @@ class Foundation_Gutenberg {
       }
 
       // Theme libraries
-      $load_theme_editor_styles = get_field( 'editor_load_theme' );
+      $load_theme_editor_styles = get_field( 'editor_load_theme', 'option' );
       if ( $load_theme_editor_styles ) {
         $theme_files = foundation_get_theme_autoloaded_files( 'css' );
         if ( $theme_files ) {
           $stylesheets = array_merge( $stylesheets, $theme_files );
         }
       }
+
+      // CSS Files
+      if ( have_rows( 'editor_load_css', 'option' ) ) {
+        while ( have_rows( 'editor_load_css', 'option' ) ) { the_row();
+          $css = get_sub_field( 'css_path' );
+          if ( $css ) {
+            $stylesheets[] = $css;
+          }
+        }
+      }
     }
 
     $stylesheets[] = FOUNDATION_ASSETS . '/css/wordpress/gutenberg-editor.css';
+
     add_theme_support( 'editor-styles' );
     add_editor_style( $stylesheets );
 
@@ -99,13 +102,13 @@ class Foundation_Gutenberg {
       }
 
       // Disable custom colors?
-      $disable_custom_colors = get_field( 'disable_custom_colors' );
+      $disable_custom_colors = get_field( 'disable_custom_colors', 'option' );
       if ( $disable_custom_colors ) {
         add_theme_support( 'disable-custom-colors' );
       }
 
       // Disable custom font sizes?
-      $disable_custom_font_sizes = get_field( 'gutenberg_disable_custom_font_sizes' );
+      $disable_custom_font_sizes = get_field( 'gutenberg_disable_custom_font_sizes', 'option' );
       if ( $disable_custom_font_sizes ) {
         add_theme_support( 'disable-custom-font-sizes' );
       }
