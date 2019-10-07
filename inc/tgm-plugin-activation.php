@@ -131,6 +131,11 @@ function foundation_register_required_plugins() {
     array(
 			'name'        => 'Elementor Custom Skin',
       'slug'        => 'ele-custom-skin',
+    ),
+
+    array(
+			'name'        => 'Imagify – WebP & Image Compression and Optimization',
+      'slug'        => 'imagify',
 		),
 
 	);
