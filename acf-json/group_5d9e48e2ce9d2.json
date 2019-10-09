@@ -1,0 +1,41 @@
+{
+    "key": "group_5d9e48e2ce9d2",
+    "title": "Theme Libraries",
+    "fields": [
+        {
+            "key": "field_5d9e48e944baa",
+            "label": "2 Registered Theme Libraries",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<style>\n.foundation-lib-container {\n  display: flex;\n  flex-wrap: wrap;\n}\n\n.foundation-lib-container p,\n.foundation-lib-container ul {\n  margin: 0 0 1.5rem 0;\n}\n\n.foundation-lib-container h4 {\n  font-size: 0.9rem;\n  margin: 0 0 1rem 0;\n}\n\n.foundation-lib-container h4 span {\n  font-weight: normal;\n}\n\n.foundation-lib-container h5 {\n  font-size: 0.85rem;\n  margin: 0 0 0.4rem 0;\n}\n\n.foundation-lib-block {\n  border-bottom: 1px solid #eee;\n  border-right: 1px solid #eee;\n  box-sizing: border-box;\n  padding: 20px;\n  width: calc(100% \/ 2);\n}\n\n.foundation-lib-block:nth-child(2n) {\n  border-right: 0;\n}\n\n.foundation-lib-block:nth-last-child(-n+2) {\n  border-bottom: 0;\n}\n<\/style>\n<div class=\"foundation-lib-container\">\n      <div class=\"foundation-lib-block\">\n      <h4><a href=\"\" target=\"_blank\">Theme Core<\/a> <span>&mdash; theme-core<\/span><\/h4>\n\n              <h5>Registered CSS Scripts<\/h5>\n        <ul>\n                  <li>\n            <strong>Name<\/strong>: theme-core-non-critical (v3.0.2)<br>\n            <strong>Media<\/strong>: all<br>\n            <strong>Source<\/strong>: gulp-foundation\/css\/non-critical.css<br>\n                      <\/li>\n                  <li>\n            <strong>Name<\/strong>: theme-core-print (v3.0.2)<br>\n            <strong>Media<\/strong>: print<br>\n            <strong>Source<\/strong>: gulp-foundation\/css\/print.css<br>\n                      <\/li>\n                <\/ul>\n      \n              <h5>Registered JS Scripts<\/h5>\n        <ul>\n                  <li>\n            <strong>Name<\/strong>: theme-core-foundation (v3.0.2)<br>\n            <strong>Footer<\/strong>: true<br>\n            <strong>Source<\/strong>: gulp-foundation\/js\/foundation.js<br>\n                          <strong>Dependencies<\/strong>:\n                              foundation-core                                    <\/li>\n                <\/ul>\n          <\/div>\n        <div class=\"foundation-lib-block\">\n      <h4><a href=\"\" target=\"_blank\">WordPress Core<\/a> <span>&mdash; wordpress-core<\/span><\/h4>\n\n              <h5>Registered CSS Scripts<\/h5>\n        <ul>\n                  <li>\n            <strong>Name<\/strong>: wordpress-core (v3.0.2)<br>\n            <strong>Media<\/strong>: all<br>\n            <strong>Source<\/strong>: gulp-foundation\/css\/wordpress\/core.css<br>\n                      <\/li>\n                <\/ul>\n      \n          <\/div>\n    <\/div>\n",
+            "new_lines": "",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-libraries"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1570654639
+}

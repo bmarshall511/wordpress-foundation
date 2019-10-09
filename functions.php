@@ -270,15 +270,34 @@ function foundation_footer() {
 }
 add_action( 'wp_footer', 'foundation_footer' );
 
-/**
- * Add theme options page.
- */
 if ( function_exists( 'acf_add_options_page' ) ) {
-	acf_add_options_page( [
+  /**
+   * Add configuration page.
+   */
+	$configuration = acf_add_options_page([
     'menu_title' => __( 'Configuration', 'foundation' ),
     'page_title' => __( 'Configuration', 'foundation' ),
-    'menu_slug'  => 'configuration'
-  ] );
+    'menu_slug'  => 'configuration',
+    'redirect' 	=> false
+  ]);
+
+  /**
+   * Add Foundation Libraries configuration child page.
+   */
+  acf_add_options_sub_page([
+		'page_title' 	=> __( 'Foundation Libraries' ),
+		'menu_title' 	=> 'Foundation Libraries',
+		'parent_slug' => $configuration['menu_slug'],
+  ]);
+
+  /**
+   * Add Theme Libraries configuration child page.
+   */
+  acf_add_options_sub_page([
+		'page_title' 	=> __( 'Theme Libraries' ),
+		'menu_title' 	=> 'Theme Libraries',
+		'parent_slug' => $configuration['menu_slug'],
+  ]);
 }
 
 /**

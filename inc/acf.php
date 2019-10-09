@@ -126,6 +126,26 @@ function foundation_acf_export_message( $field ) {
     break;
   }
 
+  switch( $field['key'] ) {
+    case 'field_5d9e3550a4676':
+      global $Foundation_Scripts;
+      $libraries = $Foundation_Scripts->libraries;
+
+      $field['label'] = count( $libraries ) . __( ' Registered Foundation Libraries', 'foundation' );
+      ob_start();
+      include( locate_template( 'template-parts/admin/acf-foundation-libraries.php', false, false ) );
+      $field['message'] = ob_get_clean();
+    break;
+    case 'field_5d9e48e944baa':
+      global $Foundation_Theme_Scripts;
+      $libraries = $Foundation_Theme_Scripts->libraries;
+      $field['label'] = count( $libraries ) . __( ' Registered Theme Libraries', 'foundation' );
+      ob_start();
+      include( locate_template( 'template-parts/admin/acf-foundation-libraries.php', false, false ) );
+      $field['message'] = ob_get_clean();
+    break;
+  }
+
   return $field;
 }
 add_filter('acf/load_field/type=message', 'foundation_acf_export_message');
