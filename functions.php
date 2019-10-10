@@ -2,14 +2,20 @@
 /**
  * Foundation functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * Do not edit! Contains all Foundation theme functionality. Create a child
+ * theme in order to easily upgrade Foundation as new versions are released.
  *
- * @package WordPress
- * @subpackage Foundation
- * @since 2.0.0
+ * PHP version 7
+ *
+ * @package Foundation
+ * @author  Ben Marshall <me@benmarshall.me>
+ * @license https://choosealicense.com/licenses/gpl-2.0/ GNU General Public License v2.0
+ * @since   1.0.0
  */
 
 if ( ! defined( 'FOUNDATION_ASSETS' ) ) {
+  /** @var string FOUNDATION_ASSETS Defines the location of the gulp-foundation
+   * assets directory */
 	define( 'FOUNDATION_ASSETS', 'gulp-foundation' );
 }
 
@@ -27,49 +33,78 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
 require get_parent_theme_file_path( '/vendor/autoload.php' );
 
 if ( ! function_exists( 'foundation_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
+  /**
+   * Sets up theme defaults and registers support for various WordPress features.
+   *
+   * @since 1.0.0
+   *
+   * @see load_theme_textdomain
+   * @see add_theme_support
+   * @see get_field
+   * @see have_rows
+   * @see set_post_thumbnail_size
+   * @see add_post_type_support
+   * @see add_image_size
+   * @see register_nav_menus
+   * @see remove_action
+   * @link https://developer.wordpress.org/reference/hooks/after_setup_theme/
+   *
+   * @return void
+   */
 	function foundation_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on WordPress Foundation, use a find and replace
-		 * to change 'foundation' to the name of your theme in all the template files.
-		 */
+    /**
+     * Make theme available for translation. Translations can be filed in the
+     * /languages/ directory.
+     *
+     * @link https://developer.wordpress.org/reference/functions/load_theme_textdomain/
+     */
 		load_theme_textdomain( 'foundation', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
+		/**
+     * Add default posts and comments RSS feed links to head.
+     *
+     * @link https://codex.wordpress.org/Automatic_Feed_Links
+     */
 		add_theme_support( 'automatic-feed-links' );
 
-		/*
+		/**
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
+     *
+     * @link https://codex.wordpress.org/Title_Tag
 		 */
     add_theme_support( 'title-tag' );
 
-
-		/*
+		/**
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+    /**
+     * Advanced Custom Fields must be enabled for the Configuration page
+     * functionality to be available.
+     */
     if ( function_exists( 'get_field' ) ) {
-      // Thumbnail size
+      /**
+       * Get & define the default thumbnail size.
+       *
+       * @link https://developer.wordpress.org/reference/functions/set_post_thumbnail_size/
+       */
       $thumbnail_size = get_field( 'thumbnail_size', 'option' );
-      if ( $thumbnail_size ) {
+      if ( $thumbnail_size  && ( $thumbnail_size['width'] || $thumbnail_size['height'] ) ) {
         set_post_thumbnail_size( $thumbnail_size['width'], $thumbnail_size['height'], $thumbnail_size['crop'] );
       }
 
-      // Post formats
+      /**
+       * Get & define post formats for specified post types.
+       *
+       * @link https://developer.wordpress.org/themes/functionality/post-formats/
+       * @link https://developer.wordpress.org/reference/functions/add_post_type_support/
+       */
       $post_formats = get_field( 'post_formats', 'option' );
       if ( $post_formats ) {
         add_theme_support( 'post-formats', $post_formats );
@@ -82,9 +117,32 @@ if ( ! function_exists( 'foundation_setup' ) ) :
           }
         }
       }
+
+      /**
+       * Add support for core custom logo.
+       *
+       * @link https://codex.wordpress.org/Theme_Logo
+       */
+      $logo_size = get_field( 'logo_size', 'option' );
+      if ( $logo_size ) {
+        add_theme_support(
+          'custom-logo',
+          [
+            'height'      => $logo_size['height'],
+            'width'       => $logo_size['width'],
+            'flex-width'  => $logo_size['flex_width'],
+            'flex-height' => $logo_size['flex_height'],
+          ]
+        );
+      }
     }
 
     if ( function_exists( 'have_rows' ) ) {
+      /**
+       * Get & define image sizes.
+       *
+       * @link https://developer.wordpress.org/reference/functions/add_image_size/
+       */
       // Images sizes
       if ( have_rows( 'images_sizes', 'option' ) ) {
         while( have_rows( 'images_sizes', 'option' ) ) { the_row();
@@ -92,9 +150,13 @@ if ( ! function_exists( 'foundation_setup' ) ) :
         }
       }
 
-      // Menus
+      /**
+       * Get & define navigation menus.
+       *
+       * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+       */
       if ( have_rows( 'menus', 'option' ) ) {
-        $menus = array();
+        $menus = [];
         while( have_rows( 'menus', 'option' ) ) { the_row();
           $menus[ get_sub_field( 'id' ) ] = get_sub_field( 'name' );
         }
@@ -102,53 +164,34 @@ if ( ! function_exists( 'foundation_setup' ) ) :
       }
     }
 
-		/*
+		/**
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
+     *
+     * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
 		 */
 		add_theme_support(
 			'html5',
-			array(
+			[
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-			)
+      ]
 		);
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-
-    if ( function_exists( 'get_field' ) ) {
-      $logo_size = get_field( 'logo_size', 'option' );
-      if ( $logo_size ) {
-        add_theme_support(
-          'custom-logo',
-          array(
-            'height'      => $logo_size['height'],
-            'width'       => $logo_size['width'],
-            'flex-width'  => $logo_size['flex_width'],
-            'flex-height' => $logo_size['flex_height'],
-          )
-        );
-      }
-    }
 
 		// Remove the meta generator tag
 		remove_action( 'wp_head', 'wp_generator' );
 
 		// Remove Windows Live Writer Manifest Link
-		remove_action( 'wp_head', 'wlwmanifest_link');
+		remove_action( 'wp_head', 'wlwmanifest_link' );
 
 		// Remove Weblog Client Link
-		remove_action('wp_head', 'rsd_link');
+		remove_action( 'wp_head', 'rsd_link' );
 
 		// Remove shortlinks
-		remove_action('wp_head', 'wp_shortlink_wp_head');
+		remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 	}
 endif;
 add_action( 'after_setup_theme', 'foundation_setup' );
