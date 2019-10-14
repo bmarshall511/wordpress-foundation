@@ -1,5 +1,26 @@
 <?php
-$config_file = 'group_5d7974c82f022.json';
+/**
+ * Advanced Custom Fields functions and definitions
+ *
+ * @package Foundation
+ * @since   3.0.4
+ */
+
+if ( ! defined( 'FOUNDATION_CONFIG_GROUP_ID' ) ) {
+  /**
+   * @var string FOUNDATION_CONFIG_GROUP_ID The ID of the ACF Foundation
+   * Configuration group.
+   */
+	define( 'FOUNDATION_CONFIG_GROUP_ID', 'group_5d7974c82f022' );
+}
+
+if ( ! defined( 'FOUNDATION_LIB_GROUP_ID' ) ) {
+  /**
+   * @var string FOUNDATION_LIB_GROUP_ID The ID of the ACF Foundation libraries
+   * group.
+   */
+	define( 'FOUNDATION_LIB_GROUP_ID', 'group_5d838412d6853' );
+}
 
 function foundation_acf_foundation_libraries_selections( $field ) {
   global $Foundation_Scripts;
@@ -214,10 +235,8 @@ function foundation_get_configuration_data() {
 }
 
 function foundation_get_configuration_options() {
-  global $config_file;
-
   ob_start();
-  require get_parent_theme_file_path( '/acf-json/' . $config_file );
+  require get_parent_theme_file_path( '/acf-json/' . FOUNDATION_CONFIG_GROUP_ID . '.json' );
   $json = ob_get_clean();
   $json = json_decode( $json, true );
 
@@ -235,22 +254,117 @@ function foundation_acf_load_options( $paths ) {
 }
 add_filter( 'acf/settings/load_json', 'foundation_acf_load_options' );
 
-function foundation_hide_page_libraries( $group ) {
-  if ( function_exists( 'get_field' ) && get_field( 'hide_page_libraries', 'option' ) && 'group_5d838412d6853' == $group['key'] ) {
-    return false;
-  }
+if ( ! function_exists( 'foundation_hide_plugin_notice' ) ) {
+  /**
+   * Removes the required/recommended plugins notice.
+   *
+   * @since 3.0.4
+   *
+   * @see wp_get_current_user
+   * @see get_field
+   * @link https://codex.wordpress.org/Function_Reference/wp_get_current_user
+   * @link https://www.advancedcustomfields.com/resources/get_field/
+   * @link https://codex.wordpress.org/Plugin_API/Filter_Reference/get_(meta_type)_metadata
+   *
+   * @param null $null Always null.
+   * @param int $object_id ID of the object metadata is for.
+   * @param string $meta_key Metadata key.
+   * @param bool $single If true the filter should return the value of the metadata field, if false return an array.
+   * @return mixed The filter must return null if the data should be taken from the database.
+   */
+  function foundation_hide_plugin_notice( $null, $object_id, $meta_key, $single ) {
+    if ( function_exists( 'get_field' ) && $meta_key === 'tgmpa_dismissed_notice_foundation' ) {
+      $user                  = wp_get_current_user();
+      $required_plugin_roles = get_field( 'foundation_required_plugins_notice', 'option' );
 
-  return $group;
-}
-add_filter( 'acf/get_field_group', 'foundation_hide_page_libraries' );
+      if ( $required_plugin_roles ) {
+        /**
+         * Remove the required/recommended plugins notice for roles not defined
+         * in the Required/Recommended Plugins Notice field.
+         */
+        $required_plugins_diff = array_diff( $user->roles, $required_plugin_roles );
 
-function foundation_hide_plugin_notice( $val, $object_id, $meta_key, $single ) {
-  if ( function_exists( 'get_field' ) && get_field( 'hide_plugins_notice', 'option' ) ) {
-    if ( $meta_key === 'tgmpa_dismissed_notice_foundation' ) {
-      return true;
-    } else {
-      return null;
+        if ( ! empty( $required_plugins_diff ) ) {
+          return true;
+        }
+      }
     }
   }
+  add_filter( 'get_user_metadata', 'foundation_hide_plugin_notice', 10, 4 );
 }
-add_filter( 'get_user_metadata', 'foundation_hide_plugin_notice', 10, 4 );
+
+if ( ! function_exists( 'foundation_acf_user_role_choices' ) ) {
+  /**
+   * ACF user roles options.
+   *
+   * Defines ACF choices for user roles.
+   *
+   * @since 3.0.4
+   *
+   * @link https://www.advancedcustomfields.com/resources/acf-load_field/
+   * @link https://developer.wordpress.org/reference/classes/wp_roles/
+   * @global object $wp_roles Core class used to implement a user roles API.
+   *
+   * @param string $field The field settings array.
+   * @return array The field settings array.
+   */
+  function foundation_acf_user_role_choices( $field ) {
+    global $wp_roles;
+
+    $field['choices'] = [];
+    foreach( $wp_roles->roles as $key => $role ) {
+      $field['choices'][ $key ] = $role['name'];
+    }
+
+    return $field;
+  }
+
+  /** Set options for the Configuration Menu Access field */
+  add_filter( 'acf/load_field/name=foundation_configuration_access', 'foundation_acf_user_role_choices' );
+
+  /** Set options for the Custom Fields Menu Access field */
+  add_filter( 'acf/load_field/name=foundation_custom_fields_access', 'foundation_acf_user_role_choices' );
+
+  /** Set options for the Page/Post Libraries Access field */
+  add_filter( 'acf/load_field/name=foundation_libraries_access', 'foundation_acf_user_role_choices' );
+
+  /** Set options for the Required Plugins Notice field */
+  add_filter( 'acf/load_field/name=foundation_required_plugins_notice', 'foundation_acf_user_role_choices' );
+}
+
+if ( ! function_exists( 'foundation_hide_libraries_meta_box' ) ) {
+  /**
+   * Removes page/post meta boxes.
+   *
+   * @since 3.0.4
+   *
+   * @see wp_get_current_user
+   * @see get_field
+   * @link https://codex.wordpress.org/Function_Reference/wp_get_current_user
+   * @link https://www.advancedcustomfields.com/resources/get_field/
+   *
+   * @param array $group The group settings array.
+   * @return array The group settings array.
+   */
+  function foundation_hide_libraries_meta_box( $group ) {
+    if ( function_exists( 'get_field' ) && FOUNDATION_LIB_GROUP_ID == $group['key'] ) {
+      $user                   = wp_get_current_user();
+      $libraries_access_roles = get_field( 'foundation_libraries_access', 'option' );
+
+      if ( $libraries_access_roles ) {
+        /**
+         * Remove the Page Libraries meta box for roles not defined in the
+         * Page/Post Libraries Access field.
+         */
+        $libraries_diff = array_diff( $user->roles, $libraries_access_roles );
+
+        if ( ! empty( $libraries_diff ) ) {
+          return false;
+        }
+      }
+    }
+
+    return $group;
+  }
+  add_filter( 'acf/get_field_group', 'foundation_hide_libraries_meta_box' );
+}

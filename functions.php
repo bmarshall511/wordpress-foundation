@@ -14,8 +14,10 @@
  */
 
 if ( ! defined( 'FOUNDATION_ASSETS' ) ) {
-  /** @var string FOUNDATION_ASSETS Defines the location of the gulp-foundation
-   * assets directory */
+  /**
+   * @var string FOUNDATION_ASSETS Defines the location of the gulp-foundation
+   * assets directory
+   */
 	define( 'FOUNDATION_ASSETS', 'gulp-foundation' );
 }
 
@@ -320,7 +322,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	$configuration = acf_add_options_page([
     'menu_title' => __( 'Configuration', 'foundation' ),
     'page_title' => __( 'Configuration', 'foundation' ),
-    'menu_slug'  => 'configuration',
+    'menu_slug'  => 'foundation_configuration',
     'redirect' 	=> false
   ]);
 

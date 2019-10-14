@@ -3,80 +3,128 @@
     "title": "Configuration",
     "fields": [
         {
-            "key": "field_5d96525ad6c37",
-            "label": "Hide Configuration Menu",
-            "name": "hide_configuration_menu",
-            "type": "true_false",
-            "instructions": "Hides the Configuration admin menu item.",
+            "key": "field_5da4b60cc340d",
+            "label": "Configuration Menu Access",
+            "name": "foundation_configuration_access",
+            "type": "select",
+            "instructions": "User roles with access to the Configuration menu link. If none selected, visible to all users.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "administrator": "Administrator",
+                "editor": "Editor",
+                "author": "Author",
+                "contributor": "Contributor",
+                "subscriber": "Subscriber",
+                "wpseo_manager": "SEO Manager",
+                "wpseo_editor": "SEO Editor",
+                "sponsor_coordinator": "Sponsor Coordinator"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
             "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         },
         {
-            "key": "field_5d9653bff6ec0",
-            "label": "Hide Custom Fields Menu",
-            "name": "hide_custom_fields_menu",
-            "type": "true_false",
-            "instructions": "Hides the Configuration admin menu item.",
+            "key": "field_5da4c1c689224",
+            "label": "Custom Fields Menu Access",
+            "name": "foundation_custom_fields_access",
+            "type": "select",
+            "instructions": "User roles with access to the Custom Fields menu link. If none selected, visible to all users.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "administrator": "Administrator",
+                "editor": "Editor",
+                "author": "Author",
+                "contributor": "Contributor",
+                "subscriber": "Subscriber",
+                "wpseo_manager": "SEO Manager",
+                "wpseo_editor": "SEO Editor",
+                "sponsor_coordinator": "Sponsor Coordinator"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
             "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         },
         {
-            "key": "field_5d96544a7b452",
-            "label": "Hide Page Libraries",
-            "name": "hide_page_libraries",
-            "type": "true_false",
-            "instructions": "Hides the Page Libraries meta box.",
+            "key": "field_5da4c3e7e515a",
+            "label": "Page\/Post Libraries Access",
+            "name": "foundation_libraries_access",
+            "type": "select",
+            "instructions": "User roles with access to the page\/post libraries meta box. If none selected, visible to all users.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "administrator": "Administrator",
+                "editor": "Editor",
+                "author": "Author",
+                "contributor": "Contributor",
+                "subscriber": "Subscriber",
+                "wpseo_manager": "SEO Manager",
+                "wpseo_editor": "SEO Editor",
+                "sponsor_coordinator": "Sponsor Coordinator"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
             "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         },
         {
-            "key": "field_5d9655ea0375e",
-            "label": "Hide Required Plugins Notice",
-            "name": "hide_plugins_notice",
-            "type": "true_false",
-            "instructions": "Hides the required plugins admin notice.",
+            "key": "field_5da4c9b6d92d9",
+            "label": "Required\/Recommended Plugins Notice",
+            "name": "foundation_required_plugins_notice",
+            "type": "select",
+            "instructions": "User roles with access to view the required\/recommended plugins notice. If none selected, visible to all users.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "administrator": "Administrator",
+                "editor": "Editor",
+                "author": "Author",
+                "contributor": "Contributor",
+                "subscriber": "Subscriber",
+                "wpseo_manager": "SEO Manager",
+                "wpseo_editor": "SEO Editor",
+                "sponsor_coordinator": "Sponsor Coordinator"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
             "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         },
         {
             "key": "field_5d798fb3384d3",
@@ -1346,7 +1394,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"hide_configuration_menu\":false,\"hide_custom_fields_menu\":false,\"hide_page_libraries\":false,\"hide_plugins_notice\":\"0\",\"enable_gutenberg\":true,\"jquery_version\":\"3.4.1\",\"autoload_foundation_libraries\":[],\"autoload_theme_libraries\":[],\"post_formats\":[\"aside\",\"gallery\",\"link\",\"image\",\"quote\",\"status\",\"video\",\"audio\",\"chat\"],\"supported_post_formats\":[\"page\",\"community_events\"],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"100\",\"height\":\"100\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"100\",\"height\":\"100\",\"crop\":true},\"images_sizes\":false,\"menus\":false,\"sidebars\":false,\"gutenberg_color_palette\":false,\"disable_custom_colors\":false,\"gutenberg_font_sizes\":false,\"gutenberg_disable_custom_font_sizes\":false,\"editor_load_foundation\":true,\"editor_load_theme\":true,\"editor_load_css\":false}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"enable_gutenberg\":true,\"jquery_version\":\"3.4.1\",\"autoload_foundation_libraries\":[],\"autoload_theme_libraries\":[],\"post_formats\":[],\"supported_post_formats\":[],\"head_code\":\"\",\"footer_code\":\"\",\"logo_size\":{\"width\":\"100\",\"height\":\"100\",\"flex_width\":true,\"flex_height\":true},\"thumbnail_size\":{\"width\":\"\",\"height\":\"\",\"crop\":false},\"images_sizes\":[{\"id\":\"test\",\"name\":\"Test\",\"width\":\"10\",\"height\":\"100\",\"crop\":true}],\"menus\":false,\"sidebars\":false,\"gutenberg_color_palette\":false,\"disable_custom_colors\":false,\"gutenberg_font_sizes\":false,\"gutenberg_disable_custom_font_sizes\":false,\"editor_load_foundation\":true,\"editor_load_theme\":true,\"editor_load_css\":false}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -1373,7 +1421,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "configuration"
+                "value": "foundation_configuration"
             }
         ]
     ],
@@ -1385,5 +1433,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570734367
+    "modified": 1571081296
 }

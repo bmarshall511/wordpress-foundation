@@ -22,15 +22,52 @@ function foundation_image_size( $sizes ) {
 }
 add_filter( 'image_size_names_choose', 'foundation_image_size' );
 
-function foundation_remove_menus() {
-  if ( function_exists( 'get_field' ) ) {
-    if ( get_field( 'hide_configuration_menu', 'option' ) ) {
-      remove_menu_page( 'configuration' );
-    }
 
-    if ( get_field( 'hide_custom_fields_menu', 'option' ) ) {
-      remove_menu_page( 'edit.php?post_type=acf-field-group' );
+if ( ! function_exists( 'foundation_remove_admin_menu_links' ) ) {
+  /**
+   * Removes links from the admin menu.
+   *
+   * @since 3.0.4
+   *
+   * @see get_field
+   * @see remove_menu_page
+   * @see wp_get_current_user
+   * @link https://codex.wordpress.org/Function_Reference/remove_menu_page
+   * @link https://codex.wordpress.org/Function_Reference/wp_get_current_user
+   * @link https://www.advancedcustomfields.com/resources/get_field/
+   *
+   * @return void
+   */
+  function foundation_remove_admin_menu_links() {
+    if ( function_exists( 'get_field' ) ) {
+      $user                       = wp_get_current_user();
+      $configuration_access_roles = get_field( 'foundation_configuration_access', 'option' );
+      $custom_field_access_roles  = get_field( 'foundation_custom_fields_access', 'option' );
+
+      if ( $configuration_access_roles ) {
+        /**
+         * Remove the Configuration menu link for roles not defined in the
+         * Configuration Menu Access field.
+         */
+        $configuration_diff = array_diff( $user->roles, $configuration_access_roles );
+
+        if ( ! empty( $configuration_diff ) ) {
+          remove_menu_page( 'foundation_configuration' );
+        }
+      }
+
+      if ( $custom_field_access_roles ) {
+        /**
+         * Remove the Custom Fields menu link for roles not defined in the
+         * Custom Fields Menu Access field.
+         */
+        $custom_fields_diff = array_diff( $user->roles, $custom_field_access_roles );
+
+        if ( ! empty( $custom_fields_diff ) ) {
+          remove_menu_page( 'edit.php?post_type=acf-field-group' );
+        }
+      }
     }
   }
+  add_action( 'admin_menu', 'foundation_remove_admin_menu_links', 99 );
 }
-add_action( 'admin_menu', 'foundation_remove_menus', 99 );
