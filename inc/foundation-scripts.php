@@ -938,7 +938,7 @@ class Foundation_Scripts {
 
     if ( function_exists( 'get_field' ) ) {
       // Auto-load Foundation libraries
-      $foundation_libraries = get_field( 'autoload_foundation_libraries', 'option' );
+      $foundation_libraries = get_field( 'foundation_autoload_foundation_libraries', 'option' );
       if ( $foundation_libraries ) {
         foreach( $foundation_libraries as $key => $library ) {
           $this->load_library( $library );
@@ -997,7 +997,7 @@ function foundation_get_autoloaded_files( $type ) {
   $files = array();
 
   if ( function_exists( 'get_field' ) ) {
-    $foundation_libraries = get_field( 'autoload_foundation_libraries', 'option' );
+    $foundation_libraries = get_field( 'foundation_autoload_foundation_libraries', 'option' );
     if ( $foundation_libraries ) {
       foreach( $foundation_libraries as $key => $library ) {
         $scripts = foundation_get_library_scripts( $library );

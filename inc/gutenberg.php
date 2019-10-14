@@ -12,7 +12,7 @@ class Foundation_Gutenberg {
 
   public function __construct() {
     if ( function_exists( 'get_field' ) ) {
-      $this->enabled = get_field( 'enable_gutenberg', 'option' );
+      $this->enabled = get_field( 'foundation_enable_gutenberg', 'option' );
     }
 
     if ( $this->enabled ) {
@@ -41,7 +41,7 @@ class Foundation_Gutenberg {
 
     if ( function_exists( 'get_field' ) ) {
       // Foundation libraries
-      $load_foundation_editor_styles = get_field( 'editor_load_foundation', 'option' );
+      $load_foundation_editor_styles = get_field( 'foundation_editor_load_foundation', 'option' );
       if ( $load_foundation_editor_styles ) {
         $foundation_files = foundation_get_autoloaded_files( 'css' );
         if ( $foundation_files ) {
@@ -50,7 +50,7 @@ class Foundation_Gutenberg {
       }
 
       // Theme libraries
-      $load_theme_editor_styles = get_field( 'editor_load_theme', 'option' );
+      $load_theme_editor_styles = get_field( 'foundation_editor_load_theme', 'option' );
       if ( $load_theme_editor_styles ) {
         $theme_files = foundation_get_theme_autoloaded_files( 'css' );
         if ( $theme_files ) {
@@ -59,8 +59,8 @@ class Foundation_Gutenberg {
       }
 
       // CSS Files
-      if ( have_rows( 'editor_load_css', 'option' ) ) {
-        while ( have_rows( 'editor_load_css', 'option' ) ) { the_row();
+      if ( have_rows( 'foundation_editor_load_css', 'option' ) ) {
+        while ( have_rows( 'foundation_editor_load_css', 'option' ) ) { the_row();
           $css = get_sub_field( 'css_path' );
           if ( $css ) {
             $stylesheets[] = $css;
@@ -76,9 +76,9 @@ class Foundation_Gutenberg {
 
     if ( function_exists( 'get_field' ) ) {
       // Font Sizes
-      if ( have_rows( 'gutenberg_font_sizes', 'option') ) {
+      if ( have_rows( 'foundation_gutenberg_font_sizes', 'option') ) {
         $font_sizes = array();
-        while ( have_rows( 'gutenberg_font_sizes' ) ) { the_row();
+        while ( have_rows( 'foundation_gutenberg_font_sizes' ) ) { the_row();
           $font_sizes[] = array(
             'name' => get_sub_field( 'name' ),
             'slug' => get_sub_field( 'slug' ),
@@ -89,9 +89,9 @@ class Foundation_Gutenberg {
       }
 
       // Color Palette
-      if ( have_rows( 'gutenberg_color_palette', 'option') ) {
+      if ( have_rows( 'foundation_gutenberg_color_palette', 'option') ) {
         $color_palette = array();
-        while ( have_rows( 'gutenberg_color_palette' ) ) { the_row();
+        while ( have_rows( 'foundation_gutenberg_color_palette' ) ) { the_row();
           $color_palette[] = array(
             'name'  => get_sub_field( 'name' ),
             'slug'  => get_sub_field( 'slug' ),
@@ -102,13 +102,13 @@ class Foundation_Gutenberg {
       }
 
       // Disable custom colors?
-      $disable_custom_colors = get_field( 'disable_custom_colors', 'option' );
+      $disable_custom_colors = get_field( 'foundation_disable_custom_colors', 'option' );
       if ( $disable_custom_colors ) {
         add_theme_support( 'disable-custom-colors' );
       }
 
       // Disable custom font sizes?
-      $disable_custom_font_sizes = get_field( 'gutenberg_disable_custom_font_sizes', 'option' );
+      $disable_custom_font_sizes = get_field( 'foundation_gutenberg_disable_custom_font_sizes', 'option' );
       if ( $disable_custom_font_sizes ) {
         add_theme_support( 'disable-custom-font-sizes' );
       }

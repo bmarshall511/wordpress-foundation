@@ -96,7 +96,7 @@ if ( ! function_exists( 'foundation_setup' ) ) :
        *
        * @link https://developer.wordpress.org/reference/functions/set_post_thumbnail_size/
        */
-      $thumbnail_size = get_field( 'thumbnail_size', 'option' );
+      $thumbnail_size = get_field( 'foundation_thumbnail_size', 'option' );
       if ( $thumbnail_size  && ( $thumbnail_size['width'] || $thumbnail_size['height'] ) ) {
         set_post_thumbnail_size( $thumbnail_size['width'], $thumbnail_size['height'], $thumbnail_size['crop'] );
       }
@@ -107,12 +107,12 @@ if ( ! function_exists( 'foundation_setup' ) ) :
        * @link https://developer.wordpress.org/themes/functionality/post-formats/
        * @link https://developer.wordpress.org/reference/functions/add_post_type_support/
        */
-      $post_formats = get_field( 'post_formats', 'option' );
+      $post_formats = get_field( 'foundation_post_formats', 'option' );
       if ( $post_formats ) {
         add_theme_support( 'post-formats', $post_formats );
         add_post_type_support( 'post', 'post-formats' );
 
-        $supported = get_field( 'supported_post_formats', 'option' );
+        $supported = get_field( 'foundation_supported_post_formats', 'option' );
         if ( $supported ) {
           foreach( $supported as $key => $post_type ) {
             add_post_type_support( $post_type, 'post-formats' );
@@ -125,7 +125,7 @@ if ( ! function_exists( 'foundation_setup' ) ) :
        *
        * @link https://codex.wordpress.org/Theme_Logo
        */
-      $logo_size = get_field( 'logo_size', 'option' );
+      $logo_size = get_field( 'foundation_logo_size', 'option' );
       if ( $logo_size ) {
         add_theme_support(
           'custom-logo',
@@ -146,8 +146,8 @@ if ( ! function_exists( 'foundation_setup' ) ) :
        * @link https://developer.wordpress.org/reference/functions/add_image_size/
        */
       // Images sizes
-      if ( have_rows( 'images_sizes', 'option' ) ) {
-        while( have_rows( 'images_sizes', 'option' ) ) { the_row();
+      if ( have_rows( 'foundation_images_sizes', 'option' ) ) {
+        while( have_rows( 'foundation_images_sizes', 'option' ) ) { the_row();
           add_image_size( get_sub_field( 'id' ), get_sub_field( 'width' ), get_sub_field( 'height' ), get_sub_field( 'crop' ) );
         }
       }
@@ -157,9 +157,9 @@ if ( ! function_exists( 'foundation_setup' ) ) :
        *
        * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
        */
-      if ( have_rows( 'menus', 'option' ) ) {
+      if ( have_rows( 'foundation_menus', 'option' ) ) {
         $menus = [];
-        while( have_rows( 'menus', 'option' ) ) { the_row();
+        while( have_rows( 'foundation_menus', 'option' ) ) { the_row();
           $menus[ get_sub_field( 'id' ) ] = get_sub_field( 'name' );
         }
         register_nav_menus( $menus );
@@ -206,12 +206,12 @@ if ( ! function_exists( 'foundation_admin_init' ) ) {
     if ( function_exists( 'get_field' ) ) {
       // Update the Gutenberg config option if the Classic Editor plugin is enabled.
       if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
-        if ( get_field( 'enable_gutenberg', 'option' ) ) {
-          update_field( 'enable_gutenberg', false, 'option' );
+        if ( get_field( 'foundation_enable_gutenberg', 'option' ) ) {
+          update_field( 'foundation_enable_gutenberg', false, 'option' );
         }
       } else {
-        if ( ! get_field( 'enable_gutenberg', 'option' ) ) {
-          update_field( 'enable_gutenberg', true, 'option' );
+        if ( ! get_field( 'foundation_enable_gutenberg', 'option' ) ) {
+          update_field( 'foundation_enable_gutenberg', true, 'option' );
         }
       }
     }
@@ -226,9 +226,9 @@ add_action( 'admin_init', 'foundation_admin_init' );
  */
 function foundation_widgets_init() {
   if ( function_exists( 'have_rows' ) ) {
-    if ( have_rows( 'sidebars', 'option' ) ) {
+    if ( have_rows( 'foundation_sidebars', 'option' ) ) {
       $sidebars = array();
-      while( have_rows( 'sidebars', 'option' ) ) { the_row();
+      while( have_rows( 'foundation_sidebars', 'option' ) ) { the_row();
         register_sidebar(
           array(
             'name'          => get_sub_field( 'name' ),
@@ -287,33 +287,49 @@ function foundation_remove_jquery_migrate($scripts) {
 }
 add_action( 'wp_default_scripts', 'foundation_remove_jquery_migrate' );
 
-/**
- * Head code
- */
-function foundation_head() {
-  // @TODO - Inline critical.css.
-
-  if ( function_exists( 'get_field' ) ) {
-    $head_code = get_field( 'head_code', 'option' );
-    if ( $head_code ) {
-      echo $head_code;
+if ( ! function_exists( 'foundation_head' ) ) {
+   /**
+    * Adds code in the HTML head.
+    *
+    * @since 3.0.4
+    *
+    * @see get_field
+    * @link https://www.advancedcustomfields.com/resources/get_field/
+    *
+    * @return string The HTML head code.
+    */
+  function foundation_head() {
+    if ( function_exists( 'get_field' ) ) {
+      $head_code = get_field( 'foundation_head_code', 'option' );
+      if ( $head_code ) {
+        echo $head_code;
+      }
     }
   }
+  add_action( 'wp_head', 'foundation_head' );
 }
-add_action( 'wp_head', 'foundation_head' );
 
-/**
- * Footer code
- */
-function foundation_footer() {
-  if ( function_exists( 'get_field' ) ) {
-    $footer_code = get_field( 'footer_code', 'option' );
-    if ( $footer_code ) {
-      echo $footer_code;
+if ( ! function_exists( 'foundation_footer' ) ) {
+   /**
+    * Adds code in the HTML footer.
+    *
+    * @since 3.0.4
+    *
+    * @see get_field
+    * @link https://www.advancedcustomfields.com/resources/get_field/
+    *
+    * @return string The HTML head code.
+    */
+  function foundation_footer() {
+    if ( function_exists( 'get_field' ) ) {
+      $footer_code = get_field( 'foundation_footer_code', 'option' );
+      if ( $footer_code ) {
+        echo $footer_code;
+      }
     }
   }
+  add_action( 'wp_footer', 'foundation_footer' );
 }
-add_action( 'wp_footer', 'foundation_footer' );
 
 if ( function_exists( 'acf_add_options_page' ) ) {
   /**

@@ -30,7 +30,7 @@ function foundation_acf_foundation_libraries_selections( $field ) {
   // Get globally loaded libraries.
   $global_foundation_libraries = false;
   if ( 'foundation_libraries' == $field['name'] ) {
-    $global_foundation_libraries = get_field( 'autoload_foundation_libraries', 'option' );
+    $global_foundation_libraries = get_field( 'foundation_autoload_foundation_libraries', 'option' );
   }
 
   foreach( $Foundation_Scripts->libraries as $library => $ary ) {
@@ -64,7 +64,7 @@ function foundation_acf_foundation_libraries_selections( $field ) {
 
   return $field;
 }
-add_filter('acf/load_field/name=autoload_foundation_libraries', 'foundation_acf_foundation_libraries_selections');
+add_filter('acf/load_field/name=foundation_autoload_foundation_libraries', 'foundation_acf_foundation_libraries_selections');
 add_filter('acf/load_field/name=foundation_libraries', 'foundation_acf_foundation_libraries_selections');
 
 function foundation_acf_theme_libraries_selections( $field ) {
@@ -75,7 +75,7 @@ function foundation_acf_theme_libraries_selections( $field ) {
   // Check if a page/post & get globally loaded libraries.
   $global_theme_libraries = false;
   if ( 'theme_libraries' == $field['name'] ) {
-    $global_theme_libraries = get_field( 'autoload_theme_libraries', 'option' );
+    $global_theme_libraries = get_field( 'foundation_autoload_theme_libraries', 'option' );
   }
 
   foreach( $Foundation_Theme_Scripts->libraries as $library => $ary ) {
@@ -105,26 +105,8 @@ function foundation_acf_theme_libraries_selections( $field ) {
 
   return $field;
 }
-add_filter('acf/load_field/name=autoload_theme_libraries', 'foundation_acf_theme_libraries_selections');
+add_filter('acf/load_field/name=foundation_autoload_theme_libraries', 'foundation_acf_theme_libraries_selections');
 add_filter('acf/load_field/name=theme_libraries', 'foundation_acf_theme_libraries_selections');
-
-function foundation_acf_post_type_selections( $field ) {
-  $post_types = get_post_types(array(
-    'show_ui' => true,
-    'public'  => true,
-  ));
-
-  unset( $post_types['post'] );
-  unset( $post_types['attachment'] );
-  if ( ! empty( $post_types['elementor_library'] ) ) {
-    unset( $post_types['elementor_library'] );
-  }
-
-  $field['choices'] = $post_types;
-
-  return $field;
-}
-add_filter('acf/load_field/name=supported_post_formats', 'foundation_acf_post_type_selections');
 
 function foundation_acf_export_message( $field ) {
   switch( $field['label'] ) {
@@ -254,7 +236,27 @@ function foundation_acf_load_options( $paths ) {
 }
 add_filter( 'acf/settings/load_json', 'foundation_acf_load_options' );
 
-if ( ! function_exists( 'foundation_hide_plugin_notice' ) ) {
+if ( ! function_exists( 'foundation_acf_post_type_selections' ) ) {
+  function foundation_acf_post_type_selections( $field ) {
+    $post_types = get_post_types(array(
+      'show_ui' => true,
+      'public'  => true,
+    ));
+
+    unset( $post_types['post'] );
+    unset( $post_types['attachment'] );
+    if ( ! empty( $post_types['elementor_library'] ) ) {
+      unset( $post_types['elementor_library'] );
+    }
+
+    $field['choices'] = $post_types;
+
+    return $field;
+  }
+  add_filter('acf/load_field/name=foundation_supported_post_formats', 'foundation_acf_post_type_selections');
+}
+
+if ( ! function_exists( 'foundation_acf_hide_plugin_notice' ) ) {
   /**
    * Removes the required/recommended plugins notice.
    *
@@ -272,7 +274,7 @@ if ( ! function_exists( 'foundation_hide_plugin_notice' ) ) {
    * @param bool $single If true the filter should return the value of the metadata field, if false return an array.
    * @return mixed The filter must return null if the data should be taken from the database.
    */
-  function foundation_hide_plugin_notice( $null, $object_id, $meta_key, $single ) {
+  function foundation_acf_hide_plugin_notice( $null, $object_id, $meta_key, $single ) {
     if ( function_exists( 'get_field' ) && $meta_key === 'tgmpa_dismissed_notice_foundation' ) {
       $user                  = wp_get_current_user();
       $required_plugin_roles = get_field( 'foundation_required_plugins_notice', 'option' );
@@ -290,7 +292,7 @@ if ( ! function_exists( 'foundation_hide_plugin_notice' ) ) {
       }
     }
   }
-  add_filter( 'get_user_metadata', 'foundation_hide_plugin_notice', 10, 4 );
+  add_filter( 'get_user_metadata', 'foundation_acf_hide_plugin_notice', 10, 4 );
 }
 
 if ( ! function_exists( 'foundation_acf_user_role_choices' ) ) {
@@ -332,7 +334,7 @@ if ( ! function_exists( 'foundation_acf_user_role_choices' ) ) {
   add_filter( 'acf/load_field/name=foundation_required_plugins_notice', 'foundation_acf_user_role_choices' );
 }
 
-if ( ! function_exists( 'foundation_hide_libraries_meta_box' ) ) {
+if ( ! function_exists( 'foundation_acf_hide_libraries_meta_box' ) ) {
   /**
    * Removes page/post meta boxes.
    *
@@ -346,7 +348,7 @@ if ( ! function_exists( 'foundation_hide_libraries_meta_box' ) ) {
    * @param array $group The group settings array.
    * @return array The group settings array.
    */
-  function foundation_hide_libraries_meta_box( $group ) {
+  function foundation_acf_hide_libraries_meta_box( $group ) {
     if ( function_exists( 'get_field' ) && FOUNDATION_LIB_GROUP_ID == $group['key'] ) {
       $user                   = wp_get_current_user();
       $libraries_access_roles = get_field( 'foundation_libraries_access', 'option' );
@@ -366,5 +368,5 @@ if ( ! function_exists( 'foundation_hide_libraries_meta_box' ) ) {
 
     return $group;
   }
-  add_filter( 'acf/get_field_group', 'foundation_hide_libraries_meta_box' );
+  add_filter( 'acf/get_field_group', 'foundation_acf_hide_libraries_meta_box' );
 }

@@ -134,15 +134,15 @@ class Foundation_Theme_Scripts {
 
     if ( function_exists( 'get_field' ) ) {
 
-      // Replace jQuery?
-      $jquery_version = get_field( 'jquery_version', 'option' );
+      /** Replaces WordPress core jQuery library. */
+      $jquery_version = get_field( 'foundation_jquery_version', 'option' );
       if ( $jquery_version ) {
         wp_deregister_script( 'jquery' );
         wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery_version . '/jquery.min.js', array(), $jquery_version );
       }
 
       // Auto-load theme libraries
-      $theme_libraries = get_field( 'autoload_theme_libraries', 'option' );
+      $theme_libraries = get_field( 'foundation_autoload_theme_libraries', 'option' );
       if ( $theme_libraries ) {
         foreach( $theme_libraries as $key => $library ) {
           $this->load_library( $library );
@@ -213,7 +213,7 @@ function foundation_get_theme_autoloaded_files( $type ) {
   $files = array();
 
   if ( function_exists( 'get_field' ) ) {
-    $theme_libraries = get_field( 'autoload_theme_libraries', 'option' );
+    $theme_libraries = get_field( 'foundation_autoload_theme_libraries', 'option' );
     if ( $theme_libraries ) {
       foreach( $theme_libraries as $key => $library ) {
         $scripts = foundation_get_theme_scripts( $library );
