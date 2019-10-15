@@ -150,10 +150,17 @@ class Foundation_Theme_Scripts {
       }
 
       // Load page/post libraries
-      $page_theme_libraries = get_field( 'theme_libraries' );
+      $page_theme_libraries      = get_field( 'foundation_theme_libraries' );
+      $page_foundation_libraries = get_field( 'foundation_libraries' );
       if ( $page_theme_libraries ) {
         foreach( $page_theme_libraries as $key => $library ) {
           $this->load_library( $library );
+        }
+      }
+
+      if ( $page_foundation_libraries ) {
+        foreach( $page_foundation_libraries as $key => $library ) {
+          foundation_load_library( $library );
         }
       }
     }
