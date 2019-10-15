@@ -62,11 +62,6 @@ function foundation_register_required_plugins() {
 		),
 
     array(
-			'name'        => 'Smush Image Compression and Optimization',
-			'slug'        => 'wp-smushit',
-		),
-
-    array(
 			'name'        => 'Redirection',
 			'slug'        => 'redirection',
 		),
