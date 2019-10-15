@@ -1,4 +1,4 @@
-# Foundation &mdash; Starter WordPress Theme
+# Foundation &mdash; WordPress Starter Theme
 
 > Starter WordPress theme for developers to build incredible websites &mdash; built for performance with an average 100/100 Lighthouse score.
 
