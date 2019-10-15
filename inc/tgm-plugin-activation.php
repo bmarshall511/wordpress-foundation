@@ -16,6 +16,15 @@ function foundation_register_required_plugins() {
 	 */
 	$plugins = array(
 
+    array(
+			'name'               => 'GitHub Updater',
+			'slug'               => 'github-updater',
+			'source'             => get_template_directory() . '/libraries/plugins/github-updater-8.9.0.zip',
+			'required'           => true,
+			'version'            => '8.9.0',
+			'force_activation'   => true,
+		),
+
 		array(
 			'name'        => 'WordPress SEO by Yoast',
 			'slug'        => 'wordpress-seo',

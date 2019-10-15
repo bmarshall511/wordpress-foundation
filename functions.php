@@ -34,6 +34,52 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
  */
 require get_parent_theme_file_path( '/vendor/autoload.php' );
 
+if ( ! function_exists( 'foundation_theme_activation' ) ) {
+  /**
+   * Fires when this theme is activated.
+   *
+   * Adds the Foundation Developer user role.
+   *
+   * @since 3.0.4
+   *
+   * @see add_role
+   * @see get_role
+   * @link https://codex.wordpress.org/Function_Reference/add_role
+   * @link https://codex.wordpress.org/Plugin_API/Action_Reference/after_switch_theme
+   * @link https://developer.wordpress.org/reference/functions/get_role/
+   *
+   * @return void
+   */
+  function foundation_theme_activation() {
+    add_role( 'foundation_developer', __( 'Foundation Developer', 'foundation' ), get_role( 'administrator' )->capabilities );
+  }
+  add_action( 'after_switch_theme', 'foundation_theme_activation' );
+}
+
+if ( ! function_exists( 'foundation_theme_deactivation' ) ) {
+   /**
+    * Fires when this theme is deactivated.
+    *
+    * Removes the Foundation Developer user role.
+    *
+    * @since 3.0.4
+    *
+    * @see remove_role
+    * @see get_role
+    * @link https://codex.wordpress.org/Function_Reference/remove_role
+    * @link https://codex.wordpress.org/Plugin_API/Action_Reference/switch_theme
+    * @link https://developer.wordpress.org/reference/functions/get_role/
+    *
+    * @return void
+    */
+  function foundation_theme_deactivation() {
+    if ( get_role('foundation_developer') ) {
+      remove_role( 'foundation_developer' );
+    }
+  }
+  add_action( 'switch_theme', 'foundation_theme_deactivation' );
+}
+
 if ( ! function_exists( 'foundation_setup' ) ) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
