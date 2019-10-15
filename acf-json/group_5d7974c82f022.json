@@ -85,9 +85,12 @@
                 "subscriber": "Subscriber",
                 "wpseo_manager": "SEO Manager",
                 "wpseo_editor": "SEO Editor",
-                "sponsor_coordinator": "Sponsor Coordinator"
+                "sponsor_coordinator": "Sponsor Coordinator",
+                "foundation_developer": "Foundation Developer"
             },
-            "default_value": [],
+            "default_value": [
+                "foundation_developer"
+            ],
             "allow_null": 0,
             "multiple": 1,
             "ui": 1,
@@ -116,9 +119,12 @@
                 "subscriber": "Subscriber",
                 "wpseo_manager": "SEO Manager",
                 "wpseo_editor": "SEO Editor",
-                "sponsor_coordinator": "Sponsor Coordinator"
+                "sponsor_coordinator": "Sponsor Coordinator",
+                "foundation_developer": "Foundation Developer"
             },
-            "default_value": [],
+            "default_value": [
+                "foundation_developer"
+            ],
             "allow_null": 0,
             "multiple": 1,
             "ui": 1,
@@ -147,9 +153,12 @@
                 "subscriber": "Subscriber",
                 "wpseo_manager": "SEO Manager",
                 "wpseo_editor": "SEO Editor",
-                "sponsor_coordinator": "Sponsor Coordinator"
+                "sponsor_coordinator": "Sponsor Coordinator",
+                "foundation_developer": "Foundation Developer"
             },
-            "default_value": [],
+            "default_value": [
+                "foundation_developer"
+            ],
             "allow_null": 0,
             "multiple": 1,
             "ui": 1,
@@ -178,9 +187,12 @@
                 "subscriber": "Subscriber",
                 "wpseo_manager": "SEO Manager",
                 "wpseo_editor": "SEO Editor",
-                "sponsor_coordinator": "Sponsor Coordinator"
+                "sponsor_coordinator": "Sponsor Coordinator",
+                "foundation_developer": "Foundation Developer"
             },
-            "default_value": [],
+            "default_value": [
+                "foundation_developer"
+            ],
             "allow_null": 0,
             "multiple": 1,
             "ui": 1,
@@ -1410,7 +1422,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"foundation_enable_gutenberg\":true,\"foundation_jquery_version\":null,\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"foundation_autoload_foundation_libraries\":null,\"foundation_autoload_theme_libraries\":null,\"foundation_post_formats\":null,\"foundation_supported_post_formats\":null,\"foundation_head_code\":null,\"foundation_footer_code\":null,\"foundation_logo_size\":null,\"foundation_thumbnail_size\":null,\"foundation_images_sizes\":null,\"foundation_menus\":null,\"foundation_sidebars\":null,\"foundation_gutenberg_color_palette\":null,\"foundation_disable_custom_colors\":null,\"foundation_gutenberg_font_sizes\":null,\"foundation_gutenberg_disable_custom_font_sizes\":null,\"foundation_editor_load_foundation\":null,\"foundation_editor_load_theme\":null,\"editor_load_css\":false}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"foundation_enable_gutenberg\":true,\"foundation_jquery_version\":null,\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"foundation_autoload_foundation_libraries\":null,\"foundation_autoload_theme_libraries\":null,\"foundation_post_formats\":null,\"foundation_supported_post_formats\":null,\"foundation_head_code\":null,\"foundation_footer_code\":null,\"foundation_logo_size\":null,\"foundation_thumbnail_size\":null,\"foundation_images_sizes\":null,\"foundation_menus\":null,\"foundation_sidebars\":null,\"foundation_gutenberg_color_palette\":null,\"foundation_disable_custom_colors\":null,\"foundation_gutenberg_font_sizes\":null,\"foundation_gutenberg_disable_custom_font_sizes\":null,\"foundation_editor_load_foundation\":null,\"foundation_editor_load_theme\":null,\"foundation_editor_load_css\":null}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -1449,5 +1461,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571085381
+    "modified": 1571150830
 }
