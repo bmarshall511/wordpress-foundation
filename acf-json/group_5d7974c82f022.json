@@ -1422,7 +1422,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly>{\"foundation_enable_gutenberg\":true,\"foundation_jquery_version\":null,\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"foundation_autoload_foundation_libraries\":null,\"foundation_autoload_theme_libraries\":null,\"foundation_post_formats\":null,\"foundation_supported_post_formats\":null,\"foundation_head_code\":null,\"foundation_footer_code\":null,\"foundation_logo_size\":null,\"foundation_thumbnail_size\":null,\"foundation_images_sizes\":null,\"foundation_menus\":null,\"foundation_sidebars\":null,\"foundation_gutenberg_color_palette\":null,\"foundation_disable_custom_colors\":null,\"foundation_gutenberg_font_sizes\":null,\"foundation_gutenberg_disable_custom_font_sizes\":null,\"foundation_editor_load_foundation\":null,\"foundation_editor_load_theme\":null,\"foundation_editor_load_css\":null}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly class=\"large-text code\">{\"foundation_enable_gutenberg\":true,\"foundation_jquery_version\":\"3.4.1\",\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"foundation_autoload_foundation_libraries\":[],\"foundation_autoload_theme_libraries\":[],\"foundation_post_formats\":[],\"foundation_supported_post_formats\":[],\"foundation_head_code\":\"\",\"foundation_footer_code\":\"\",\"foundation_logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"foundation_thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"foundation_images_sizes\":false,\"foundation_menus\":false,\"foundation_sidebars\":false,\"foundation_gutenberg_color_palette\":false,\"foundation_disable_custom_colors\":false,\"foundation_gutenberg_font_sizes\":false,\"foundation_gutenberg_disable_custom_font_sizes\":false,\"foundation_editor_load_foundation\":false,\"foundation_editor_load_theme\":false,\"foundation_editor_load_css\":false}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -1439,7 +1439,40 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <div id=\"configImportStatus\"><\/div>\n      <div id=\"importBlock\">\n        <p>Paste the code below from the 'Export Configuration' textarea field to import configuration settings.<\/p>\n        <textarea rows=\"10\" id=\"configData\"><\/textarea>\n        <button class=\"button button-primary button-large\" id=\"importConfig\">Import Configuration<\/button> <span id=\"configSavingStatus\"><\/span>\n      <\/div>\n      ",
+            "message": "      <div id=\"configImportStatus\"><\/div>\n      <div id=\"importBlock\">\n        <p>Paste the code below from the 'Export Configuration' textarea field to import configuration settings.<\/p>\n        <textarea rows=\"10\" id=\"configData\" class=\"large-text code\"><\/textarea>\n        <button class=\"button button-primary button-large\" id=\"importConfig\">Import Configuration<\/button> <span id=\"configSavingStatus\"><\/span>\n      <\/div>\n      ",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5da74cdcd3714",
+            "label": "Child Theme Generator",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5da74e82386c7",
+            "label": "Generate a Child Theme",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<table class=\"form-table\">\n  <tbody>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeName\">Name<\/label><\/th>\n      <td><input value=\"Foundation Child\" type=\"text\" id=\"childThemeName\" placeholder=\"Foundation Child\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeTextDomain\">Text Domain<\/label><\/th>\n      <td><input value=\"foundationchild\" type=\"text\" id=\"childThemeTextDomain\" placeholder=\"foundationchild\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeDesc\">Description<\/label><\/th>\n      <td><input value=\"Custom built WordPress theme built using the &lt;a href=&quot;https:\/\/github.com\/bmarshall511\/wordpress-foundation&quot; target=&quot;_blank&quot;&gt;Foundation&lt;\/a&gt; parent theme.\" type=\"text\" id=\"childThemeDesc\" placeholder=\"Custom built WordPress theme built using the &lt;a href=&quot;https:\/\/github.com\/bmarshall511\/wordpress-foundation&quot; target=&quot;_blank&quot;&gt;Foundation&lt;\/a&gt; parent theme.\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeURL\">URL<\/label><\/th>\n      <td><input value=\"https:\/\/github.com\/bmarshall511\/wordpress-foundation\" type=\"url\" id=\"childThemeURL\" placeholder=\"https:\/\/github.com\/bmarshall511\/wordpress-foundation\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n  <\/tbody>\n<\/table>\n<p><button class=\"button button-primary\" id=\"generateChildTheme\">Generate Child Theme<\/button><\/p>\n",
             "new_lines": "",
             "esc_html": 0
         }
@@ -1461,5 +1494,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571150830
+    "modified": 1571251874
 }

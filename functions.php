@@ -42,19 +42,17 @@ if ( ! function_exists( 'foundation_theme_activation' ) ) {
    *
    * @since 3.0.4
    *
-   * @see add_role
-   * @see get_role
-   * @link https://codex.wordpress.org/Function_Reference/add_role
+   * @uses add_role() Adds a new role to WordPress.
+   * @uses get_role() Retrieve role object.
    * @link https://codex.wordpress.org/Plugin_API/Action_Reference/after_switch_theme
-   * @link https://developer.wordpress.org/reference/functions/get_role/
    *
    * @return void
    */
   function foundation_theme_activation() {
     add_role( 'foundation_developer', __( 'Foundation Developer', 'foundation' ), get_role( 'administrator' )->capabilities );
   }
-  add_action( 'after_switch_theme', 'foundation_theme_activation' );
 }
+add_action( 'after_switch_theme', 'foundation_theme_activation' );
 
 if ( ! function_exists( 'foundation_theme_deactivation' ) ) {
    /**
@@ -64,11 +62,9 @@ if ( ! function_exists( 'foundation_theme_deactivation' ) ) {
     *
     * @since 3.0.4
     *
-    * @see remove_role
-    * @see get_role
-    * @link https://codex.wordpress.org/Function_Reference/remove_role
+    * @uses remove_role() Removes a role from WordPress.
+    * @uses get_role() Retrieve role object.
     * @link https://codex.wordpress.org/Plugin_API/Action_Reference/switch_theme
-    * @link https://developer.wordpress.org/reference/functions/get_role/
     *
     * @return void
     */
@@ -77,24 +73,27 @@ if ( ! function_exists( 'foundation_theme_deactivation' ) ) {
       remove_role( 'foundation_developer' );
     }
   }
-  add_action( 'switch_theme', 'foundation_theme_deactivation' );
 }
+add_action( 'switch_theme', 'foundation_theme_deactivation' );
 
-if ( ! function_exists( 'foundation_setup' ) ) :
+if ( ! function_exists( 'foundation_setup' ) ) {
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    *
    * @since 1.0.0
    *
-   * @see load_theme_textdomain
-   * @see add_theme_support
-   * @see get_field
-   * @see have_rows
-   * @see set_post_thumbnail_size
-   * @see add_post_type_support
-   * @see add_image_size
-   * @see register_nav_menus
-   * @see remove_action
+   * @uses load_theme_textdomain() Loads the theme's translated strings.
+   * @uses add_theme_support() Registers theme support for a given feature.
+   * @uses get_field() Returns the value of a specific field.
+   * @uses have_rows() This function checks to see if a parent field (such as
+   * Repeater or Flexible Content) has any rows of data to loop over.
+   * @uses set_post_thumbnail_size() Set the default Featured Image dimensions.
+   * @uses add_post_type_support() Registers support of certain feature(s) for a
+   * given post type.
+   * @uses add_image_size() Register a new image size.
+   * @uses register_nav_menus() Registers multiple custom navigation menus.
+   * @uses remove_action() This function removes a function attached to a
+   * specified action hook.
    * @link https://developer.wordpress.org/reference/hooks/after_setup_theme/
    *
    * @return void
@@ -143,8 +142,15 @@ if ( ! function_exists( 'foundation_setup' ) ) :
        * @link https://developer.wordpress.org/reference/functions/set_post_thumbnail_size/
        */
       $thumbnail_size = get_field( 'foundation_thumbnail_size', 'option' );
-      if ( $thumbnail_size  && ( $thumbnail_size['width'] || $thumbnail_size['height'] ) ) {
-        set_post_thumbnail_size( $thumbnail_size['width'], $thumbnail_size['height'], $thumbnail_size['crop'] );
+      if (
+        $thumbnail_size &&
+        ( $thumbnail_size['width'] || $thumbnail_size['height'] )
+      ) {
+        set_post_thumbnail_size(
+          $thumbnail_size['width'],
+          $thumbnail_size['height'],
+          $thumbnail_size['crop']
+        );
       }
 
       /**
@@ -241,16 +247,26 @@ if ( ! function_exists( 'foundation_setup' ) ) :
 		// Remove shortlinks
 		remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 	}
-endif;
+}
 add_action( 'after_setup_theme', 'foundation_setup' );
 
-/**
- * Admin init hook.
- */
 if ( ! function_exists( 'foundation_admin_init' ) ) {
+  /**
+   * Admin init hook.
+   *
+   * @since 3.0.4
+   *
+   * @uses is_plugin_active() Checks if a plugin is activated.
+   * @uses get_field() Returns the value of a specific field.
+   * @uses update_field() Updates the value of a specific field.
+   * @link https://codex.wordpress.org/Plugin_API/Action_Reference/admin_init
+   */
   function foundation_admin_init() {
     if ( function_exists( 'get_field' ) ) {
-      // Update the Gutenberg config option if the Classic Editor plugin is enabled.
+      /**
+       * Update the Gutenberg config option if the Classic Editor plugin is
+       * enabled.
+       */
       if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
         if ( get_field( 'foundation_enable_gutenberg', 'option' ) ) {
           update_field( 'foundation_enable_gutenberg', false, 'option' );
@@ -265,73 +281,109 @@ if ( ! function_exists( 'foundation_admin_init' ) ) {
 }
 add_action( 'admin_init', 'foundation_admin_init' );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function foundation_widgets_init() {
-  if ( function_exists( 'have_rows' ) ) {
-    if ( have_rows( 'foundation_sidebars', 'option' ) ) {
-      $sidebars = array();
-      while( have_rows( 'foundation_sidebars', 'option' ) ) { the_row();
-        register_sidebar(
-          array(
-            'name'          => get_sub_field( 'name' ),
-            'id'            => get_sub_field( 'id' ),
-            'description'   => get_sub_field( 'description' ),
-            'before_widget' => get_sub_field( 'before_widget' ),
-            'after_widget'  => get_sub_field( 'after_widget' ),
-            'before_title'  => get_sub_field( 'before_title' ),
-            'after_title'   => get_sub_field( 'after_title' ),
-          )
-        );
+if ( ! function_exists( 'foundation_widgets_init' ) ) {
+  /**
+   * Register widget area.
+   *
+   * @since 3.0.4
+   *
+   * @uses have_rows()This function checks to see if a parent field (such as
+   * Repeater or Flexible Content) has any rows of data to loop over.
+   * @uses the_row() This function will progress the global repeater or flexible
+   * content value 1 row
+   * @uses register_sidebar() Builds the definition for a single sidebar and
+   * returns the ID.
+   * @uses get_sub_field() Returns the value of a specific sub field value from a
+   * Repeater or Flexible Content field loop.
+   * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+   */
+  function foundation_widgets_init() {
+    if ( function_exists( 'have_rows' ) ) {
+      if ( have_rows( 'foundation_sidebars', 'option' ) ) {
+        $sidebars = array();
+        while( have_rows( 'foundation_sidebars', 'option' ) ) { the_row();
+          register_sidebar(
+            array(
+              'name'          => get_sub_field( 'name' ),
+              'id'            => get_sub_field( 'id' ),
+              'description'   => get_sub_field( 'description' ),
+              'before_widget' => get_sub_field( 'before_widget' ),
+              'after_widget'  => get_sub_field( 'after_widget' ),
+              'before_title'  => get_sub_field( 'before_title' ),
+              'after_title'   => get_sub_field( 'after_title' ),
+            )
+          );
+        }
       }
     }
   }
 }
 add_action( 'widgets_init', 'foundation_widgets_init' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width Content width.
- */
-function foundation_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'foundation_content_width', 1200 );
+if ( ! function_exists( 'foundation_content_width' ) ) {
+  /**
+   * Set the content width in pixels, based on the theme's design and stylesheet.
+   *
+   * Priority 0 to make it available to lower priority callbacks.
+   *
+   * @since 3.0.4
+   *
+   * @uses apply_filters() Call the functions added to a filter hook.
+   * @link https://codex.wordpress.org/Plugin_API/Action_Reference/after_switch_theme
+   * @global int $content_width Content width.
+   */
+  function foundation_content_width() {
+    // This variable is intended to be overruled from themes.
+    // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+    // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+    $GLOBALS['content_width'] = apply_filters( 'foundation_content_width', 1200 );
+  }
 }
 add_action( 'after_setup_theme', 'foundation_content_width', 0 );
 
-/**
- * Enqueue scripts and styles.
- */
-function foundation_scripts() {
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+if ( ! function_exists( 'foundation_scripts' ) ) {
+  /**
+   * Enqueue scripts and styles.
+   *
+   * @since 3.0.4
+   *
+   * @uses is_singular() This conditional tag checks if a singular post is being
+   * displayed
+   * @uses comments_open() This Conditional Tag checks if comments are allowed for
+   * the current Post or a given Post ID.
+   * @uses get_option() Retrieves an option value based on an option name.
+   * @uses wp_enqueue_script() Enqueue a script.
+   * @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
+   */
+  function foundation_scripts() {
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+      wp_enqueue_script( 'comment-reply' );
+    }
+  }
 }
 add_action( 'wp_enqueue_scripts', 'foundation_scripts' );
 
-/**
- * Removes jQuery Migrate
- */
-function foundation_remove_jquery_migrate($scripts) {
-	if (!is_admin() && isset($scripts->registered['jquery'])) {
-		$script = $scripts->registered['jquery'];
+if ( ! function_exists( 'foundation_remove_jquery_migrate' ) ) {
+  /**
+   * Removes jQuery Migrate
+   *
+   * @since 3.0.4
+   *
+   * @uses is_admin() This Conditional Tag checks if the Dashboard or the
+   * administration panel is attempting to be displayed.
+   * @link https://developer.wordpress.org/reference/functions/wp_default_scripts/
+   */
+  function foundation_remove_jquery_migrate( $scripts ) {
+    if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+      $script = $scripts->registered['jquery'];
 
-		if ($script->deps) {
-			$script->deps = array_diff($script->deps, array(
-				'jquery-migrate'
-			));
-		}
-	}
+      if ($script->deps) {
+        $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+      }
+    }
+  }
+  add_action( 'wp_default_scripts', 'foundation_remove_jquery_migrate' );
 }
-add_action( 'wp_default_scripts', 'foundation_remove_jquery_migrate' );
 
 if ( ! function_exists( 'foundation_head' ) ) {
    /**
@@ -339,7 +391,7 @@ if ( ! function_exists( 'foundation_head' ) ) {
     *
     * @since 3.0.4
     *
-    * @see get_field
+    * @uses get_field() Returns the value of a specific field.
     * @link https://www.advancedcustomfields.com/resources/get_field/
     *
     * @return string The HTML head code.
@@ -352,8 +404,8 @@ if ( ! function_exists( 'foundation_head' ) ) {
       }
     }
   }
-  add_action( 'wp_head', 'foundation_head' );
 }
+add_action( 'wp_head', 'foundation_head' );
 
 if ( ! function_exists( 'foundation_footer' ) ) {
    /**
@@ -361,7 +413,7 @@ if ( ! function_exists( 'foundation_footer' ) ) {
     *
     * @since 3.0.4
     *
-    * @see get_field
+    * @uses get_field() Returns the value of a specific field.
     * @link https://www.advancedcustomfields.com/resources/get_field/
     *
     * @return string The HTML head code.
@@ -374,12 +426,17 @@ if ( ! function_exists( 'foundation_footer' ) ) {
       }
     }
   }
-  add_action( 'wp_footer', 'foundation_footer' );
 }
+add_action( 'wp_footer', 'foundation_footer' );
 
 if ( function_exists( 'acf_add_options_page' ) ) {
   /**
    * Add configuration page.
+   *
+   * @since 3.0.4
+   *
+   * @uses acf_add_options_page() Adds an options page to the admin menu.
+   * @link https://www.advancedcustomfields.com/resources/acf_add_options_page/
    */
 	$configuration = acf_add_options_page([
     'menu_title' => __( 'Configuration', 'foundation' ),
@@ -390,6 +447,10 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
   /**
    * Add Foundation Libraries configuration child page.
+   *
+   * @uses acf_add_options_sub_page() This function will add a new options sub
+   * page to the wp-admin sidebar.
+   * @link https://www.advancedcustomfields.com/resources/acf_add_options_sub_page/
    */
   acf_add_options_sub_page([
 		'page_title' 	=> __( 'Foundation Libraries' ),
@@ -399,6 +460,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
   /**
    * Add Theme Libraries configuration child page.
+   *
+   * @since 3.0.4
+   *
+   * @uses acf_add_options_sub_page() This function will add a new options sub
+   * page to the wp-admin sidebar.
+   * @link https://www.advancedcustomfields.com/resources/acf_add_options_sub_page/
    */
   acf_add_options_sub_page([
 		'page_title' 	=> __( 'Theme Libraries' ),

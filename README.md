@@ -3,6 +3,7 @@
 > Starter WordPress theme for developers to build incredible websites &mdash; built for performance with an average 100/100 Lighthouse score.
 
 * Supports Gutenberg & TinyMCE
+* One-click dynamic child theme generation
 * Easily inline critical CSS for a boost in performance
 * Supports [Elementor](https://elementor.com/)
 * Optional [ZURB Foundation](https://foundation.zurb.com/) framework
@@ -10,5 +11,6 @@
 * Average 100/100 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) score
 * No-bloat, use & load only what you need, built with performance & developers in mind
 * Utilizes Node.js & Gulp to compile frontend assets using [gulp-foundation](https://github.com/bmarshall511/gulp-foundation)
+* Follows [WordPress Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards)
 
 See the [Wiki](https://github.com/bmarshall511/wordpress-foundation/wiki) for use and documentation.

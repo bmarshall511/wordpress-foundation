@@ -114,7 +114,7 @@ function foundation_acf_export_message( $field ) {
       $data = foundation_get_configuration_data();
       ob_start(); ?>
       <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.</p>
-      <textarea rows="10" readonly><?php print_r( wp_json_encode( $data ) ); ?></textarea>
+      <textarea rows="10" readonly class="large-text code"><?php print_r( wp_json_encode( $data ) ); ?></textarea>
       <?php $field['message'] = ob_get_clean();
     break;
     case 'Import Configuration':
@@ -122,7 +122,7 @@ function foundation_acf_export_message( $field ) {
       <div id="configImportStatus"></div>
       <div id="importBlock">
         <p>Paste the code below from the 'Export Configuration' textarea field to import configuration settings.</p>
-        <textarea rows="10" id="configData"></textarea>
+        <textarea rows="10" id="configData" class="large-text code"></textarea>
         <button class="button button-primary button-large" id="importConfig">Import Configuration</button> <span id="configSavingStatus"></span>
       </div>
       <?php $field['message'] = ob_get_clean();
@@ -147,6 +147,11 @@ function foundation_acf_export_message( $field ) {
       include( locate_template( 'template-parts/admin/acf-foundation-libraries.php', false, false ) );
       $field['message'] = ob_get_clean();
     break;
+    case 'field_5da74e82386c7':
+      ob_start();
+      include( locate_template( 'template-parts/admin/acf-child-theme.php', false, false ) );
+      $field['message'] = ob_get_clean();
+    break;
   }
 
   return $field;
@@ -154,7 +159,7 @@ function foundation_acf_export_message( $field ) {
 add_filter('acf/load_field/type=message', 'foundation_acf_export_message');
 
 function foundation_acf_admin_scripts( $hook ) {
-  if ( 'toplevel_page_configuration' !== $hook ) {
+  if ( 'toplevel_page_foundation_configuration' !== $hook ) {
     return;
   }
 
@@ -202,6 +207,118 @@ function foundation_import_configuration() {
   exit();
 }
 add_action( 'wp_ajax_foundation_import_configuration', 'foundation_import_configuration' );
+
+if ( ! function_exists( 'foundation_theme_string_replace' ) ) {
+  function foundation_theme_string_replace( $string, $args ) {
+    return str_replace([
+      '[[THEME_NAME]]',
+      '[[TEXT_DOMAIN]]',
+      '[[THEME_DESC]]',
+      '[[THEME_URL]]',
+      '[[THEME_TAGS]]'
+    ], [
+      $args['theme_name'],
+      $args['text_domain'],
+      stripslashes( $args['theme_desc'] ),
+      $args['theme_url'],
+      $args['theme_tags']
+    ], $string);
+  }
+}
+
+if ( ! function_exists( 'foundation_generate_theme' ) ) {
+  /**
+   * Generates a child theme
+   *
+   * @since 3.0.4
+   *
+   * @see wp_json_encode
+   * @see get_theme_root
+   * @see get_parent_theme_file_path
+   * @see wp_json_encode
+   * @link https://developer.wordpress.org/reference/functions/wp_json_encode/
+   * @link https://codex.wordpress.org/Function_Reference/get_theme_root
+   * @link https://developer.wordpress.org/reference/functions/get_parent_theme_file_path/
+   * @link https://developer.wordpress.org/reference/functions/wp_json_encode/
+   * @link https://codex.wordpress.org/Plugin_API/Action_Reference/wp_ajax_(action)
+   *
+   * @return json The JSON result.
+   */
+  function foundation_generate_theme() {
+    check_ajax_referer( 'foundation', 'security' );
+
+    $response = array(
+      'error'   => array(),
+      'success' => array()
+    );
+
+    $param['theme_name']  = ! empty( $_POST['theme_name'] ) ? trim( $_POST['theme_name'] ) : false;
+    $param['theme_desc']  = ! empty( $_POST['theme_desc'] ) ? trim( $_POST['theme_desc'] ) : false;
+    $param['text_domain'] = ! empty( $_POST['text_domain'] ) ? trim( $_POST['text_domain'] ) : false;
+    $param['theme_url']   = ! empty( $_POST['theme_url'] ) ? trim( $_POST['theme_url'] ) : false;
+    $param['theme_tags']  = ! empty( $_POST['theme_tags'] ) ? trim( $_POST['theme_tags'] ) : false;
+
+    if ( ! $param['theme_name'] ) { $response['error'][] = __( 'Theme name missing.', 'foundation' ); }
+    if ( ! $param['text_domain'] ) { $response['error'][] = __( 'Text domain missing.', 'foundation' ); }
+    if ( ! ctype_alnum( $param['text_domain'] ) ) { $response['error'][] = __( 'Text domain not alphanumeric.', 'foundation' ); }
+
+    if ( ! count( $response['error'] ) ) {
+      $theme_dir   = get_theme_root() . '/' . $param['text_domain'];
+      $inc_dir     = $theme_dir . '/inc';
+      $theme_files = [
+        'style.css'     => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-style-template.php' ) ),
+        'functions.php' => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-functions-template.php' ) )
+      ];
+      $inc_files = [
+        'scripts.php' => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-scripts-template.php' ) )
+      ];
+
+      if ( ! is_dir( $theme_dir ) ) {
+        /** Create child theme directory */
+        if ( mkdir( $theme_dir, 0755 ) ) {
+          $response['success'][] = __( 'Child theme directory (' . $param['text_domain'] . ') successfully created.', 'foundation' );
+
+          /** Create files for the child theme directory */
+          foreach( $theme_files as $file => $content ) {
+            $content = foundation_theme_string_replace( $content, $param );
+
+            if ( file_put_contents( $theme_dir . '/' . $file, $content ) ) {
+              $response['success'][] = __( $param['text_domain'] . '/' . $file . ' successfully created.', 'foundation' );
+            } else {
+              $response['error'][] = __( 'There was a problem generating ' . $param['text_domain'] . '/' . $file, 'foundation' );
+            }
+          }
+
+          /** Create child theme inc directory */
+          if ( mkdir( $inc_dir, 0755 ) ) {
+            $response['success'][] = __( $param['text_domain'] . '/inc directory successfully created.', 'foundation' );
+
+             /** Create files for the child theme inc directory */
+            foreach( $inc_files as $file => $content ) {
+              $content = foundation_theme_string_replace( $content, $param );
+
+              if ( file_put_contents( $inc_dir . '/' . $file, $content ) ) {
+                $response['success'][] = __( $param['text_domain'] . '/' . $file . ' successfully created.', 'foundation' );
+              } else {
+                $response['error'][] = __( 'There was a problem generating ' . $param['text_domain'] . '/' . $file, 'foundation' );
+              }
+            }
+          } else {
+            $response['error'][] = __( 'There was a problem creating the child theme inc directory (' . $param['text_domain'] . '/inc).', 'foundation' );
+          }
+        } else {
+          $response['error'][] = __( 'There was a problem creating the child theme directory (' . $param['text_domain'] . ').', 'foundation' );
+        }
+      } else {
+        $response['error'][] = __( 'Theme (' . $param['theme_name'] . ') already exists.', 'foundation' );
+      }
+    }
+
+    echo wp_json_encode( $response );
+    exit();
+  }
+  add_action( 'wp_ajax_foundation_generate_theme', 'foundation_generate_theme' );
+}
 
 function foundation_get_configuration_data() {
   $data   = array();
