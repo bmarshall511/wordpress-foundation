@@ -10,6 +10,7 @@
   border-color: #46b450;
 }
 </style>
+<p><?php _e( "Use this to quickly generate a Foundation child theme. <strong><a href='https://github.com/bmarshall511/gulp-foundation' target='_blank'>gulp-foundation</a> will still need to be installed</strong> once the child theme has been created.", 'foundation' ); ?></p>
 <div id="childThemeStatus"></div>
 <table class="form-table">
   <tbody>

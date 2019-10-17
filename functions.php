@@ -300,10 +300,10 @@ if ( ! function_exists( 'foundation_widgets_init' ) ) {
   function foundation_widgets_init() {
     if ( function_exists( 'have_rows' ) ) {
       if ( have_rows( 'foundation_sidebars', 'option' ) ) {
-        $sidebars = array();
+        $sidebars = [];
         while( have_rows( 'foundation_sidebars', 'option' ) ) { the_row();
           register_sidebar(
-            array(
+            [
               'name'          => get_sub_field( 'name' ),
               'id'            => get_sub_field( 'id' ),
               'description'   => get_sub_field( 'description' ),
@@ -311,7 +311,7 @@ if ( ! function_exists( 'foundation_widgets_init' ) ) {
               'after_widget'  => get_sub_field( 'after_widget' ),
               'before_title'  => get_sub_field( 'before_title' ),
               'after_title'   => get_sub_field( 'after_title' ),
-            )
+            ]
           );
         }
       }
@@ -378,7 +378,7 @@ if ( ! function_exists( 'foundation_remove_jquery_migrate' ) ) {
       $script = $scripts->registered['jquery'];
 
       if ($script->deps) {
-        $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+        $script->deps = array_diff( $script->deps, [ 'jquery-migrate' ] );
       }
     }
   }

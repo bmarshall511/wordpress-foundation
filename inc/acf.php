@@ -263,54 +263,44 @@ if ( ! function_exists( 'foundation_generate_theme' ) ) {
     if ( ! ctype_alnum( $param['text_domain'] ) ) { $response['error'][] = __( 'Text domain not alphanumeric.', 'foundation' ); }
 
     if ( ! count( $response['error'] ) ) {
-      $theme_dir   = get_theme_root() . '/' . $param['text_domain'];
-      $inc_dir     = $theme_dir . '/inc';
-      $theme_files = [
-        'style.css'     => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-style-template.php' ) ),
-        'functions.php' => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-functions-template.php' ) )
+      /** Define default directories */
+      $directories = [
+        'theme_dir' => get_theme_root() . '/' . $param['text_domain'],
       ];
-      $inc_files = [
-        'scripts.php' => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-scripts-template.php' ) )
+      $directories['inc_dir'] = $directories['theme_dir'] . '/inc';
+      $directories['tpl_dir'] = $directories['theme_dir'] . '/template-parts';
+      $directories['acf_dir'] = $directories['theme_dir'] . '/acf-json';
+
+      /** Define default files */
+      $files = [
+        $directories['theme_dir'] . '/style.css'     => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-style-template.php' ) ),
+        $directories['theme_dir'] . '/functions.php' => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-functions-template.php' ) ),
+        $directories['inc_dir'] . '/scripts.php'     => file_get_contents( get_parent_theme_file_path( '/template-parts/admin/child-scripts-template.php' ) )
       ];
 
-      if ( ! is_dir( $theme_dir ) ) {
-        /** Create child theme directory */
-        if ( mkdir( $theme_dir, 0755 ) ) {
-          $response['success'][] = __( 'Child theme directory (' . $param['text_domain'] . ') successfully created.', 'foundation' );
+      /** Check if child theme already exists */
+      if ( is_dir( $directories['theme_dir'] ) ) {
+        $response['error'][] = __( $param['theme_name'] . ' already exists.', 'foundation' );
+      }
 
-          /** Create files for the child theme directory */
-          foreach( $theme_files as $file => $content ) {
-            $content = foundation_theme_string_replace( $content, $param );
-
-            if ( file_put_contents( $theme_dir . '/' . $file, $content ) ) {
-              $response['success'][] = __( $param['text_domain'] . '/' . $file . ' successfully created.', 'foundation' );
-            } else {
-              $response['error'][] = __( 'There was a problem generating ' . $param['text_domain'] . '/' . $file, 'foundation' );
-            }
+      if ( ! count( $response['error'] ) ) {
+        /** Create child theme directories */
+        foreach( $directories as $dir => $path ) {
+          if ( mkdir( $path, 0755 ) ) {
+            $response['success'][] = __( $path . ' successfully created.', 'foundation' );
           }
-
-          /** Create child theme inc directory */
-          if ( mkdir( $inc_dir, 0755 ) ) {
-            $response['success'][] = __( $param['text_domain'] . '/inc directory successfully created.', 'foundation' );
-
-             /** Create files for the child theme inc directory */
-            foreach( $inc_files as $file => $content ) {
-              $content = foundation_theme_string_replace( $content, $param );
-
-              if ( file_put_contents( $inc_dir . '/' . $file, $content ) ) {
-                $response['success'][] = __( $param['text_domain'] . '/' . $file . ' successfully created.', 'foundation' );
-              } else {
-                $response['error'][] = __( 'There was a problem generating ' . $param['text_domain'] . '/' . $file, 'foundation' );
-              }
-            }
-          } else {
-            $response['error'][] = __( 'There was a problem creating the child theme inc directory (' . $param['text_domain'] . '/inc).', 'foundation' );
-          }
-        } else {
-          $response['error'][] = __( 'There was a problem creating the child theme directory (' . $param['text_domain'] . ').', 'foundation' );
         }
-      } else {
-        $response['error'][] = __( 'Theme (' . $param['theme_name'] . ') already exists.', 'foundation' );
+
+        /** Create child theme files */
+        foreach( $files as $path => $content ) {
+          $content = foundation_theme_string_replace( $content, $param );
+
+          if ( file_put_contents( $path, $content ) ) {
+            $response['success'][] = __( $path . ' successfully created.', 'foundation' );
+          } else {
+            $response['error'][] = __( 'There was a problem generating ' . $path, 'foundation' );
+          }
+        }
       }
     }
 

@@ -15,17 +15,14 @@
  *
  * @since 3.0.4
  *
- * @see wp_enqueue_script
- * @see wp_register_script
- * @see wp_enqueue_style
- * @see wp_register_style
- * @see foundation_load_theme_library
- * @see foundation_load_library
- * @link https://developer.wordpress.org/reference/functions/wp_register_script/
- * @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
- * @link https://developer.wordpress.org/reference/functions/wp_enqueue_style/
- * @link https://codex.wordpress.org/Function_Reference/wp_register_style
- * @link https://github.com/bmarshall511/wordpress-foundation/wiki
+ * @uses wp_enqueue_script() Enqueue a script.
+ * @uses wp_register_script() Register a new script.
+ * @uses wp_enqueue_style() Enqueue a CSS stylesheet.
+ * @uses wp_register_style() A safe way to register a CSS style file for later
+ * use.
+ * @uses foundation_load_theme_library() Loads a pre-defined Foundation library.
+ * @uses foundation_load_library() Loads a pre-defined theme library.
+ * @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  *
  * @return void
  */
@@ -38,7 +35,11 @@ function [[TEXT_DOMAIN]]_scripts() {
    * Autoptimize to combine & serve your scripts in one file).
    */
 
-  /** Pre-defined Foundation libraries */
+  /**
+   * Pre-defined Foundation libraries
+   *
+   * @link https://github.com/bmarshall511/wordpress-foundation/wiki
+   */
   //foundation_load_library( 'foundation-toggler' );
   //foundation_load_library( 'foundation-abide' );
 
@@ -46,10 +47,14 @@ function [[TEXT_DOMAIN]]_scripts() {
   //wp_enqueue_script( 'foundation-reveal' );
 
   /** Custom theme CSS & JS scripts */
-  //wp_enqueue_style( '[[TEXT_DOMAIN]]-global', get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/global.css', array(), wp_get_theme()->get( 'Version' ) );
-  //wp_enqueue_script( '[[TEXT_DOMAIN]]-global', get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/global.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
+  //wp_enqueue_style( '[[TEXT_DOMAIN]]-global', get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/css/global.css', [], wp_get_theme()->get( 'Version' ) );
+  //wp_enqueue_script( '[[TEXT_DOMAIN]]-global', get_stylesheet_directory_uri() . '/' . FOUNDATION_ASSETS . '/js/global.js', [ 'jquery' ], wp_get_theme()->get( 'Version' ), true );
 
-  /** Pre-defined theme libraries */
+  /**
+   * Pre-defined theme libraries
+   *
+   * @link https://github.com/bmarshall511/wordpress-foundation/wiki
+   */
   //foundation_load_theme_library( 'theme-core' );
   //foundation_load_theme_library( 'wordpress-core' );
 }
