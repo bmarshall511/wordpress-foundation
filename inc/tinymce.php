@@ -71,17 +71,47 @@ class Foundation_TinyMCE {
   public function tiny_mce_before_init( $init_array ) {
     $style_formats = array(
       array(
-        'title'   => '.lead',
+        'title'   => 'Lead',
         'block'   => 'p',
         'classes' => 'lead',
         'wrapper' => false,
       ),
       array(
-        'title'   => '.stat',
+        'title'   => 'Stat',
         'block'   => 'div',
         'classes' => 'stat',
         'wrapper' => true,
-      )
+      ),
+      array(
+        'title'      => 'Button',
+        'selector'   => 'a',
+        'classes'    => 'button',
+      ),
+      array(
+        'title'      => 'Button (Large)',
+        'selector'   => 'a',
+        'classes'    => 'button large',
+      ),
+      array(
+        'title'      => 'Hollow Button',
+        'selector'   => 'a',
+        'classes'    => 'hollow button',
+      ),
+      array(
+        'title'      => 'Hollow Button (Large)',
+        'selector'   => 'a',
+        'classes'    => 'hollow button large',
+      ),
+      array(
+        'title'      => 'Button (Secondary Color)',
+        'selector'   => 'a',
+        'classes'    => 'button secondary',
+      ),
+      array(
+        'title'      => 'Button (Secondary Color, Large)',
+        'selector'   => 'a',
+        'classes'    => 'button secondary large',
+      ),
     );
 
     $init_array['style_formats'] = wp_json_encode( $style_formats );
