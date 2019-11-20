@@ -136,6 +136,13 @@ if ( ! function_exists( 'foundation_setup' ) ) {
      * functionality to be available.
      */
     if ( function_exists( 'get_field' ) ) {
+      // Set content-width.
+      global $content_width;
+      $foundation_content_width = get_field( 'foundation_content_width', 'option' );
+      if ( ! isset( $content_width ) && $foundation_content_width ) {
+        $content_width = $foundation_content_width;
+      }
+
       /**
        * Get & define the default thumbnail size.
        *
@@ -228,10 +235,12 @@ if ( ! function_exists( 'foundation_setup' ) ) {
 			'html5',
 			[
 				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'script',
+        'style',
       ]
 		);
 
@@ -319,27 +328,6 @@ if ( ! function_exists( 'foundation_widgets_init' ) ) {
   }
 }
 add_action( 'widgets_init', 'foundation_widgets_init' );
-
-if ( ! function_exists( 'foundation_content_width' ) ) {
-  /**
-   * Set the content width in pixels, based on the theme's design and stylesheet.
-   *
-   * Priority 0 to make it available to lower priority callbacks.
-   *
-   * @since 3.0.4
-   *
-   * @uses apply_filters() Call the functions added to a filter hook.
-   * @link https://codex.wordpress.org/Plugin_API/Action_Reference/after_switch_theme
-   * @global int $content_width Content width.
-   */
-  function foundation_content_width() {
-    // This variable is intended to be overruled from themes.
-    // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-    // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-    $GLOBALS['content_width'] = apply_filters( 'foundation_content_width', 1200 );
-  }
-}
-add_action( 'after_setup_theme', 'foundation_content_width', 0 );
 
 if ( ! function_exists( 'foundation_scripts' ) ) {
   /**

@@ -30,7 +30,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "70",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -47,6 +47,27 @@
             "ajax": 0,
             "return_format": "value",
             "placeholder": ""
+        },
+        {
+            "key": "field_5dd53e67272f5",
+            "label": "Content Width",
+            "name": "foundation_content_width",
+            "type": "number",
+            "instructions": "<a href=\"https:\/\/developer.wordpress.com\/themes\/content-width\/\" target=\"_blank\">Represents<\/a> the maximum width of the content area excluding margin and padding.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1200,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 1,
+            "max": "",
+            "step": 1
         },
         {
             "key": "field_5da4d49ffbd4a",
@@ -1422,7 +1443,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly class=\"large-text code\">{\"foundation_enable_gutenberg\":true,\"foundation_jquery_version\":\"3.4.1\",\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"foundation_autoload_foundation_libraries\":[],\"foundation_autoload_theme_libraries\":[],\"foundation_post_formats\":[],\"foundation_supported_post_formats\":[],\"foundation_head_code\":\"\",\"foundation_footer_code\":\"\",\"foundation_logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"foundation_thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"foundation_images_sizes\":false,\"foundation_menus\":false,\"foundation_sidebars\":false,\"foundation_gutenberg_color_palette\":false,\"foundation_disable_custom_colors\":false,\"foundation_gutenberg_font_sizes\":false,\"foundation_gutenberg_disable_custom_font_sizes\":false,\"foundation_editor_load_foundation\":false,\"foundation_editor_load_theme\":false,\"foundation_editor_load_css\":false}<\/textarea>\n      ",
+            "message": "      <p>Copy &amp; paste the code below in the 'Import Configuration' textarea field to import the configuration settings.<\/p>\n      <textarea rows=\"10\" readonly class=\"large-text code\">{\"foundation_enable_gutenberg\":true,\"foundation_jquery_version\":\"3.4.1\",\"foundation_content_width\":null,\"foundation_configuration_access\":[\"administrator\"],\"foundation_custom_fields_access\":[\"administrator\"],\"foundation_libraries_access\":[\"administrator\"],\"foundation_required_plugins_notice\":[\"administrator\"],\"foundation_autoload_foundation_libraries\":[],\"foundation_autoload_theme_libraries\":[],\"foundation_post_formats\":[\"video\"],\"foundation_supported_post_formats\":[],\"foundation_head_code\":\"\",\"foundation_footer_code\":\"\",\"foundation_logo_size\":{\"width\":\"\",\"height\":\"\",\"flex_width\":false,\"flex_height\":false},\"foundation_thumbnail_size\":{\"width\":\"0\",\"height\":\"0\",\"crop\":false},\"foundation_images_sizes\":false,\"foundation_menus\":false,\"foundation_sidebars\":false,\"foundation_gutenberg_color_palette\":false,\"foundation_disable_custom_colors\":false,\"foundation_gutenberg_font_sizes\":false,\"foundation_gutenberg_disable_custom_font_sizes\":false,\"foundation_editor_load_foundation\":false,\"foundation_editor_load_theme\":false,\"foundation_editor_load_css\":false}<\/textarea>\n      ",
             "new_lines": "",
             "esc_html": 0
         },
@@ -1472,7 +1493,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<table class=\"form-table\">\n  <tbody>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeName\">Name<\/label><\/th>\n      <td><input value=\"Foundation Child\" type=\"text\" id=\"childThemeName\" placeholder=\"Foundation Child\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeTextDomain\">Text Domain<\/label><\/th>\n      <td><input value=\"foundationchild\" type=\"text\" id=\"childThemeTextDomain\" placeholder=\"foundationchild\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeDesc\">Description<\/label><\/th>\n      <td><input value=\"Custom built WordPress theme built using the &lt;a href=&quot;https:\/\/github.com\/bmarshall511\/wordpress-foundation&quot; target=&quot;_blank&quot;&gt;Foundation&lt;\/a&gt; parent theme.\" type=\"text\" id=\"childThemeDesc\" placeholder=\"Custom built WordPress theme built using the &lt;a href=&quot;https:\/\/github.com\/bmarshall511\/wordpress-foundation&quot; target=&quot;_blank&quot;&gt;Foundation&lt;\/a&gt; parent theme.\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeURL\">URL<\/label><\/th>\n      <td><input value=\"https:\/\/github.com\/bmarshall511\/wordpress-foundation\" type=\"url\" id=\"childThemeURL\" placeholder=\"https:\/\/github.com\/bmarshall511\/wordpress-foundation\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n  <\/tbody>\n<\/table>\n<p><button class=\"button button-primary\" id=\"generateChildTheme\">Generate Child Theme<\/button><\/p>\n",
+            "message": "<style>\n#childThemeStatus.error,\n#childThemeStatus.success {\n  border-left: 4px solid #ffb900;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);\n  padding: 1px 12px;\n}\n\n#childThemeStatus.success {\n  border-color: #46b450;\n}\n<\/style>\n<p>Use this to quickly generate a Foundation child theme. <strong><a href='https:\/\/github.com\/bmarshall511\/gulp-foundation' target='_blank'>gulp-foundation<\/a> will still need to be installed<\/strong> once the child theme has been created.<\/p>\n<div id=\"childThemeStatus\"><\/div>\n<table class=\"form-table\">\n  <tbody>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeName\">Name<\/label><\/th>\n      <td><input value=\"Foundation Child\" type=\"text\" id=\"childThemeName\" placeholder=\"Foundation Child\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeTextDomain\">Text Domain<\/label><\/th>\n      <td><input value=\"foundationchild\" type=\"text\" id=\"childThemeTextDomain\" placeholder=\"foundationchild\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeDesc\">Description<\/label><\/th>\n      <td><input value=\"Custom built WordPress theme built using the &lt;a href=&quot;https:\/\/github.com\/bmarshall511\/wordpress-foundation&quot; target=&quot;_blank&quot;&gt;Foundation&lt;\/a&gt; parent theme.\" type=\"text\" id=\"childThemeDesc\" placeholder=\"Custom built WordPress theme built using the &lt;a href=&quot;https:\/\/github.com\/bmarshall511\/wordpress-foundation&quot; target=&quot;_blank&quot;&gt;Foundation&lt;\/a&gt; parent theme.\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeURL\">URL<\/label><\/th>\n      <td><input value=\"https:\/\/github.com\/bmarshall511\/wordpress-foundation\" type=\"url\" id=\"childThemeURL\" placeholder=\"https:\/\/github.com\/bmarshall511\/wordpress-foundation\" class=\"regular-text ltr\"><\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\"><label for=\"childThemeTags\">Tags<\/label><\/th>\n      <td>\n        <input value=\"blog, e-commerce, education, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, accessibility-ready, custom-logo, custom-menu, editor-style, featured-image-header, featured-images, footer-widgets, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks\" type=\"text\" id=\"childThemeTags\" placeholder=\"blog, e-commerce, education, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, accessibility-ready, custom-logo, custom-menu, editor-style, featured-image-header, featured-images, footer-widgets, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks\" class=\"regular-text ltr\">\n        <p class=\"description\"><a href=\"https:\/\/make.wordpress.org\/themes\/handbook\/review\/required\/theme-tags\/\" target=\"_blank\">Click here<\/a> for a list of available theme tags.<\/p>\n      <\/td>\n    <\/tr>\n  <\/tbody>\n<\/table>\n<p><button class=\"button button-primary\" id=\"generateChildTheme\">Generate Child Theme<\/button><\/p>\n",
             "new_lines": "",
             "esc_html": 0
         }
@@ -1494,5 +1515,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571251874
+    "modified": 1574256414
 }

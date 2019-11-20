@@ -215,13 +215,14 @@ if ( ! function_exists( 'foundation_theme_string_replace' ) ) {
       '[[TEXT_DOMAIN]]',
       '[[THEME_DESC]]',
       '[[THEME_URL]]',
-      '[[THEME_TAGS]]'
+      '[[THEME_TAGS]]',
+      '[[CONTENT_WIDTH]]'
     ], [
       $args['theme_name'],
       $args['text_domain'],
       stripslashes( $args['theme_desc'] ),
       $args['theme_url'],
-      $args['theme_tags']
+      $args['theme_tags'],
     ], $string);
   }
 }
