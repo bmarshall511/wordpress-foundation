@@ -64,6 +64,7 @@ class Foundation_TinyMCE {
 
   public function mce_buttons_2( $buttons ) {
     array_unshift( $buttons, 'styleselect' );
+    array_unshift( $buttons, 'fontsizeselect' );
 
 	  return $buttons;
   }
