@@ -18,7 +18,7 @@ class Foundation_TinyMCE {
 
   public function editor_styles() {
     $stylesheets = [ FOUNDATION_ASSETS . '/css/wordpress/tinymce-editor.css' ];
-    $stylesheets = apply_filters( 'foundation_editor_stylesheets', $stylesheets );
+    $stylesheets = apply_filters( 'foundation_tinymce_stylesheets', $stylesheets );
     add_editor_style( $stylesheets );
   }
 

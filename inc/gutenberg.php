@@ -8,25 +8,8 @@
  */
 
 class Foundation_Gutenberg {
-  public $enabled = true;
-
   public function __construct() {
-    if ( function_exists( 'get_field' ) ) {
-      $this->enabled = get_field( 'foundation_enable_gutenberg', 'option' );
-    }
-
-    if ( $this->enabled ) {
-      add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ) );
-    }
-
-    if ( ! $this->enabled ) {
-      add_action( 'wp_enqueue_scripts', array( $this, 'disable_scripts' ) );
-    }
-  }
-
-  public function disable_scripts() {
-    wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
+    add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ) );
   }
 
   public function after_setup_theme() {
@@ -36,83 +19,47 @@ class Foundation_Gutenberg {
     // Add support for responsive embedded content.
     add_theme_support( 'responsive-embeds' );
 
-    // Add support for editor styles.
-    $stylesheets = array();
-
-    if ( function_exists( 'get_field' ) ) {
-      // Foundation libraries
-      $load_foundation_editor_styles = get_field( 'foundation_editor_load_foundation', 'option' );
-      if ( $load_foundation_editor_styles ) {
-        $foundation_files = foundation_get_autoloaded_files( 'css' );
-        if ( $foundation_files ) {
-          $stylesheets = array_merge( $stylesheets, $foundation_files );
-        }
-      }
-
-      // Theme libraries
-      $load_theme_editor_styles = get_field( 'foundation_editor_load_theme', 'option' );
-      if ( $load_theme_editor_styles ) {
-        $theme_files = foundation_get_theme_autoloaded_files( 'css' );
-        if ( $theme_files ) {
-          $stylesheets = array_merge( $stylesheets, $theme_files );
-        }
-      }
-
-      // CSS Files
-      if ( have_rows( 'foundation_editor_load_css', 'option' ) ) {
-        while ( have_rows( 'foundation_editor_load_css', 'option' ) ) { the_row();
-          $css = get_sub_field( 'css_path' );
-          if ( $css ) {
-            $stylesheets[] = $css;
-          }
-        }
-      }
-    }
-
-    $stylesheets[] = FOUNDATION_ASSETS . '/css/wordpress/gutenberg-editor.css';
+    $stylesheets = [ FOUNDATION_ASSETS . '/css/wordpress/gutenberg-editor.css' ];
+    $stylesheets = apply_filters( 'foundation_gutenburg_stylesheets', $stylesheets );
 
     add_theme_support( 'editor-styles' );
     add_editor_style( $stylesheets );
 
-    if ( function_exists( 'get_field' ) ) {
-      // Font Sizes
-      if ( have_rows( 'foundation_gutenberg_font_sizes', 'option') ) {
-        $font_sizes = array();
-        while ( have_rows( 'foundation_gutenberg_font_sizes' ) ) { the_row();
-          $font_sizes[] = array(
-            'name' => get_sub_field( 'name' ),
-            'slug' => get_sub_field( 'slug' ),
-            'size' => get_sub_field( 'size' )
-          );
-        }
-        add_theme_support( 'editor-font-sizes', $font_sizes );
-      }
+    /**
+     * Pre-defined font sizes
+     *
+     * add_theme_support( 'editor-font-sizes', [
+     *   [
+     *     'name' => '16px',
+     *     'slug' => '16px',
+     *     'size' => 16
+     *   ]
+     * ]);
+     */
 
-      // Color Palette
-      if ( have_rows( 'foundation_gutenberg_color_palette', 'option') ) {
-        $color_palette = array();
-        while ( have_rows( 'foundation_gutenberg_color_palette' ) ) { the_row();
-          $color_palette[] = array(
-            'name'  => get_sub_field( 'name' ),
-            'slug'  => get_sub_field( 'slug' ),
-            'color' => get_sub_field( 'color' )
-          );
-        }
-        add_theme_support( 'editor-color-palette', $color_palette );
-      }
+    /**
+     * Pre-defined color palette
+     *
+     * add_theme_support( 'editor-color-palette', [
+     *   [
+     *     'name' => 'Primary',
+     *     'slug' => 'primary',
+     *     'size' => '#000000'
+     *   ]
+     * ]);
+     */
 
-      // Disable custom colors?
-      $disable_custom_colors = get_field( 'foundation_disable_custom_colors', 'option' );
-      if ( $disable_custom_colors ) {
-        add_theme_support( 'disable-custom-colors' );
-      }
+    /**
+     * Disable custom colors
+     *
+     * add_theme_support( 'disable-custom-colors' );
+     */
 
-      // Disable custom font sizes?
-      $disable_custom_font_sizes = get_field( 'foundation_gutenberg_disable_custom_font_sizes', 'option' );
-      if ( $disable_custom_font_sizes ) {
-        add_theme_support( 'disable-custom-font-sizes' );
-      }
-    }
+    /**
+     * Disable custom font sizes
+     *
+     * add_theme_support( 'disable-custom-font-sizes' );
+     */
   }
 }
 

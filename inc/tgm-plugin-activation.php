@@ -37,11 +37,6 @@ function foundation_register_required_plugins() {
 		),
 
     array(
-			'name'        => 'Jetpack by WordPress.com',
-			'slug'        => 'jetpack',
-		),
-
-    array(
 			'name'        => 'Wordfence Security – Firewall & Malware Scan',
 			'slug'        => 'wordfence',
 		),
@@ -120,11 +115,6 @@ function foundation_register_required_plugins() {
     array(
 			'name'        => 'WPS Hide Login',
       'slug'        => 'wps-hide-login',
-    ),
-
-    array(
-			'name'        => 'Custom Post Type UI',
-      'slug'        => 'custom-post-type-ui',
     ),
 
     array(
