@@ -506,3 +506,16 @@ require get_parent_theme_file_path( '/inc/gutenberg.php' );
  * TinyMCE editor.
  */
 require get_parent_theme_file_path( '/inc/tinymce.php' );
+
+
+
+add_filter('foundation_tinymce_style_formats', function($style_formats) {
+  $style_formats[] = array(
+    'title'   => 'Lead',
+    'block'   => 'p',
+    'classes' => 'lead',
+    'wrapper' => false,
+  );
+
+  return $style_formats;
+});
