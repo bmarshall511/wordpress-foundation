@@ -19,21 +19,11 @@ get_header(); ?>
 
 <main role="main">
 	<?php
-	if ( have_posts() ) :
-
-		// Load posts loop.
-		while ( have_posts() ) {
-			the_post();
-			get_template_part( 'template-parts/content/content' );
-		}
-
-		the_posts_pagination();
-
-	else :
-
-		get_template_part( 'template-parts/post/content', 'none' );
-
-	endif;
+  while ( have_posts() ) {
+    the_post();
+    get_template_part( 'template-parts/content' );
+  }
+  the_posts_pagination();
 	?>
 </main>
 
