@@ -126,7 +126,7 @@ class Foundation_Theme_Scripts {
 
     /** Replaces WordPress core jQuery library. */
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), $jquery_version );
+    wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1' );
   }
 
   /**
